@@ -1,6 +1,12 @@
 # My dotfiles and initial configuration
 
-This repository contains my configuration files.
+This repository contains my configuration files. In order to use it:
+
+    git init
+    git remote add origin git@github.com:douglasrizzo/dotfiles.git
+    git pull origin master
+
+If any of the files in this repo exists locally, git will print a list that can be used to easily delete them.
 
 Dependencies that can be installed using package managers are the following:
 

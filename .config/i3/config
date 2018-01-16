@@ -12,11 +12,12 @@
 set $mod Mod4
 
 # Set workspace colors
-set $ws-bg-color            #2f343f
-set $ws-inactive-bg-color   #2f343f
-set $ws-text-color          #f3f4f5
-set $ws-inactive-text-color #676E7D
-set $ws-urgent-bg-color #E53935
+set $bar-color              #352e1f
+set $focused-ws-bg-color    #6d6333
+set $inactive-ws-bg-color   #352e1f
+set $focused-ws-text-color  #e5e0ce
+set $inactive-ws-text-color #676E7D
+set $ws-urgent-bg-color     #E53935
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -24,7 +25,7 @@ font pango: Fira Sans 11
 
 # Colors for the windows
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused          #443307 #4f4109 #ffffff #2e9ef4   #4f4109
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -219,12 +220,12 @@ bar {
       # bindsym button5 nop
 
    colors {
-      background $ws-bg-color
+      background $bar-color
       separator #b4b4b4
       #                  border                background            text
-      focused_workspace  $ws-bg-color          $ws-bg-color          $ws-text-color
-      inactive_workspace $ws-inactive-bg-color $ws-inactive-bg-color $ws-inactive-text-color
-      urgent_workspace   $ws-urgent-bg-color   $ws-urgent-bg-color   $ws-text-color
+      focused_workspace  $focused-ws-bg-color  $focused-ws-bg-color  $focused-ws-text-color
+      inactive_workspace $inactive-ws-bg-color $inactive-ws-bg-color $inactive-ws-text-color
+      urgent_workspace   $ws-urgent-bg-color   $ws-urgent-bg-color   $focused-ws-text-color
    }
 }
 

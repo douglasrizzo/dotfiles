@@ -185,8 +185,24 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+
+# System status mode
+set $mode_system System [l]ock,l[o]gout,[s]uspend,[h]ibernate,[r]eboot,[p]oweroff
+mode "$mode_system" {
+      bindsym l exec --no-startup-id $i3_path/i3exit lock, mode "default"
+      bindsym o exec --no-startup-id $i3_path/i3exit logout, mode "default"
+      bindsym s exec --no-startup-id $i3_path/i3exit suspend, mode "default"
+      bindsym h exec --no-startup-id $i3_path/i3exit hibernate, mode "default"
+      bindsym r exec --no-startup-id $i3_path/i3exit reboot, mode "default"
+      bindsym p exec --no-startup-id $i3_path/i3exit poweroff, mode "default"
+
+      # Back to normal: Enter or Escape
+      bindsym Return mode "default"
+      bindsym Escape mode "default"
+}
+bindsym $mod+BackSpace mode "$mode_system"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

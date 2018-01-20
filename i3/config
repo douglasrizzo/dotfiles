@@ -283,7 +283,11 @@ bindsym $mod+BackSpace mode "$mode_system"
 bar {
       # Bar ID
       # id 0
-
+      
+      mode hide
+      hidden_state hide
+      modifier $mod
+    
       # Set font
       font xft:Noto Sans 10, FontAwesome 11
 
@@ -352,7 +356,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id start_conky_maia
 exec --no-startup-id blueman-applet
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec megasync

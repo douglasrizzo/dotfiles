@@ -96,16 +96,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ccedilla move right
+bindsym $mod+Mod1+j move left
+bindsym $mod+Mod1+k move down
+bindsym $mod+Mod1+l move up
+bindsym $mod+Mod1+ccedilla move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Mod1+Left move left
+bindsym $mod+Mod1+Down move down
+bindsym $mod+Mod1+Up move up
+bindsym $mod+Mod1+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -167,19 +167,19 @@ bindsym $mod+Ctrl+8 move container to workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # Move to workspace with focused container
-bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Mod1+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Mod1+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Mod1+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Mod1+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Mod1+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Mod1+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Mod1+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Mod1+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Mod1+9 move container to workspace $ws9; workspace $ws9
 
 # shortcuts to navigate through workspaces
-bindsym $mod+Prior workspace next
-bindsym $mod+Next workspace prev
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -283,11 +283,11 @@ bindsym $mod+BackSpace mode "$mode_system"
 bar {
       # Bar ID
       # id 0
-      
+
       mode hide
       hidden_state hide
       modifier $mod
-    
+
       # Set font
       font xft:Noto Sans 10, FontAwesome 11
 

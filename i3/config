@@ -283,10 +283,6 @@ bar {
       # Bar ID
       # id 0
 
-      mode hide
-      hidden_state hide
-      modifier $mod
-
       # Set font
       font xft:Noto Sans 10, FontAwesome 11
 

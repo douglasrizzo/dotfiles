@@ -211,7 +211,8 @@ bindsym $mod+F5 exec $command_f5 || notify-send "Application $command_f5 does no
 bindsym $mod+F6 exec $command_f6 || notify-send "Application $command_f6 does not exist"
 
 # Use rofi instead of dmenu
-bindsym $mod+space exec --no-startup-id rofi -show combi -config $rofi_path/config
+bindsym $mod+space exec rofi -show combi
+bindsym $mod+Mod1+space exec rofi -show run
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 #bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton --config $compton_path/compton.conf

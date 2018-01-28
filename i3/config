@@ -196,7 +196,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-set $command_f1 atom
+set $command_f1 emacs
 set $command_f2 firefox
 set $command_f3 pcmanfm
 set $command_f4 spotify

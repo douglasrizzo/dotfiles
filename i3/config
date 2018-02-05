@@ -80,7 +80,7 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+BackSpace kill
 
 # change focus
 bindsym $mod+j focus left
@@ -274,7 +274,7 @@ mode "$mode_system" {
       bindsym Return mode "default"
       bindsym Escape mode "default"
 }
-bindsym $mod+BackSpace mode "$mode_system"
+bindsym $mod+0 mode "$mode_system"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

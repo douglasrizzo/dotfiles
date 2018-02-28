@@ -187,7 +187,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-set $command_f1 emacs
+set $command_f1 atom
 set $command_f2 firefox
 set $command_f3 pcmanfm
 set $command_f4 spotify

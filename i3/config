@@ -9,6 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# Turn off laptop display if HDMI is connected
+exec xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --off --output HDMI-1 --auto || \
+   exec xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --off --output HDMI1 --auto
+
 set $mod Mod4
 
 # config path for all programs
@@ -16,8 +20,8 @@ set $i3_path ~/.config/i3
 set $compton_path ~/.config
 set $rofi_path ~/.config/rofi
 set $dunst_path ~/.config/dunst
-
 set $wallpaper_folder ~/Documents/Wallpapers
+set $i3lock_folder ~/Documents/Wallpapers/desktop_screenshots
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -232,9 +236,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-# Lock screen
-bindsym $mod+Shift+d exec i3lock -c 0F121B -e -f -i $(find $wallpaper_folder/desktop_screenshots -maxdepth 2 -name '*.png' -type f | shuf | head -n 1) -p win -t
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -319,9 +320,8 @@ bar {
         }
 }
 
-# Turn off laptop display if HDMI is connected
-exec xrandr | grep 'HDMI-1 connected' &&  xrandr --output eDP-1 --off --output HDMI-1 --auto || \
-   exec xrandr | grep 'HDMI1 connected' &&  xrandr --output eDP1 --off --output HDMI1 --auto
+# Screen lock
+bindsym $mod+Shift+d exec i3lock -c 0F121B -e -f -i $(find $i3lock_folder -maxdepth 2 -name '*.png' -type f | shuf | head -n 1) -p win -t
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

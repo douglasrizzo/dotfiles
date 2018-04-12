@@ -182,6 +182,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # shortcuts to navigate through workspaces
 bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Next workspace next
 bindsym $mod+Prior workspace prev
 

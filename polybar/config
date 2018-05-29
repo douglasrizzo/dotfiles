@@ -7,24 +7,9 @@
 ;
 ;=====================================================
 
-;         colors {
-;             background #283339
-;             statusline #F9FAF9
-;             separator  #454947
-
-;                                border  backgr. text
-;             focused_workspace  #F9FAF9 #16a085 #292F34
-;             active_workspace   #595B5B #353836 #FDF6E3
-;             inactive_workspace #595B5B #283339 #EEE8D5
-;             binding_mode       #16a085 #2C2C2C #F9FAF9
-;             urgent_workspace   #16a085 #FDF6E3 #E5201D
-;         }
-
 [colors]
-;background = ${xrdb:color0:#222}
-background = #283339
+background = #332e27
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
@@ -62,7 +47,8 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+;modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem xbacklight memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -259,7 +245,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = "%d-%m"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M

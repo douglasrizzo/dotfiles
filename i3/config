@@ -29,8 +29,8 @@ font xft:Noto Sans 10
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
-client.focused          #BAD6E2 #BAD6E2 #80FFF9 #FDF6E3
-client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+client.focused          #216c91 #216c91 #80FFF9 #FDF6E3
+client.focused_inactive #BAD6E2 #BAD6E2 #1ABC9C #454948
 client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
@@ -279,47 +279,49 @@ mode "$mode_system" {
 }
 bindsym $mod+0 mode "$mode_system"
 
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-      # Bar ID
-      # id 0
+# bar {
+#       # Bar ID
+#       # id 0
 
-      # Set font
-      font xft:Noto Sans 10, FontAwesome 11
+#       # Set font
+#       font xft:Noto Sans 10, FontAwesome 11
 
-      # py3status status bar
-      # status_command i3status -c $i3_path/i3status.conf
-      status_command py3status -c $i3_path/i3status.conf
+#       # py3status status bar
+#       # status_command i3status -c $i3_path/i3status.conf
+#       status_command py3status -c $i3_path/i3status.conf
 
-      # Fitt's law
-      tray_padding 0
+#       # Fitt's law
+#       tray_padding 0
 
-      # Bar position
-      position bottom
+#       # Bar position
+#       position bottom
 
-      ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-      #	tray_output primary
-      #	tray_output eDP1
+#       ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#       #	tray_output primary
+#       #	tray_output eDP1
 
-    	bindsym button4 nop
-    	bindsym button5 nop
-    	font xft:Fira Sans 10.5
-    	strip_workspace_numbers yes
+#     	bindsym button4 nop
+#     	bindsym button5 nop
+#     	font xft:Fira Sans 10.5
+#     	strip_workspace_numbers yes
 
-        colors {
-            background #283339
-            statusline #F9FAF9
-            separator  #454947
+#         colors {
+#             background #283339
+#             statusline #F9FAF9
+#             separator  #454947
 
-#                              border  backgr. text
-            focused_workspace  #F9FAF9 #16a085 #292F34
-            active_workspace   #595B5B #353836 #FDF6E3
-            inactive_workspace #595B5B #283339 #EEE8D5
-            binding_mode       #16a085 #2C2C2C #F9FAF9
-            urgent_workspace   #16a085 #FDF6E3 #E5201D
-        }
-}
+# #                              border  backgr. text
+#             focused_workspace  #F9FAF9 #16a085 #292F34
+#             active_workspace   #595B5B #353836 #FDF6E3
+#             inactive_workspace #595B5B #283339 #EEE8D5
+#             binding_mode       #16a085 #2C2C2C #F9FAF9
+#             urgent_workspace   #16a085 #FDF6E3 #E5201D
+#         }
+# }
 
 # Screen lock
 bindsym $mod+Shift+d exec i3lock -c 0F121B -e -f -i $(find $i3lock_folder -maxdepth 2 -name '*.png' -type f | shuf | head -n 1) -p win -t
@@ -346,12 +348,11 @@ exec --no-startup-id dunst -config $dunst_path/dunstrc
 # exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # exec --no-startup-id manjaro-hello
 # Composite windowxit
-exec --no-startup-id compton --config $compton_path/compton.conf
-#exec --no-startup-id compton
+# exec --no-startup-id compton --config $compton_path/compton.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec --no-startup-id conky
+# exec --no-startup-id conky
 exec --no-startup-id blueman-applet
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util

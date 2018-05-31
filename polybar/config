@@ -49,7 +49,7 @@ font-4 = Font Awesome 5 Brands:pixelsize=10;1
 
 ;modules-left = bspwm i3
 modules-left = i3
-modules-center = mpd
+modules-center = xwindow
 ;modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
 modules-right = filesystem xbacklight memory cpu wlan eth battery temperature date powermenu
 
@@ -74,7 +74,14 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+
+format = <label>
+format-background = ${activecolor.background}
+format-foreground = ${activecolor.foreground}
+format-padding = 4
+
+label = %title%
+label-maxlen = 50
 
 [module/xkeyboard]
 type = internal/xkeyboard

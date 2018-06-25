@@ -28,7 +28,7 @@ secondary = #e05
 alert = #c24
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 width = 100%
 height = 26
 ;offset-x = 1%

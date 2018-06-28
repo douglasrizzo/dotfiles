@@ -61,8 +61,7 @@ font-4 = Font Awesome 5 Brands:pixelsize=10;1
 ;modules-left = bspwm i3
 modules-left = i3
 modules-center = xwindow
-;modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = filesystem xbacklight memory cpu wlan eth battery temperature date powermenu
+modules-right = xbacklight filesystem memory cpu wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 2
@@ -90,6 +89,8 @@ format = <label>
 format-background = ${activecolor.background}
 format-foreground = ${activecolor.foreground}
 format-padding = 4
+;format-underline = ${activecolor.foreground}
+;format-overline = ${self.format-underline}
 
 label = %title%
 label-maxlen = 50
@@ -119,6 +120,9 @@ mount-0 = /
 label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${activecolor.foreground-alt}
+
+;format-underline = #f90000
+;format-overline = ${self.format-underline}
 
 [module/bspwm]
 type = internal/bspwm
@@ -264,7 +268,8 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${activecolor.foreground-alt}
-format-underline = #f90000
+;format-underline = #f90000
+;format-overline = ${self.format-underline}
 label = : %percentage:2%%
 
 [module/memory]
@@ -272,7 +277,8 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${activecolor.foreground-alt}
-format-underline = #4bffdc
+;format-underline = #4bffdc
+;format-overline = ${self.format-underline}
 label = : %percentage_used%%
 
 [module/wlan]
@@ -325,7 +331,8 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${activecolor.foreground-alt}
-format-underline = #0a6cf5
+;format-underline = #0a6cf5
+;format-overline = ${self.format-underline}
 
 label = %date% %time%
 
@@ -394,7 +401,8 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+;format-underline = #f50a4d
+;format-overline = ${self.format-underline}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 

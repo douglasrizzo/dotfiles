@@ -370,30 +370,49 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
 format-full-prefix = " "
 format-full-prefix-foreground = ${activecolor.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-underline = #0f0
+
+format-discharging = <ramp-capacity> <label-discharging>
+;format-discharging-underline = ${ramp-capacity-foreground}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${activecolor.foreground}
 
+ramp-capacity-0-foreground = #f00
+ramp-capacity-1-foreground = #f30
+ramp-capacity-2-foreground = #f70
+ramp-capacity-3-foreground = #fb0
+ramp-capacity-4-foreground = #ff0
+ramp-capacity-5-foreground = #bf0
+ramp-capacity-6-foreground = #7f0
+ramp-capacity-7-foreground = #3f0
+ramp-capacity-8-foreground = #0f0
+
+ramp-capacity-0-underline = ${self.ramp-capacity-0-foreground}
+ramp-capacity-1-underline = ${self.ramp-capacity-1-foreground}
+ramp-capacity-2-underline = ${self.ramp-capacity-2-foreground}
+ramp-capacity-3-underline = ${self.ramp-capacity-3-foreground}
+ramp-capacity-4-underline = ${self.ramp-capacity-4-foreground}
+ramp-capacity-5-underline = ${self.ramp-capacity-5-foreground}
+ramp-capacity-6-underline = ${self.ramp-capacity-6-foreground}
+ramp-capacity-7-underline = ${self.ramp-capacity-7-foreground}
+ramp-capacity-8-underline = ${self.ramp-capacity-8-foreground}
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = #88f
+format-charging-underline = ${self.format-charging-foreground}
+animation-charging-foreground = ${self.format-charging-underline}
+animation-charging-framerate = 750
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${activecolor.foreground}
-animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature

@@ -169,7 +169,7 @@ enable-click = true
 
 ; Create scroll handlers used to cycle workspaces
 ; Default: true
-enable-scroll = true
+enable-scroll = false
 
 ; Wrap around when reaching the first/last workspace
 ; Default: true
@@ -224,9 +224,9 @@ label-urgent-background = #bd2c40
 label-urgent-padding = 4
 
 ; Separator in between workspaces
-label-separator = |
-label-separator-padding = 2
-label-separator-foreground = #ffb52a
+;label-separator = |
+label-separator-padding = 1
+label-separator-foreground = ${activecolor.foreground}
 
 [module/mpd]
 type = internal/mpd

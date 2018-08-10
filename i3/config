@@ -393,7 +393,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Wallpaper
-exec_always --no-startup-id feh --recursive --randomize --bg-scale $wallpaper_folder
+exec_always --no-startup-id feh --randomize --bg-scale $wallpaper_folder
 # Dunst notification daemon
 exec --no-startup-id dunst -config $dunst_path/dunstrc
 # exec --no-startup-id nitrogen --restore; sleep 1; compton -b
@@ -416,7 +416,7 @@ exec telegram-desktop -startintray
 #############################
 
 # Set inner/outer gaps
-gaps inner 8
+gaps inner 0
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.

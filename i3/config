@@ -179,6 +179,7 @@ set $command_f8 steam
 # assign [class="[Tt]hunderbird"] $ws6
 # assign [class="[Ss]potify"] $ws7
 # assign [class="[Ss]team"] $ws8
+set $command_f9 zotero
 
 bindsym $mod+F1 exec $command_f1 || notify-send "Application $command_f1 does not exist"
 bindsym $mod+F2 exec $command_f2 || notify-send "Application $command_f2 does not exist"
@@ -197,6 +198,7 @@ bindsym $mod+F8 exec $command_f8 || notify-send "Application $command_f8 does no
 # bindsym $mod+Shift+F6 workspace $ws6; exec $command_f6 || notify-send "Application $command_f6 does not exist"
 # bindsym $mod+Shift+F7 workspace $ws7; exec $command_f7 || notify-send "Application $command_f7 does not exist"
 # bindsym $mod+Shift+F8 workspace $ws8; exec $command_f8 || notify-send "Application $command_f8 does not exist"
+bindsym $mod+F9 exec $command_f9 || notify-send "Application $command_f9 does not exist"
 
 # Switch back and forth between previous workspace
 workspace_auto_back_and_forth no

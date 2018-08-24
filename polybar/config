@@ -225,8 +225,13 @@ label-urgent-padding = 4
 
 ; Separator in between workspaces
 ;label-separator = |
+<<<<<<< Updated upstream
 label-separator-padding = 1
 label-separator-foreground = ${activecolor.foreground}
+=======
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+>>>>>>> Stashed changes
 
 [module/mpd]
 type = internal/mpd

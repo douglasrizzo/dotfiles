@@ -156,7 +156,7 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 
-set $command_f1 subl
+set $command_f1 code
 set $command_f2 firefox
 set $command_f3 pcmanfm
 set $command_f4 gitkraken

@@ -8,7 +8,7 @@
 ;=====================================================
 
 ; white and blue
-[activecolor]
+[inactivecolor]
 background = #fff
 background-alt = #7cf
 foreground = #000
@@ -18,7 +18,7 @@ secondary = #e05
 alert = #c24
 
 ; black and orange
-[inactivecolor]
+[activecolor]
 background = #111
 background-alt = #444
 foreground = #f90

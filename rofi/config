@@ -3,4 +3,4 @@
 
 rofi.modi:       window,drun,run,combi
 rofi.combi-modi: window,drun
-rofi.theme:      tmrizzo_theme
+rofi.theme:      dodo

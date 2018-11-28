@@ -28,7 +28,7 @@ configuration {
     background-color:  transparent;
     dark: #1c1c1c;
     // Black
-    black:       #3d352a;
+    black:       #000000;
     lightblack:  #554444;
     tlightblack:  #554444cc;
     //

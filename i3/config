@@ -306,13 +306,30 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+
+bindsym XF86HomePage exec firefox
+bindsym XF86Mail exec thunderbird
+bindsym XF86Calculator exec speedcrunch
+
+# these other buttons exist, I just won't map them because maybe they have a role inside other software
+# bindsym XF86Documents exec --no-startup-id notify-send "Documents"
+# bindsym XF86Favorites exec --no-startup-id notify-send "Favorites"
+# bindsym XF86AudioRecord exec --no-startup-id notify-send "AudioRecord"
+# bindsym XF86AudioRewind exec --no-startup-id notify-send "AudioRewind"
+# bindsym XF86New exec --no-startup-id notify-send "New"
+# bindsym XF86Open exec --no-startup-id notify-send "Open"
+# bindsym XF86Close exec --no-startup-id notify-send "Close"
+# bindsym XF86Reply exec --no-startup-id notify-send "Reply"
+# bindsym XF86MailForward exec --no-startup-id notify-send "MailForward"
+# bindsym XF86Send exec --no-startup-id notify-send "Send"
+# bindsym XF86Save exec --no-startup-id notify-send "Save"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

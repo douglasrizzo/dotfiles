@@ -7,6 +7,16 @@
 ;
 ;=====================================================
 
+; black and orange
+[activecolor]
+background = #111
+background-alt = #444
+foreground = #f80
+foreground-alt = #555
+primary = #fb0
+secondary = #e05
+alert = #c24
+
 ; white and blue
 [inactivecolor]
 background = #fff
@@ -14,16 +24,6 @@ background-alt = #7cf
 foreground = #000
 foreground-alt = #555
 primary = #2bf
-secondary = #e05
-alert = #c24
-
-; black and orange
-[activecolor]
-background = #111
-background-alt = #444
-foreground = #f90
-foreground-alt = #555
-primary = #fb2
 secondary = #e05
 alert = #c24
 

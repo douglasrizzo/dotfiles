@@ -438,7 +438,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Wallpaper
-exec_always --no-startup-id feh --randomize --bg-scale $wallpaper_folder
+exec_always --no-startup-id feh --randomize --bg-scale --no-fehbg $wallpaper_folder
 # Dunst notification daemon
 exec --no-startup-id dunst -config $dunst_path/dunstrc
 # exec --no-startup-id nitrogen --restore; sleep 1; compton -b

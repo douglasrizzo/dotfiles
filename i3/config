@@ -163,6 +163,7 @@ set $command_f5 telegram-desktop
 set $command_f6 thunderbird
 set $command_f7 spotify
 set $command_f8 steam
+set $command_f9 zotero
 
 # assign [class="[Ss]ublime [Tt]ext"] $ws1
 # assign [class="[Ff]irefox"] $ws2
@@ -196,6 +197,9 @@ bindsym $mod+F9 exec $command_f9 || notify-send "Application $command_f9 does no
 # Switch back and forth between previous workspace
 workspace_auto_back_and_forth no
 
+# Prevent new windows from being focused
+focus_on_window_activation none
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -228,7 +232,6 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
-
 
 # same stuff, but with numpad
 bindsym $mod+KP_1 workspace $ws1
@@ -310,8 +313,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10 && notify-send 'brightness up' || notify-send 'trouble invoking xbacklight'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10 && notify-send 'brightness down' || notify-send 'trouble invoking xbacklight'"
 
 bindsym XF86HomePage exec firefox
 bindsym XF86Mail exec thunderbird

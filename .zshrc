@@ -100,3 +100,9 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # added by travis gem
 [ -f /home/dodo/.travis/travis.sh ] && source /home/dodo/.travis/travis.sh
+
+# Numpad Enter, when NumLock is turned off
+bindkey -s "^[OM" "^M"
+
+# Ctrl+Backspace to delete a word
+bindkey '^H' backward-delete-word

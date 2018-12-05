@@ -173,7 +173,6 @@ set $command_f9 zotero
 # assign [class="[Tt]hunderbird"] $ws6
 # assign [class="[Ss]potify"] $ws7
 # assign [class="[Ss]team"] $ws8
-set $command_f9 zotero
 
 bindsym $mod+F1 exec $command_f1 || notify-send "Application $command_f1 does not exist"
 bindsym $mod+F2 exec $command_f2 || notify-send "Application $command_f2 does not exist"

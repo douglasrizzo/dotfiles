@@ -381,7 +381,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # finds out, if available)
 # bar {
 #       # Bar ID
-#       # id 0
+#       id 0
 
 #       # Set font
 #       font xft:Noto Sans 10, FontAwesome 11
@@ -394,7 +394,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 #       tray_padding 0
 
 #       # Bar position
-#       position bottom
+#       position top
 
 #       ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #       #	tray_output primary
@@ -402,18 +402,17 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 #     	bindsym button4 nop
 #     	bindsym button5 nop
-#     	font xft:Fira Sans 10.5
 #     	strip_workspace_numbers yes
 
 #         colors {
-#             background #283339
+#             background #111111
 #             statusline #F9FAF9
 #             separator  #454947
 
 # #                              border  backgr. text
-#             focused_workspace  #F9FAF9 #16a085 #292F34
+#             focused_workspace  #ffbb00 #ffbb00 #111111
 #             active_workspace   #595B5B #353836 #FDF6E3
-#             inactive_workspace #595B5B #283339 #EEE8D5
+#             inactive_workspace #000000 #000000 #ff8800
 #             binding_mode       #16a085 #2C2C2C #F9FAF9
 #             urgent_workspace   #16a085 #FDF6E3 #E5201D
 #         }

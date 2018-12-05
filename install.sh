@@ -14,9 +14,9 @@ ln -vsf `pwd`/vscode-user-settings.json ~/.config/Code/User/settings.json
 
 # .config directories
 # these are not erased if they exist
-ln -vsf `pwd`/dunst/ ~/.config/dunst
-ln -vsf `pwd`/htop/ ~/.config/htop
-ln -vsf `pwd`/i3/ ~/.config/i3
-ln -vsf `pwd`/polybar/ ~/.config/polybar
-ln -vsf `pwd`/rofi/ ~/.config/rofi
-ln -vsf `pwd`/terminator/ ~/.config/terminator
+rm -rf ~/.config/dunst && ln -vsf `pwd`/dunst/ ~/.config
+rm -rf ~/.config/htop && ln -vsf `pwd`/htop/ ~/.config
+rm -rf ~/.config/i3 && ln -vsf `pwd`/i3/ ~/.config
+rm -rf ~/.config/polybar && ln -vsf `pwd`/polybar/ ~/.config
+rm -rf ~/.config/rofi && ln -vsf `pwd`/rofi/ ~/.config
+rm -rf ~/.config/terminator && ln -vsf `pwd`/terminator/ ~/.config

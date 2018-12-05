@@ -18,7 +18,7 @@ set $i3lock_folder ~/Documents/Wallpapers/desktop_screenshots
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:Noto Sans 10
+font xft:IBM Plex Sans 10
 
 # Orange theme colors
 # class                 border  backgr. text    indic.   child_border

@@ -6,10 +6,12 @@ If any of the files in this repo exist locally, they will be replaced by the lin
 
 Dependencies that can be installed using package managers are the following:
 
-    sudo pacman -S yay python blueman network-manager-applet rofi i3-wm \
-i3status i3lock i3-gaps i3exit ttf-font-awesome otf-font-awesome compton \
-feh zsh polybar libmpdclient sublime-text zotero xorg-xbacklight
-    sudo yay -S megasync telegram-desktop spotify visual-studio-code-bin
+    sudo pacman -S i3-wm i3status i3lock i3-gaps i3exit compton \
+    rofi feh zsh polybar xorg-xbacklight network-manager-applet \
+    blueman libmpdclient python yay adobe-source-code-pro-fonts \
+    ttf-roboto ttf-ibm-plex ttf-font-awesome otf-font-awesome
+    
+    sudo yay -S megasync spotify telegram-desktop visual-studio-code-bin zotero
 
     curl https://bootstrap.pypa.io/get-pip.py | python
     sudo -H python get-pip.py

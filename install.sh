@@ -11,6 +11,7 @@ ln -vsf `pwd`/compton.conf ~/.config/compton.conf
 ln -vsf `pwd`/latexindent_config.yaml ~/.config/latexindent_config.yaml
 ln -vsf `pwd`/i3-scrot.conf ~/.config/i3-scrot.conf
 ln -vsf `pwd`/vscode-user-settings.json ~/.config/Code/User/settings.json
+ln -vsf `pwd`/vscode-keybindings.json ~/.config/Code/User/keybindings.json
 
 # .config directories
 # these are not erased if they exist

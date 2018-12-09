@@ -4,7 +4,7 @@ ln -vsf `pwd`/.Xresources ~/.Xresources
 ln -vsf `pwd`/.profile ~/.profile
 ln -vsf `pwd`/.xprofile ~/.xprofile
 ln -vsf `pwd`/.profile ~/.zprofile
-
+ln -vsf `pwd`/.bibtoolrsc ~/.bibtoolrsc
 
 # .config files
 ln -vsf `pwd`/compton.conf ~/.config/compton.conf

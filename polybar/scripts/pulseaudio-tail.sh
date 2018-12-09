@@ -1,35 +1,61 @@
 #!/bin/sh
 
-sink=0
-
 volume_up() {
+    get_sink
+    sink=$?
     pactl set-sink-volume $sink +1%
 }
 
 volume_down() {
+    get_sink
+    sink=$?
     pactl set-sink-volume $sink -1%
 }
 
 volume_mute() {
+    get_sink
+    sink=$?
     pactl set-sink-mute $sink toggle
 }
 
+get_sink(){
+    if pacmd list-sinks | grep active | head -n 1 | grep -q hdmi; then
+        retval=1
+    else
+        retval=0
+    fi
+    return "$retval"
+}
+
 switch_sink() {
-    if pacmd list-sinks | grep active | head -n 1 | grep -q speaker; then
-        pactl set-sink-port $sink analog-output-headphones
-    elif pacmd list-sinks | grep active | head -n 1 | grep -q headphones; then
+    get_sink
+    sink=$?
+
+    if pacmd list-sinks | grep active | grep -q headphones; then
         pactl set-sink-port $sink analog-output-speaker
+    elif pacmd list-sinks | grep active | grep -q speaker; then
+        pactl set-sink-port $sink analog-output-headphones
     fi
 }
 
 volume_print() {
-    if pacmd list-sinks | grep active | head -n 1 | grep -q speaker; then
-        icon=""
-    elif pacmd list-sinks | grep active | head -n 1 | grep -q headphones; then
-        icon=""
-    else
+    icon=""
+
+    if pacmd list-sinks | grep active | grep -q hdmi; then
+        icon="$icon"
+    fi
+    if pacmd list-sinks | grep active | grep -q speaker; then
+        icon="$icon"
+    fi
+    if pacmd list-sinks | grep active | grep -q headphones; then
+        icon="$icon"
+    fi
+    if [ ! "$icon" ];then
         icon=""
     fi
+
+    get_sink
+    sink=$?
 
     muted=$(pamixer --sink $sink --get-mute)
 
@@ -58,7 +84,7 @@ case "$1" in
         volume_down
         ;;
     --mute)
-        switch_sink
+        volume_mute
         ;;
     *)
         listen

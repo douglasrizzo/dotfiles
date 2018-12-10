@@ -288,7 +288,6 @@ for_window [class="[Xx]archiver$"] floating enable
 # Use rofi instead of dmenu
 bindsym $mod+space exec rofi -show combi
 bindsym $mod+Mod1+space exec rofi -show run
-bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton --config $compton_path/compton.conf
 bindsym Print exec --no-startup-id i3-scrot
@@ -461,6 +460,31 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec megasync
 exec telegram-desktop -startintray
+
+set $mode_xrandr Output: (h) HDMI, (n) notebook
+set $mode_xrandr_hdmi HDMI: (1) on, (0) off
+set $mode_xrandr_notebook notebook: (1) on, (0) off
+bindsym $mod+Shift+x mode "$mode_xrandr"
+mode "$mode_xrandr" {
+        bindsym h      mode "$mode_xrandr_hdmi"
+        bindsym n      mode "$mode_xrandr_notebook"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_xrandr_hdmi" {
+        bindsym 1  exec xrandr --output HDMI1 --auto, mode "default"
+        bindsym 0 exec xrandr --output HDMI1 --off, mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_xrandr_notebook" {
+        bindsym 1  exec xrandr --output eDP1 --auto, mode "default"
+        bindsym 0 exec xrandr --output eDP1 --off, mode "default"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 #############################
 ### settings for i3-gaps: ###

@@ -478,6 +478,7 @@ click-right = ~/.config/polybar/scripts/system-usb-udev.sh --unmount
 type = custom/script
 exec = ~/.config/polybar/scripts/updates-arch-combined.sh
 interval = 600
+click-left = ~/.config/polybar/scripts/updates-arch-combined.sh --gui
 
 [settings]
 screenchange-reload = true

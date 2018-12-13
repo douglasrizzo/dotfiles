@@ -473,14 +473,14 @@ mode "$mode_xrandr" {
 }
 mode "$mode_xrandr_hdmi" {
         bindsym 1  exec xrandr --output HDMI1 --auto, mode "default"
-        bindsym 0 exec xrandr --output HDMI1 --off, mode "default"
+        bindsym 0 exec xrandr --listmonitors | head -n 1 | grep 1$ && notify-send "Wont turn off the only display" || xrandr --output HDMI1 --off, mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_xrandr_notebook" {
         bindsym 1  exec xrandr --output eDP1 --auto, mode "default"
-        bindsym 0 exec xrandr --output eDP1 --off, mode "default"
+        bindsym 0 exec xrandr --listmonitors | head -n 1 | grep 1$ && notify-send "Wont turn off the only display" || xrandr --output eDP1 --off, mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"

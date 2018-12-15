@@ -9,7 +9,8 @@ Dependencies that can be installed using package managers are the following:
     sudo pacman -S i3-wm i3status i3lock i3-gaps i3exit compton \
     rofi feh zsh polybar xorg-xbacklight network-manager-applet \
     blueman libmpdclient python yay adobe-source-code-pro-fonts \
-    ttf-roboto ttf-ibm-plex ttf-font-awesome otf-font-awesome pamixer
+    pamac-tray pamixer ttf-roboto ttf-ibm-plex ttf-font-awesome \
+    otf-font-awesome 
     
     sudo yay -S megasync spotify telegram-desktop visual-studio-code-bin zotero
 

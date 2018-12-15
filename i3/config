@@ -82,8 +82,8 @@ new_float normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
-bindsym $mod+KP_Enter exec terminator
+bindsym $mod+Return exec kitty
+bindsym $mod+KP_Enter exec kitty
 
 # kill focused window
 bindsym $mod+BackSpace kill
@@ -438,10 +438,12 @@ bindsym $mod+Ctrl+m exec pavucontrol
 exec_always --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder
 # this line creates a service of some sort which updates the wallpaper every minute
 exec --no-startup-id systemd-run --on-calendar='*:0/15' --user -- /usr/bin/feh -z --bg-scale --no-fehbg $wallpaper_folder
-# to stop
-# systemctl --user stop run-$really_long_string.timer.
 # to see active timers
 # systemctl --user list-timers
+# to stop
+# systemctl --user stop run-$really_long_string.timer.
+# to replace by other background after stopping
+# xsetroot -solid black
 #################################################################
 
 # Dunst notification daemon
@@ -473,14 +475,14 @@ mode "$mode_xrandr" {
 }
 mode "$mode_xrandr_hdmi" {
         bindsym 1  exec xrandr --output HDMI1 --auto, mode "default"
-        bindsym 0 exec xrandr --output HDMI1 --off, mode "default"
+        bindsym 0 exec xrandr --listmonitors | head -n 1 | grep 1$ && notify-send "Wont turn off the only display" || xrandr --output HDMI1 --off, mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_xrandr_notebook" {
         bindsym 1  exec xrandr --output eDP1 --auto, mode "default"
-        bindsym 0 exec xrandr --output eDP1 --off, mode "default"
+        bindsym 0 exec xrandr --listmonitors | head -n 1 | grep 1$ && notify-send "Wont turn off the only display" || xrandr --output eDP1 --off, mode "default"
 
         bindsym Return mode "default"
         bindsym Escape mode "default"

@@ -11,7 +11,10 @@ export PYTHONPATH=$PYTHONPATH:/home/dodo/Code/models/research:/home/dodo/Code/mo
 export SC2PATH="/opt/StarCraftII"
 
 export PATH="/home/dodo/.anaconda3/bin:$PATH"
-export PATH="/usr/local/texlive/2018/bin/x86_64-linux:$PATH"
+
+export PATH="/home/dodo/.texlive/2018/bin/x86_64-linux:$PATH"
+export MANPATH="/home/dodo/.texlive/2018/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/home/dodo/.texlive/2018/texmf-dist/doc/info:$INFOPATH"
 
 # variables necessary by Malmo and MarLo
 # export MALMO_MINECRAFT_ROOT=/home/dodo/MalmoPlatform/Minecraft

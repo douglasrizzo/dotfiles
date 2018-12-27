@@ -13,7 +13,7 @@ set $i3_path ~/.config/i3
 set $compton_path ~/.config
 set $rofi_path ~/.config/rofi
 set $dunst_path ~/.config/dunst
-set $wallpaper_folder ~/Documents/Wallpapers/wallpapers
+set $wallpaper_folder ~/Documents/Wallpapers/landscapes
 set $i3lock_folder ~/Documents/Wallpapers/desktop_screenshots
 
 # Font for window titles. Will also be used by the bar unless a different font

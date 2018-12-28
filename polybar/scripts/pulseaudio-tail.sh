@@ -86,6 +86,9 @@ case "$1" in
     --mute)
         volume_mute
         ;;
+    --switch)
+        switch_sink
+        ;;
     *)
         listen
         ;;

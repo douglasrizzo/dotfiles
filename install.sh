@@ -21,3 +21,4 @@ rm -rf ~/.config/i3 && ln -vsf `pwd`/i3/ ~/.config
 rm -rf ~/.config/polybar && ln -vsf `pwd`/polybar/ ~/.config
 rm -rf ~/.config/rofi && ln -vsf `pwd`/rofi/ ~/.config
 rm -rf ~/.config/terminator && ln -vsf `pwd`/terminator/ ~/.config
+rm -rf ~/.config/kitty && ln -vsf `pwd`/kitty/ ~/.config

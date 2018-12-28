@@ -12,8 +12,9 @@ set $mod Mod4
 set $i3_path ~/.config/i3
 set $compton_path ~/.config
 set $rofi_path ~/.config/rofi
+set $polybar_scripts_path ~/.config/polybar/scripts
 set $dunst_path ~/.config/dunst
-set $wallpaper_folder ~/Documents/Wallpapers/wallpapers
+set $wallpaper_folder ~/Documents/Wallpapers/landscapes
 set $i3lock_folder ~/Documents/Wallpapers/desktop_screenshots
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -305,6 +306,9 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# this key has a headphones icon in my keyboard, so I use to switch between headphones and speakers
+bindsym XF86Tools exec $polybar_scripts_path/pulseaudio-tail.sh --switch
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -429,7 +433,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # exec --no-startup-id pulseaudio
-exec --no-startup-id pa-applet
+# exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################

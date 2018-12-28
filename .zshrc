@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/dodo/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -99,10 +99,14 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # added by travis gem
-[ -f /home/dodo/.travis/travis.sh ] && source /home/dodo/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # Numpad Enter, when NumLock is turned off
 bindkey -s "^[OM" "^M"
 
-# Ctrl+Backspace to delete a word
+# Ctrl+Backspace to delete a word before the cursor
 bindkey '^H' backward-delete-word
+
+# Ctrl+Delete and Alt+Delete to delete a word after the cursor
+bindkey '5~' delete-word
+bindkey '3~' delete-word

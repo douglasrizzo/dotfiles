@@ -72,5 +72,5 @@
     "editor.fontFamily": "'IBM Plex Mono', 'Source Code Pro', 'Roboto Mono', 'monospace', monospace",
     "editor.fontSize": 13,
     "python.formatting.provider": "yapf",
-    "terminal.external.linuxExec": "terminator"
+    "terminal.external.linuxExec": "kitty"
 }

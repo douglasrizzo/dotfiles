@@ -166,6 +166,16 @@ set $command_f7 spotify
 set $command_f8 steam
 set $command_f9 jabref
 
+bindsym $mod+F1 exec $command_f1 || notify-send "Application $command_f1 does not exist"
+bindsym $mod+F2 exec $command_f2 || notify-send "Application $command_f2 does not exist"
+bindsym $mod+F3 exec $command_f3 || notify-send "Application $command_f3 does not exist"
+bindsym $mod+F4 exec $command_f4 || notify-send "Application $command_f4 does not exist"
+bindsym $mod+F5 exec $command_f5 || notify-send "Application $command_f5 does not exist"
+bindsym $mod+F6 exec $command_f6 || notify-send "Application $command_f6 does not exist"
+bindsym $mod+F7 exec $command_f7 || notify-send "Application $command_f7 does not exist"
+bindsym $mod+F8 exec $command_f8 || notify-send "Application $command_f8 does not exist"
+bindsym $mod+F9 exec $command_f9 || notify-send "Application $command_f9 does not exist"
+
 # assign [class="[Ss]ublime [Tt]ext"] $ws1
 # assign [class="[Ff]irefox"] $ws2
 # assign [class="PCManFM"] $ws3
@@ -175,15 +185,6 @@ set $command_f9 jabref
 # assign [class="[Ss]potify"] $ws7
 # assign [class="[Ss]team"] $ws8
 
-bindsym $mod+F1 exec $command_f1 || notify-send "Application $command_f1 does not exist"
-bindsym $mod+F2 exec $command_f2 || notify-send "Application $command_f2 does not exist"
-bindsym $mod+F3 exec $command_f3 || notify-send "Application $command_f3 does not exist"
-bindsym $mod+F4 exec $command_f4 || notify-send "Application $command_f4 does not exist"
-bindsym $mod+F5 exec $command_f5 || notify-send "Application $command_f5 does not exist"
-bindsym $mod+F6 exec $command_f6 || notify-send "Application $command_f6 does not exist"
-bindsym $mod+F7 exec $command_f7 || notify-send "Application $command_f7 does not exist"
-bindsym $mod+F8 exec $command_f8 || notify-send "Application $command_f8 does not exist"
-
 # bindsym $mod+Shift+F1 workspace $ws1; exec $command_f1 || notify-send "Application $command_f1 does not exist"
 # bindsym $mod+Shift+F2 workspace $ws2; exec $command_f2 || notify-send "Application $command_f2 does not exist"
 # bindsym $mod+Shift+F3 workspace $ws3; exec $command_f3 || notify-send "Application $command_f3 does not exist"
@@ -192,7 +193,6 @@ bindsym $mod+F8 exec $command_f8 || notify-send "Application $command_f8 does no
 # bindsym $mod+Shift+F6 workspace $ws6; exec $command_f6 || notify-send "Application $command_f6 does not exist"
 # bindsym $mod+Shift+F7 workspace $ws7; exec $command_f7 || notify-send "Application $command_f7 does not exist"
 # bindsym $mod+Shift+F8 workspace $ws8; exec $command_f8 || notify-send "Application $command_f8 does not exist"
-bindsym $mod+F9 exec $command_f9 || notify-send "Application $command_f9 does not exist"
 
 # Switch back and forth between previous workspace
 workspace_auto_back_and_forth no

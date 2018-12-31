@@ -34,11 +34,6 @@ rewrite.rule {"^{ *}$"}
 rewrite.rule {"ˆ{}$"}
 rewrite.rule {"ˆ\"\"$"}
 
-% delete useless fields introduced by reference managers
-delete.field {file}
-delete.field {abstract}
-delete.field {annote}
-
 % correct page ranges
 rewrite.rule {pages # "\([0-9]+\) *\(-\|---\) *\([0-9]+\)" = "\1--\3"}
 
@@ -92,3 +87,4 @@ rewrite.rule { month = " # { *}$" = ""}
 
 % rename url date field to be correctly used by BibTeX, BibLaTeX, abnTeX etc
 rename.field {urldate = urlaccessdate}
+rename.field {journal = journaltitle}

@@ -9,10 +9,11 @@ Dependencies that can be installed using package managers are the following:
     sudo pacman -S adobe-source-code-pro-fonts blueman compton feh \
     i3-gaps i3-wm i3exit i3lock i3status kitty libmpdclient \
     network-manager-applet otf-font-awesome pamac-tray pamixer \
-    pavucontrol polybar pulseaudio python rofi ttf-font-awesome \
-    ttf-ibm-plex ttf-roboto xorg-xbacklight yay zsh
+    pavucontrol polybar pulseaudio pulseaudio-alsa python rofi
+    ttf-font-awesome ttf-ibm-plex ttf-roboto xorg-xbacklight yay zsh
     
-    sudo yay -S megasync spotify telegram-desktop visual-studio-code-bin zotero
+    sudo yay -S megasync gitkraken spotify telegram-desktop \
+    visual-studio-code-bin jabref
 
     curl https://bootstrap.pypa.io/get-pip.py | python
     sudo -H python get-pip.py

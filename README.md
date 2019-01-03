@@ -6,11 +6,12 @@ If any of the files in this repo exist locally, they will be replaced by the lin
 
 Dependencies that can be installed using package managers are the following:
 
-    sudo pacman -S adobe-source-code-pro-fonts blueman compton feh \
-    i3-gaps i3-wm i3exit i3lock i3status kitty libmpdclient \
-    network-manager-applet otf-font-awesome pamac-tray pamixer \
-    pavucontrol polybar pulseaudio pulseaudio-alsa python rofi
-    ttf-font-awesome ttf-ibm-plex ttf-roboto xorg-xbacklight yay zsh
+    sudo pacman -S python i3-gaps blueman compton pamixer polybar \
+    i3status keepassx2 pamac-tray pulseaudio kitty rofi \
+    ttf-roboto pavucontrol ttf-ibm-plex libmpdclient zsh \
+    xorg-xbacklight pulseaudio-alsa ttf-font-awesome i3-wm \
+    otf-font-awesome zsh-autosuggestions i3lock i3exit yay \
+    network-manager-applet adobe-source-code-pro-fonts feh
     
     sudo yay -S megasync gitkraken spotify telegram-desktop \
     visual-studio-code-bin jabref

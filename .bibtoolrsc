@@ -1,3 +1,7 @@
+% don't mess with the bibtex keys
+key.generation = off
+preserve.key.case = on
+
 % no tabs as indentation, line size very big
 print.align.key = 0
 print.use.tab = off

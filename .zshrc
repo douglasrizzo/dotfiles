@@ -98,8 +98,8 @@ source $ZSH/oh-my-zsh.sh
 #ZSH autosuggestions plugin
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+# needed by Anaconda
+source /home/$USER/.anaconda3/etc/profile.d/conda.sh
 
 # Numpad Enter, when NumLock is turned off
 bindkey -s "^[OM" "^M"

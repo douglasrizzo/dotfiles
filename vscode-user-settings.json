@@ -71,5 +71,6 @@
     "latex-workshop.latexindent.path": "/usr/local/texlive/2018/bin/x86_64-linux/latexindent",
     "editor.fontFamily": "'IBM Plex Mono', 'Source Code Pro', 'Roboto Mono', 'monospace', monospace",
     "python.formatting.provider": "yapf",
-    "terminal.external.linuxExec": "kitty"
+    "terminal.external.linuxExec": "kitty",
+    "editor.fontSize": 16,
 }

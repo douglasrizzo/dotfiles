@@ -18,6 +18,13 @@ mkdir -p ~/.config/Code/User
 ln -vsf `pwd`/vscode-user-settings.json ~/.config/Code/User/settings.json
 ln -vsf `pwd`/vscode-keybindings.json ~/.config/Code/User/keybindings.json
 
+# create SpellRight dictionaries directory and download some utf-8 dicts
+mkdir -p ~/.config/Code/Dictionaries
+wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/en-US/index.aff -O ~/.config/Code/Dictionaries/en-US.aff
+wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/en-US/index.dic -O ~/.config/Code/Dictionaries/en-US.dic
+wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/pt-BR/index.aff -O ~/.config/Code/Dictionaries/pt-BR.aff
+wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/pt-BR/index.dic -O ~/.config/Code/Dictionaries/pt-BR.dic
+
 # .config directories
 # these are not erased if they exist
 rm -rf ~/.config/dunst && ln -vsf `pwd`/dunst/ ~/.config

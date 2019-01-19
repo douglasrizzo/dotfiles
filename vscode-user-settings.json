@@ -73,4 +73,14 @@
     "python.formatting.provider": "yapf",
     "terminal.external.linuxExec": "kitty",
     "editor.fontSize": 16,
+    "spellright.addToSystemDictionary": true,
+    "spellright.language": [
+        "en_US",
+        "pt_BR"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "plaintext",
+        "latex"
+    ]
 }

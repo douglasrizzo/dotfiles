@@ -12,6 +12,9 @@ ln -vsf `pwd`/latexindent/config.yaml
 ~/.config/latexindent.yaml
 ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml
 ln -vsf `pwd`/i3-scrot.conf ~/.config/i3-scrot.conf
+
+# create vscode user config directory
+mkdir -p ~/.config/Code/User
 ln -vsf `pwd`/vscode-user-settings.json ~/.config/Code/User/settings.json
 ln -vsf `pwd`/vscode-keybindings.json ~/.config/Code/User/keybindings.json
 

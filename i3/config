@@ -159,11 +159,11 @@ set $ws9 9
 set $command_f1 code
 set $command_f2 firefox
 set $command_f3 pcmanfm
-set $command_f4 gitkraken
+set $command_f4 jabref
 set $command_f5 telegram-desktop
-set $command_f6 thunderbird
-set $command_f7 spotify
-set $command_f8 jabref
+set $command_f6 gitkraken
+set $command_f7 thunderbird
+set $command_f8 spotify
 set $command_f9 kitty htop
 
 bindsym $mod+F1 exec $command_f1 || notify-send "Application $command_f1 does not exist"

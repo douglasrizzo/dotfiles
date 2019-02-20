@@ -10,9 +10,9 @@ export PYTHONPATH="$PYTHONPATH:$HOME/Code/models/research:$HOME/Code/models/rese
 # StarCraft 2 path, used by pysc2
 export SC2PATH="/opt/StarCraftII"
 
-export PATH="$HOME/.anaconda3/bin:$PATH"
-
-export PATH="$HOME/.texlive/2018/bin/x86_64-linux:$PATH"
+export PATH="$PATH:$HOME/.anaconda3/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.texlive/2018/bin/x86_64-linux"
 export MANPATH="$HOME/.texlive/2018/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$HOME/.texlive/2018/texmf-dist/doc/info:$INFOPATH"
 

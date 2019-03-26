@@ -364,12 +364,12 @@ bindsym $mod+r mode "resize"
 # System status mode
 set $mode_system System [l]ock,l[o]gout,[s]uspend,[h]ibernate,[r]eboot,[p]oweroff
 mode "$mode_system" {
-      bindsym l exec --no-startup-id i3exit lock, mode "default"
-      bindsym o exec --no-startup-id i3exit logout, mode "default"
-      bindsym s exec --no-startup-id i3exit suspend, mode "default"
-      bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-      bindsym r exec --no-startup-id i3exit reboot, mode "default"
-      bindsym p exec --no-startup-id i3exit shutdown, mode "default"
+      bindsym l exec --no-startup-id $i3_path/scripts/dodolock.sh, mode "default"
+      bindsym o exec --no-startup-id i3-msg exit, mode "default"
+      bindsym s exec --no-startup-id $i3_path/scripts/dodolock.sh && systemctl suspend, mode "default"
+      bindsym h exec --no-startup-id $i3_path/scripts/dodolock.sh && systemctl hibernate, mode "default"
+      bindsym r exec --no-startup-id systemctl reboot, mode "default"
+      bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 
       # Back to normal: Enter or Escape
       bindsym Return mode "default"
@@ -421,7 +421,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # }
 
 # Screen lock
-bindsym $mod+Shift+d exec i3lock -c 0F121B -e -f -i $(find $i3lock_folder -maxdepth 2 -name '*.png' -type f | shuf | head -n 1) -p win -t
+bindsym $mod+Shift+d exec $i3_path/scripts/dodolock.sh
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -450,7 +450,7 @@ exec --no-startup-id systemd-run --on-calendar='*:0/15' --user -- /usr/bin/feh -
 # xsetroot -solid black
 #################################################################
 
-# Dunst notification daemon
+# dunst notification daemon
 exec --no-startup-id dunst -config $dunst_path/dunstrc
 # exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # exec --no-startup-id manjaro-hello
@@ -461,7 +461,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 # exec --no-startup-id conky
 exec --no-startup-id blueman-applet
-# exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker $i3_path/scripts/dodolock.sh
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec megasync

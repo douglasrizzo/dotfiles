@@ -10,7 +10,7 @@ Dependencies that can be installed using package managers are the following:
     i3status keepassx2 pamac-tray pulseaudio kitty rofi \
     ttf-roboto pavucontrol ttf-ibm-plex libmpdclient zsh \
     xorg-xbacklight pulseaudio-alsa ttf-font-awesome i3-wm \
-    otf-font-awesome zsh-autosuggestions i3lock i3exit yay \
+    otf-font-awesome zsh-autosuggestions i3lock yay xscreensaver \
     network-manager-applet adobe-source-code-pro-fonts feh
     
     sudo yay -S megasync gitkraken spotify telegram-desktop \

@@ -376,6 +376,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+0 mode "$mode_system"
+bindsym XF86Eject mode "$mode_system"
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 

@@ -327,14 +327,14 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%d-%m"
-date-alt = " %Y-%m-%d"
+date = %d-%m
+date-alt = %Y-%m-%d
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = ""
-format-prefix-foreground = ${activecolor.foreground-alt}
+format-prefix = ": "
+format-prefix-foreground = ${activecolor.foreground}
 ;format-underline = #0a6cf5
 ;format-overline = ${self.format-underline}
 

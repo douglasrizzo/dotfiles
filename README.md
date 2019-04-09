@@ -13,8 +13,8 @@ Dependencies that can be installed using package managers are the following:
     otf-font-awesome zsh-autosuggestions i3lock yay xscreensaver \
     network-manager-applet adobe-source-code-pro-fonts feh
     
-    sudo yay -S megasync gitkraken spotify telegram-desktop \
-    visual-studio-code-bin jabref
+    sudo yay -S megasync gitkraken spotify otf-san-francisco \
+    telegram-desktop visual-studio-code-bin jabref
 
     curl https://bootstrap.pypa.io/get-pip.py | python
     sudo -H python get-pip.py

@@ -67,11 +67,11 @@ cursor-scroll = ns-resize
 ; bar that uses mac gray color and San Francisco font
 [bar/mac]
 inherit = parent-bar
-background = #ccc
-background-alt = #7cf
 foreground = #000
+background = #ccc
 foreground-alt = #555
-primary = #333
+background-alt = #7cf
+primary = #777
 secondary = #e05
 alert = #c24
 font-0 = San Francisco:pixelsize=9;2
@@ -79,10 +79,10 @@ font-0 = San Francisco:pixelsize=9;2
 ; orange and black bar, inspired by Deus Ex Human Revolution
 [bar/deusex]
 inherit = parent-bar
-background = #111
-background-alt = #444
 foreground = #f80
+background = #111
 foreground-alt = #555
+background-alt = #444
 primary = #fb0
 secondary = #e05
 alert = #c24

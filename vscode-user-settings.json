@@ -17,7 +17,6 @@
     "terminal.external.linuxExec": "kitty",
     "window.titleBarStyle": "custom",
     "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Default High Contrast",
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "newUntitledFile",
     // The command to execute when using external viewer.

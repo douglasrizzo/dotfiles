@@ -1,0 +1,10 @@
+[Unit]
+Description=Random wallpaper job
+
+[Service]
+Type=oneshot
+EnvironmentFile=%h/.config/wallpaper
+ExecStart=/bin/sh -c '/usr/bin/feh -z --bg-scale --no-fehbg $wallpaper_folder'
+
+[Install]
+WantedBy=default.target

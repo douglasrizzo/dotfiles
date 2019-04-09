@@ -7,27 +7,8 @@
 ;
 ;=====================================================
 
-; black and orange
-[activecolor]
-background = #111
-background-alt = #444
-foreground = #f80
-foreground-alt = #555
-primary = #fb0
-secondary = #e05
-alert = #c24
-
-; white and blue
-[inactivecolor]
-background = #fff
-background-alt = #7cf
-foreground = #000
-foreground-alt = #555
-primary = #2bf
-secondary = #e05
-alert = #c24
-
-[bar/main]
+; here I set global bar parameters
+[parent-bar]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 16
@@ -36,9 +17,6 @@ offset-y = 0
 ; radius = 6.0
 ; fixed-center = false
 ; bottom = true
-
-background = ${activecolor.background}
-foreground = ${activecolor.foreground}
 
 line-size = 3
 line-color = #f00
@@ -55,15 +33,14 @@ padding-right = 25
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = IBM Plex Sans:pixelsize=9;1
 font-1 = Noto Sans:pixelsize=9;1
 font-2 = Font Awesome 5 Free:pixelsize=9;2
 font-3 = Font Awesome 5 Free Solid:pixelsize=9;2
 font-4 = Font Awesome 5 Brands:pixelsize=9;2
 
-modules-left =  i3
+modules-left   = i3
 modules-center = xwindow
-modules-right = filesystem memory cpu wlan eth battery date
+modules-right  = filesystem memory cpu wlan eth battery date
 
 tray-position = right
 tray-padding = 2
@@ -87,14 +64,38 @@ tray-maxsize = 24
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+; bar that uses mac gray color and San Francisco font
+[bar/mac]
+inherit = parent-bar
+background = #ccc
+background-alt = #7cf
+foreground = #000
+foreground-alt = #555
+primary = #333
+secondary = #e05
+alert = #c24
+font-0 = San Francisco:pixelsize=9;2
+
+; orange and black bar, inspired by Deus Ex Human Revolution
+[bar/deusex]
+inherit = parent-bar
+background = #111
+background-alt = #444
+foreground = #f80
+foreground-alt = #555
+primary = #fb0
+secondary = #e05
+alert = #c24
+font-0 = IBM Plex Sans:pixelsize=9;1
+
 [module/xwindow]
 type = internal/xwindow
 
 format = <label>
-format-background = ${activecolor.background}
-format-foreground = ${activecolor.foreground}
+format-background = ${root.background}
+format-foreground = ${root.foreground}
 format-padding = 0
-;format-underline = ${activecolor.foreground}
+;format-underline = ${root.foreground}
 ;format-overline = ${self.format-underline}
 
 label = %title%
@@ -105,16 +106,16 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${activecolor.foreground-alt}
-format-prefix-underline = ${activecolor.secondary}
+format-prefix-foreground = ${root.foreground-alt}
+format-prefix-underline = ${root.secondary}
 
 label-layout = %layout%
-label-layout-underline = ${activecolor.secondary}
+label-layout-underline = ${root.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${activecolor.secondary}
-label-indicator-underline = ${activecolor.secondary}
+label-indicator-background = ${root.secondary}
+label-indicator-underline = ${root.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -124,7 +125,7 @@ mount-0 = /
 
 label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${activecolor.foreground-alt}
+label-unmounted-foreground = ${root.foreground-alt}
 
 ;format-underline = #f90000
 ;format-overline = ${self.format-underline}
@@ -133,19 +134,19 @@ label-unmounted-foreground = ${activecolor.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${activecolor.background-alt}
-label-focused-underline= ${activecolor.primary}
+label-focused-background = ${root.background-alt}
+label-focused-underline= ${root.primary}
 label-focused-padding = 2
 
 label-occupied = %index%
 label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${activecolor.alert}
+label-urgent-background = ${root.alert}
 label-urgent-padding = 2
 
 label-empty = %index%
-label-empty-foreground = ${activecolor.foreground-alt}
+label-empty-foreground = ${root.foreground-alt}
 label-empty-padding = 2
 
 [module/i3]
@@ -201,7 +202,7 @@ format = <label-state> <label-mode>
 ; Default: %mode%
 label-mode = %mode%
 label-mode-foreground = #000
-label-mode-background = ${activecolor.primary}
+label-mode-background = ${root.primary}
 label-mode-padding = 2
 
 ; Available tokens:
@@ -211,9 +212,9 @@ label-mode-padding = 2
 ;   %output%
 ; Default: %icon%  %name%
 label-focused = %index%
-label-focused-foreground = ${activecolor.background}
-label-focused-background = ${activecolor.primary}
-label-focused-underline = ${activecolor.foreground}
+label-focused-foreground = ${root.background}
+label-focused-background = ${root.primary}
+label-focused-underline = ${root.foreground}
 label-focused-padding = 3
 
 label-unfocused = %index%
@@ -231,7 +232,7 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ;label-separator = |
 label-separator-padding = 1
-label-separator-foreground = ${activecolor.foreground}
+label-separator-foreground = ${root.foreground}
 
 [module/mpd]
 type = internal/mpd
@@ -260,7 +261,7 @@ bar-fill-font = 2
 bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = ${activecolor.foreground-alt}
+bar-empty-foreground = ${root.foreground-alt}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -271,7 +272,7 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${activecolor.foreground-alt}
+format-prefix-foreground = ${root.foreground-alt}
 ;format-underline = #f90000
 ;format-overline = ${self.format-underline}
 label = : %percentage:2%%
@@ -280,7 +281,7 @@ label = : %percentage:2%%
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${activecolor.foreground-alt}
+format-prefix-foreground = ${root.foreground-alt}
 ;format-underline = #4bffdc
 ;format-overline = ${self.format-underline}
 label = : %percentage_used%%
@@ -298,14 +299,14 @@ format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${activecolor.foreground-alt}
+;label-disconnected-foreground = ${root.foreground-alt}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${activecolor.foreground-alt}
+ramp-signal-foreground = ${root.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -314,14 +315,14 @@ interval = 3.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${activecolor.foreground-alt}
+format-connected-prefix-foreground = ${root.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${activecolor.foreground-alt}
+;label-disconnected-foreground = ${root.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -334,7 +335,7 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = ": "
-format-prefix-foreground = ${activecolor.foreground}
+format-prefix-foreground = ${root.foreground}
 ;format-underline = #0a6cf5
 ;format-overline = ${self.format-underline}
 
@@ -348,7 +349,7 @@ label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${activecolor.foreground-alt}
+format-muted-foreground = ${root.foreground-alt}
 label-muted = sound muted
 
 bar-volume-width = 10
@@ -366,7 +367,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${activecolor.foreground-alt}
+bar-volume-empty-foreground = ${root.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -376,7 +377,7 @@ full-at = 98
 time-format = %H:%M
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${activecolor.foreground-alt}
+format-full-prefix-foreground = ${root.foreground-alt}
 format-full-underline = #0f0
 
 label-discharging = %time% (%consumption% W)
@@ -425,12 +426,12 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${activecolor.secondary}
+label-warn-foreground = ${root.secondary}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${activecolor.foreground-alt}
+ramp-foreground = ${root.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
@@ -440,11 +441,11 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${activecolor.secondary}
+label-open-foreground = ${root.secondary}
 label-close =  cancel
-label-close-foreground = ${activecolor.secondary}
+label-close-foreground = ${root.secondary}
 label-separator = |
-label-separator-foreground = ${activecolor.foreground-alt}
+label-separator-foreground = ${root.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1

@@ -75,6 +75,8 @@ primary = #777
 secondary = #e05
 alert = #c24
 font-0 = San Francisco:pixelsize=9;2
+i3-label-focused-padding = 3
+i3-label-unfocused-padding = 2
 
 ; orange and black bar, inspired by Deus Ex Human Revolution
 [bar/deusex]
@@ -87,6 +89,8 @@ primary = #fb0
 secondary = #e05
 alert = #c24
 font-0 = IBM Plex Sans:pixelsize=9;1
+i3-label-focused-padding = 3
+i3-label-unfocused-padding = 2
 
 ; green and black bar, inspired by the Matrix
 [bar/matrix]
@@ -99,6 +103,8 @@ primary = #0f0
 secondary = #e05
 alert = #c24
 font-0 = monospace:pixelsize=9;1
+i3-label-focused-padding = 2
+i3-label-unfocused-padding = 1
 
 [module/xwindow]
 type = internal/xwindow
@@ -215,7 +221,7 @@ format = <label-state> <label-mode>
 label-mode = %mode%
 label-mode-foreground = #000
 label-mode-background = ${root.primary}
-label-mode-padding = 2
+label-mode-padding = ${root.i3-label-focused-padding}
 
 ; Available tokens:
 ;   %name%
@@ -227,19 +233,19 @@ label-focused = %index%
 label-focused-foreground = ${root.background}
 label-focused-background = ${root.primary}
 label-focused-underline = ${root.foreground}
-label-focused-padding = 3
+label-focused-padding = ${root.i3-label-focused-padding}
 
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = ${root.i3-label-unfocused-padding}
 
 label-visible = %index%
 label-visible-underline = #555555
-label-visible-padding = 2
+label-visible-padding = ${root.i3-label-unfocused-padding}
 
 label-urgent = %index%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
-label-urgent-padding = 2
+label-urgent-padding = ${root.i3-label-unfocused-padding}
 
 ; Separator in between workspaces
 ;label-separator = |

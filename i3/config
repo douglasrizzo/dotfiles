@@ -378,10 +378,11 @@ bindsym $mod+0 mode "$mode_system"
 bindsym XF86Eject mode "$mode_system"
 
 # Polybar theme switcher mode
-set $mode_polybar Polybar (0): Deus Ex HR (1) Mac OS
+set $mode_polybar Polybar (0): Deus Ex HR (1) Mac OS (2) Matrix
 mode "$mode_polybar" {
       bindsym 0 exec --no-startup-id ~/.config/polybar/launch.sh deusex, mode "default"
       bindsym 1 exec --no-startup-id ~/.config/polybar/launch.sh mac, mode "default"
+      bindsym 2 exec --no-startup-id ~/.config/polybar/launch.sh matrix, mode "default"
 
       # Back to normal: Enter or Escape
       bindsym Return mode "default"

@@ -21,6 +21,8 @@ Xft.lcdfilter: lcddefault
 XTerm*pointerColor: #16A085
 XTerm*faceName: Fixed
 XTerm*faceSize: 11
+XTerm*reverseVideo:               on
+XTerm*selectToClipboard:          true
 
 *fading:                          15
 *fadeColor:                       black
@@ -31,29 +33,5 @@ XTerm*faceSize: 11
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
-XTerm*foreground:                 #fdf6e3
-XTerm*reverseVideo:               on
-XTerm*faceName:                   Terminus:size=11:antialias=true
-XTerm*selectToClipboard:          true
-
 ! rofi
 ! https://github.com/DaveDavenport/rofi#configuration
-
-! polybar
-! Values in the X resources db can be referenced using:
-! NOTE: Requires `xcb-util-xrm`
-! Example: 
-! Polybar config:
-!     background = ${xrdb:color2:#00ff00}
-! .Xresources:
-!     *color2: #8C9440
-
-! i3
-! set_from_resource $<name> <resource_name> <fallback>
-! The ~/.Xresources should contain a line such as
-!     *color0: #121212
-! and must be loaded properly, e.g., by using
-!     xrdb ~/.Xresources
-! This value is picked up on by other applications (e.g., the URxvt terminal
-! emulator) and can be used in i3 like this:
-! set_from_resource $black i3wm.color0 #000000

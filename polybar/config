@@ -8,7 +8,7 @@
 ;=====================================================
 
 ; here I set global bar parameters
-[parent-bar]
+[bar/main]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 16
@@ -64,44 +64,13 @@ tray-maxsize = 24
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-; bar that uses mac gray color and San Francisco font
-[bar/mac]
-inherit = parent-bar
-foreground = #000
-background = #ccc
-foreground-alt = #555
-background-alt = #7cf
-primary = #777
-secondary = #e05
-alert = #c24
-font-0 = San Francisco:pixelsize=9;2
-i3-label-focused-padding = 3
-i3-label-unfocused-padding = 2
-
-; orange and black bar, inspired by Deus Ex Human Revolution
-[bar/deusex]
-inherit = parent-bar
-foreground = #f80
-background = #111
-foreground-alt = #555
-background-alt = #444
-primary = #fb0
-secondary = #e05
-alert = #c24
-font-0 = IBM Plex Sans:pixelsize=9;1
-i3-label-focused-padding = 3
-i3-label-unfocused-padding = 2
-
-; green and black bar, inspired by the Matrix
-[bar/matrix]
-inherit = parent-bar
-foreground = #0b0
-background = #000
-foreground-alt = #555
-background-alt = #444
-primary = #0f0
-secondary = #e05
-alert = #c24
+foreground = ${xrdb:color3}
+background = ${xrdb:color0}
+foreground-alt = ${xrdb:color2}
+background-alt = ${xrdb:color3}
+primary = ${xrdb:color4}
+secondary = ${xrdb:color5}
+alert = ${xrdb:color6}
 font-0 = monospace:pixelsize=9;1
 i3-label-focused-padding = 2
 i3-label-unfocused-padding = 1

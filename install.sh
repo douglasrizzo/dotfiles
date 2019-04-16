@@ -5,11 +5,11 @@ ln -vsf `pwd`/.profile ~/.profile
 ln -vsf `pwd`/.xprofile ~/.xprofile
 ln -vsf `pwd`/.profile ~/.zprofile
 ln -vsf `pwd`/.bibtoolrsc ~/.bibtoolrsc
+ln -vsf `pwd`/xcolors ~/.xcolors
 
 # .config files
 ln -vsf `pwd`/compton.conf ~/.config/compton.conf
-ln -vsf `pwd`/latexindent/config.yaml 
-~/.config/latexindent.yaml
+ln -vsf `pwd`/latexindent/config.yaml  ~/.config/latexindent.yaml
 ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml
 ln -vsf `pwd`/i3-scrot.conf ~/.config/i3-scrot.conf
 

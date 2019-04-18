@@ -27,15 +27,17 @@ exec-exec_always --no-startup-id xrdb ~/.Xresources
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
-set_from_resource $color0 color0
-set_from_resource $color1 color1
-set_from_resource $color2 color2
-set_from_resource $color3 color3
-set_from_resource $color4 color4
-set_from_resource $color5 color5
-set_from_resource $color6 color6
-set_from_resource $color7 color7
-set_from_resource $color8 color8
+set_from_resource $bgcolor background
+set_from_resource $fgcolor foreground
+set_from_resource $color0  color0
+set_from_resource $color1  color1
+set_from_resource $color2  color2
+set_from_resource $color3  color3
+set_from_resource $color4  color4
+set_from_resource $color5  color5
+set_from_resource $color6  color6
+set_from_resource $color7  color7
+set_from_resource $color8  color8
 
 # Orange theme colors
 # class                 border  backgr. text    indic.   child_border
@@ -388,7 +390,18 @@ exec --no-startup-id systemd-run --on-calendar='*:0/15' --user -- /usr/bin/feh -
 #################################################################
 
 # dunst notification daemon
-exec --no-startup-id dunst -config $dunst_path/dunstrc
+# colors are grabbed from Xresources
+# everything else comes from a config file
+exec_always --no-startup-id dunst -config $dunst_path/dunstrc \
+                                  -lb "$bgcolor" \
+                                  -nb "$bgcolor" \
+                                  -cb "$bgcolor" \
+                                  -lf "$fgcolor" \
+                                  -bf "fgcolor" \
+                                  -cf "$fgcolor" \
+                                  -nf "$fgcolor" \
+                                  -frame_color "$fgcolor"
+
 # exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # exec --no-startup-id manjaro-hello
 # Composite windowxit

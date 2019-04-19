@@ -392,6 +392,7 @@ exec --no-startup-id systemd-run --on-calendar='*:0/15' --user -- /usr/bin/feh -
 # dunst notification daemon
 # colors are grabbed from Xresources
 # everything else comes from a config file
+exec_always --no-startup-id killall -q dunst
 exec_always --no-startup-id dunst -config $dunst_path/dunstrc \
                                   -lb "$bgcolor" \
                                   -nb "$bgcolor" \

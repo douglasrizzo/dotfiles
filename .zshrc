@@ -98,6 +98,9 @@ source $ZSH/oh-my-zsh.sh
 #ZSH autosuggestions plugin
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+#ZSH syntax highlighting plugin
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # needed by Anaconda
 source /home/$USER/.anaconda3/etc/profile.d/conda.sh
 

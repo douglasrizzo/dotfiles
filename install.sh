@@ -1,10 +1,10 @@
 # user-level files
-ln -vsf `pwd`/.zshrc ~/.zshrc
+ln -vsf `pwd`/zshrc ~/.zshrc
 ln -vsf `pwd`/.Xresources ~/.Xresources
-ln -vsf `pwd`/.profile ~/.profile
-ln -vsf `pwd`/.xprofile ~/.xprofile
-ln -vsf `pwd`/.profile ~/.zprofile
-ln -vsf `pwd`/.bibtoolrsc ~/.bibtoolrsc
+ln -vsf `pwd`/profile ~/.profile
+ln -vsf `pwd`/xprofile ~/.xprofile
+ln -vsf `pwd`/profile ~/.zprofile
+ln -vsf `pwd`/bibtoolrsc ~/.bibtoolrsc
 ln -vsf `pwd`/xcolors ~/.xcolors
 
 # .config files

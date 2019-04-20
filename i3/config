@@ -54,7 +54,7 @@ client.background       #2B2C2B
 
 # Hide window borders. Good when you have scroll bars (Fitts Law FTW)
 # hide_edge_borders none|vertical|horizontal|both|smart
-hide_edge_borders both
+hide_edge_borders vertical
 
 #new_window normal|none|pixel
 new_window pixel 1

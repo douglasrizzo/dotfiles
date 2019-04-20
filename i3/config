@@ -24,7 +24,7 @@ set $i3lock_folder ~/Documents/Wallpapers/desktop_screenshots
 font xft:IBM Plex Sans 10
 
 # 
-exec-exec_always --no-startup-id xrdb ~/.Xresources
+exec_always --no-startup-id xrdb -merge ~/.myXresources
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

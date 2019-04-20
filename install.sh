@@ -1,6 +1,6 @@
 # user-level files
 ln -vsf `pwd`/zshrc ~/.zshrc
-ln -vsf `pwd`/.Xresources ~/.Xresources
+ln -vsf `pwd`/Xresources ~/.myXresources
 ln -vsf `pwd`/profile ~/.profile
 ln -vsf `pwd`/xprofile ~/.xprofile
 ln -vsf `pwd`/profile ~/.zprofile

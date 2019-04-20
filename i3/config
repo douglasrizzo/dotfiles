@@ -8,6 +8,8 @@ exec xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --off --output HD
 
 set $mod Mod4
 
+exec --no-startup-id "setxkbmap -model apple -layout us -option compose:ralt"
+
 # config path for all programs
 set $i3_path ~/.config/i3
 set $compton_path ~/.config

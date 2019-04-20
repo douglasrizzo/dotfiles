@@ -4,7 +4,7 @@
 #define COLOR0 #000000
 #define COLOR1 #553300
 #define COLOR2 #885500
-#define COLOR3 #ffbb00
+#define COLOR3 #ff8800
 #define COLOR4 #ffbb00
 #define COLOR5 #cc2244
 #define COLOR6 #ee0055

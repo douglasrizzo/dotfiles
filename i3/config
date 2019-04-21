@@ -375,9 +375,9 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Wallpaper #####################################################
-exec_always --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder
+exec_always --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder/sc2
 # this line creates a service of some sort which updates the wallpaper every minute
-# exec --no-startup-id systemd-run --on-calendar='*:0/15' --user -- /usr/bin/feh -z --bg-scale --no-fehbg $wallpaper_folder
+exec --no-startup-id systemd-run --on-calendar='*:0/15' --user -- /usr/bin/feh -z --bg-scale --no-fehbg $wallpaper_folder/sc2
 # to see active timers
 # systemctl --user list-timers
 # to stop

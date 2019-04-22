@@ -6,45 +6,56 @@ If any of the files in this repo exist locally, they will be replaced by the lin
 
 Dependencies that can be installed using package managers are the following:
 
-    sudo pacman -S adobe-source-code-pro-fonts /
-                   blueman /
-                   compton /
-                   feh /
-                   i3-gaps /
-                   i3-wm /\
-                   i3lock /
-                   i3status /
-                   keepassx2 /
-                   kitty /
-                   libmpdclient /
-                   network-manager-applet /
-                   otf-font-awesome /
-                   pamac-tray /
-                   pamixer /
-                   pavucontrol /
-                   polybar /
-                   pulseaudio /
-                   pulseaudio-alsa /
-                   python /
-                   rofi /
-                   ttf-font-awesome /
-                   ttf-ibm-plex /
-                   ttf-roboto /
-                   xorg-xbacklight /
-                   xscreensaver /
-                   yay /
-                   zsh /
-                   zsh-autosuggestions /
-                   zsh-syntax-highlighting
+```sh
+sudo pacman -S adobe-source-code-pro-fonts /
+                blueman /
+                compton /
+                feh /
+                i3-gaps /
+                i3-wm /\
+                i3lock /
+                i3status /
+                keepassx2 /
+                kitty /
+                libmpdclient /
+                network-manager-applet /
+                otf-font-awesome /
+                pamac-tray /
+                pamixer /
+                pavucontrol /
+                polybar /
+                pulseaudio /
+                pulseaudio-alsa /
+                python /
+                rofi /
+                ttf-font-awesome /
+                ttf-ibm-plex /
+                ttf-roboto /
+                xorg-xbacklight /
+                xscreensaver /
+                yay /
+                zsh /
+                zsh-autosuggestions /
+                zsh-syntax-highlighting
 
-    sudo yay -S gitkraken /
-                jabref /
-                megasync /
-                otf-san-francisco /
-                spotify /
-                telegram-desktop /
-                visual-studio-code-bin
+yay -S gitkraken /
+       jabref /
+       megasync /
+       otf-san-francisco /
+       spotify /
+       telegram-desktop /
+       visual-studio-code-bin
 
-    curl https://bootstrap.pypa.io/get-pip.py | python
-    sudo -H python get-pip.py
-    sudo pip install py3status
+curl https://bootstrap.pypa.io/get-pip.py | python
+sudo -H python get-pip.py
+sudo pip install py3status
+
+code --install-extension --force abelcour.asp-syntax-highlight
+code --install-extension --force ban.spellright
+code --install-extension --force coolbear.systemd-unit-file
+code --install-extension --force DotJoshJohnson.xml
+code --install-extension --force foxundermoon.shell-format
+code --install-extension --force James-Yu.latex-workshop
+code --install-extension --force lextudio.restructuredtext
+code --install-extension --force ms-python.python
+```

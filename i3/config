@@ -374,18 +374,6 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
-# Wallpaper #####################################################
-exec_always --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder/sc2
-# this line creates a service of some sort which updates the wallpaper every minute
-exec --no-startup-id systemd-run --on-calendar='*:0/15' --user -- /usr/bin/feh -z --bg-scale --no-fehbg $wallpaper_folder/sc2
-# to see active timers
-# systemctl --user list-timers
-# to stop
-# systemctl --user stop run-$really_long_string.timer.
-# to replace by other background after stopping
-# xsetroot -solid black
-#################################################################
-
 # dunst notification daemon
 # colors are grabbed from Xresources
 # everything else comes from a config file
@@ -413,6 +401,21 @@ exec --no-startup-id xscreensaver
 exec_always --no-startup-id fix_xcursor
 exec megasync
 exec telegram-desktop -startintray
+
+# Wallpaper mode
+set $mode_wallpaper Wallpaper (0) general (1) landscape (2) starcraft (3) none
+mode "$mode_wallpaper" {
+    
+    bindsym 0 exec --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder, mode "default"
+    bindsym 1 exec --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder/landscapes, mode "default"
+    bindsym 2 exec --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder/sc2, mode "default"
+    bindsym 3 exec --no-startup-id xsetroot -solid black, mode "default"
+
+    # Back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+w mode "$mode_wallpaper"
 
 set $mode_xrandr Output: (h) HDMI, (n) notebook
 set $mode_xrandr_hdmi HDMI: (1) on, (0) off

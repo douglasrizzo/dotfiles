@@ -32,6 +32,7 @@ sudo pacman -S adobe-source-code-pro-fonts /
                 ttf-ibm-plex /
                 ttf-roboto /
                 xorg-xbacklight /
+                xorg-xsetroot /
                 xscreensaver /
                 yay /
                 zsh /

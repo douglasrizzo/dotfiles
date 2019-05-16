@@ -144,11 +144,11 @@ set $command_f9 kitty htop
 bindsym $mod+F1 exec notify-send "Launching $command_f1..." && $command_f1 || notify-send "Application $command_f1 does not exist"
 bindsym $mod+F2 exec notify-send "Launching $command_f2..." && $command_f2 || notify-send "Application $command_f2 does not exist"
 bindsym $mod+F3 exec notify-send "Launching $command_f3..." && $command_f3 || notify-send "Application $command_f3 does not exist"
-bindsym $mod+F4 exec notify-send "Launching $command_f4..." && $command_f4 || notify-send "Application $command_f4 does not exist"
+bindsym $mod+F4 exec $i3_path/scripts/maybe_run.sh $command_f4
 bindsym $mod+F5 exec notify-send "Launching $command_f5..." && $command_f5 || notify-send "Application $command_f5 does not exist"
-bindsym $mod+F6 exec notify-send "Launching $command_f6..." && $command_f6 || notify-send "Application $command_f6 does not exist"
-bindsym $mod+F7 exec notify-send "Launching $command_f7..." && $command_f7 || notify-send "Application $command_f7 does not exist"
-bindsym $mod+F8 exec notify-send "Launching $command_f8..." && $command_f8 || notify-send "Application $command_f8 does not exist"
+bindsym $mod+F6 exec $i3_path/scripts/maybe_run.sh $command_f6
+bindsym $mod+F7 exec $i3_path/scripts/maybe_run.sh $command_f7
+bindsym $mod+F8 exec $i3_path/scripts/maybe_run.sh $command_f8
 bindsym $mod+F9 exec notify-send "Launching $command_f9..." && $command_f9 || notify-send "Application $command_f9 does not exist"
 
 # assign [class="[Ss]ublime [Tt]ext"] $ws1

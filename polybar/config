@@ -38,9 +38,9 @@ font-2 = Font Awesome 5 Free:pixelsize=9;2
 font-3 = Font Awesome 5 Free Solid:pixelsize=9;2
 font-4 = Font Awesome 5 Brands:pixelsize=9;2
 
-modules-left   = i3
+modules-left   = i3 filesystem memory cpu
 modules-center = xwindow
-modules-right  = filesystem memory cpu wlan eth battery date
+modules-right  = battery date
 
 tray-position = right
 tray-padding = 2

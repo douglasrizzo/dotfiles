@@ -153,7 +153,7 @@
     # Limit icons size.
     max_icon_size=128
 
-frame_width = 1
+    frame_width = 1
 
 [shortcuts]
 

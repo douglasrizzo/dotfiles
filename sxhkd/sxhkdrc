@@ -1,6 +1,32 @@
-#
+# -----------------------------------------------------------------
 # wm independent hotkeys
-#
+# -----------------------------------------------------------------
+
+# Pulse Audio controls
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5% #increase sound volume
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -5% #decrease sound volume
+XF86AudioMute
+	pactl set-sink-mute 0 toggle # mute sound
+
+# Screen brightness controls
+XF86MonBrightnessUp
+	xbacklight -inc 10 && notify-send 'brightness up' || notify-send 'trouble invoking xbacklight'
+XF86MonBrightnessDown
+	xbacklight -dec 10 && notify-send 'brightness down' || notify-send 'trouble invoking xbacklight'
+
+XF86HomePage
+	firefox
+	
+XF86Mail
+	thunderbird
+
+XF86Calculator
+	speedcrunch
+
+super + ctrl + m
+	pavucontrol
 
 # terminal emulator
 super + Return
@@ -40,16 +66,16 @@ super + shift + r
 	pkill -USR1 -x sxhkdq
 	bspc wm -r
 
-#
+# -----------------------------------------------------------------
 # bspwm hotkeys
-#
+# -----------------------------------------------------------------
 
 # quit/restart bspwm
 super + 0
 	bspc quit
 
 # close and kill
-super + {_,shift + }q
+super + {_,shift + }BackSpace
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -64,9 +90,9 @@ super + y
 super + g
 	bspc node -s biggest
 
-#
+# -----------------------------------------------------------------
 # state/flags
-#
+# -----------------------------------------------------------------
 
 # set the window state
 super + {t,f}
@@ -79,9 +105,9 @@ super + ctrl + @space
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-#
+# -----------------------------------------------------------------
 # focus/swap
-#
+# -----------------------------------------------------------------
 
 # focus the node in the given direction
 super + {_,ctrl + }{Left,Down,Up,Right}
@@ -113,9 +139,9 @@ super + bracket{left,right}
 super + {_,ctrl + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-#
+# -----------------------------------------------------------------
 # preselect
-#
+# -----------------------------------------------------------------
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
@@ -133,9 +159,9 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#
+# -----------------------------------------------------------------
 # move/resize
-#
+# -----------------------------------------------------------------
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}

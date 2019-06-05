@@ -9,13 +9,13 @@
     "explorer.confirmDelete": false,
     "git.autofetch": true,
     "latex-workshop.latex.autoClean.run": "onBuilt",
-    "latex-workshop.latexindent.path": "/home/dodo/.texlive/2018/bin/x86_64-linux/latexindent",
+    "latex-workshop.latexindent.path": "/home/dodo/.texlive/2019/bin/x86_64-linux/latexindent",
     "latex-workshop.view.pdf.viewer": "external",
     "python.formatting.provider": "yapf",
     "spellright.addToSystemDictionary": false,
     "terminal.external.linuxExec": "kitty",
     "workbench.activityBar.visible": false,
-    "workbench.sideBar.location": "right",
+    // "workbench.sideBar.location": "right",
     "workbench.startupEditor": "newUntitledFile",
     // The command to execute when using external viewer.
     // This function is not officially supported. %PDF% is the placeholder for the absolute path to the generated PDF file.

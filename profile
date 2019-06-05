@@ -1,6 +1,7 @@
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/usr/bin/nano
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export XDG_CONFIG_HOME="$HOME/.config"
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/firefox
 
@@ -12,9 +13,9 @@ export SC2PATH="/opt/StarCraftII"
 
 export PATH="$PATH:$HOME/.anaconda3/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.texlive/2018/bin/x86_64-linux"
-export MANPATH="$HOME/.texlive/2018/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="$HOME/.texlive/2018/texmf-dist/doc/info:$INFOPATH"
+export PATH="$PATH:$HOME/.texlive/2019/bin/x86_64-linux"
+export MANPATH="$HOME/.texlive/2019/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="$HOME/.texlive/2019/texmf-dist/doc/info:$INFOPATH"
 
 # variables necessary by Malmo and MarLo
 # export MALMO_MINECRAFT_ROOT=$HOME/MalmoPlatform/Minecraft

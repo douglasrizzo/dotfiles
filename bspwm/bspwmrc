@@ -2,7 +2,9 @@
 
 sxhkd &
 ~/.config/polybar/launch.sh main &
-
+xscreensaver &
+megasync &
+telegram-desktop -startintray &
 
  if [[ $(hostname) == 'dodo-pc' ]]; then
      bspc monitor -d I II III IV V VI VII VIII IX X

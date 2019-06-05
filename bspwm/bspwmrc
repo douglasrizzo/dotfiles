@@ -21,8 +21,8 @@ blueman-applet &
  if [[ $(hostname) == 'dodo-pc' ]]; then
      bspc monitor -d I II III IV V VI VII VIII IX X
  elif [[ $(hostname) == 'dodo-laptop' ]]; then
-    bspc monitor HDMI-0 -d I II III IV
-    bspc monitor eDP-0 -d V VI VII VIII
+    bspc monitor HDMI1 -d I II III IV
+    bspc monitor eDP1 -d V VI VII VIII
  fi
 
 bspc config border_width         2

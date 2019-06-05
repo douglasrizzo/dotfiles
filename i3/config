@@ -459,13 +459,8 @@ bindsym $mod+Shift+k mode "$mode_keyboard"
 #############################
 
 # Set inner/outer gaps
-gaps inner 5
-gaps outer 5
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
+gaps inner 0
+gaps outer 0
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on

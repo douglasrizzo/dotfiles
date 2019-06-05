@@ -5,6 +5,18 @@ sxhkd &
 xscreensaver &
 megasync &
 telegram-desktop -startintray &
+nm-applet &
+blueman-applet &
+
+# dunst -config $dunst_path/dunstrc \
+#                                   -lb "$bgcolor" \
+#                                   -nb "$bgcolor" \
+#                                   -cb "$bgcolor" \
+#                                   -lf "$fgcolor" \
+#                                   -bf "fgcolor" \
+#                                   -cf "$fgcolor" \
+#                                   -nf "$fgcolor" \
+#                                   -frame_color "$fgcolor"
 
  if [[ $(hostname) == 'dodo-pc' ]]; then
      bspc monitor -d I II III IV V VI VII VIII IX X

@@ -9,10 +9,11 @@ Dependencies that can be installed using package managers are the following:
 ```sh
 sudo pacman -S adobe-source-code-pro-fonts /
                 blueman /
+                bspwm /
                 compton /
                 feh /
                 i3-gaps /
-                i3-wm /\
+                i3-wm /
                 i3lock /
                 i3status /
                 keepassx2 /
@@ -28,6 +29,7 @@ sudo pacman -S adobe-source-code-pro-fonts /
                 pulseaudio-alsa /
                 python /
                 rofi /
+                sxhkd /
                 ttf-font-awesome /
                 ttf-ibm-plex /
                 ttf-roboto /

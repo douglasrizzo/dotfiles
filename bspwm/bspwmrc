@@ -1,12 +1,13 @@
 #! /bin/sh
 
 sxhkd &
+~/.screenlayout/$(hostname).sh
 ~/.config/polybar/launch.sh main &
-xscreensaver &
 megasync &
 telegram-desktop -startintray &
 nm-applet &
 blueman-applet &
+xscreensaver &
 
 # dunst -config $dunst_path/dunstrc \
 #                                   -lb "$bgcolor" \
@@ -18,12 +19,12 @@ blueman-applet &
 #                                   -nf "$fgcolor" \
 #                                   -frame_color "$fgcolor"
 
- if [[ $(hostname) == 'dodo-pc' ]]; then
-     bspc monitor -d I II III IV V VI VII VIII IX X
- elif [[ $(hostname) == 'dodo-laptop' ]]; then
-    bspc monitor HDMI1 -d I II III IV
-    bspc monitor eDP1 -d V VI VII VIII
- fi
+if [[ $(hostname) == 'dodo-pc' ]]; then
+    bspc monitor -d 1 2 3 4 5 6 7 8 9
+elif [[ $(hostname) == 'dodo-laptop' ]]; then
+    bspc monitor HDMI1 -d 1 2 3 4
+    bspc monitor eDP1 -d 5 6 7 8
+fi
 
 bspc config border_width         2
 bspc config window_gap           2

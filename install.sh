@@ -6,6 +6,7 @@ ln -vsf `pwd`/xprofile ~/.xprofile
 ln -vsf `pwd`/profile ~/.zprofile
 ln -vsf `pwd`/bibtoolrsc ~/.bibtoolrsc
 ln -vsf `pwd`/xcolors ~/.xcolors
+ln -vsf `pwd`/screenlayout ~/.screenlayout
 
 # .config files
 ln -vsf `pwd`/compton.conf ~/.config/compton.conf

@@ -61,4 +61,5 @@ code --install-extension --force foxundermoon.shell-format
 code --install-extension --force James-Yu.latex-workshop
 code --install-extension --force lextudio.restructuredtext
 code --install-extension --force ms-python.python
+code --install-extension --force mosbasik.sxhkdrc-syntax
 ```

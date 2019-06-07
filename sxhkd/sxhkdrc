@@ -48,13 +48,13 @@ super + F5
 	telegram-desktop
 	
 super + F6
-	exec ~/.config/i3/scripts/maybe_run.sh gitkraken
+	~/.config/i3/scripts/maybe_run.sh gitkraken
 	
 super + F7
 	thunderbird
 	
 super + F8
-	~/.config/i3/scripts/maybe_run.sh $spotify
+	~/.config/i3/scripts/maybe_run.sh spotify
 	
 
 # program launcher

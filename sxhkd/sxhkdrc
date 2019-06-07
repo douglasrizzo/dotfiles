@@ -63,7 +63,7 @@ super + @space
 
 # make sxhkd reload its configuration files:
 super + shift + r
-	pkill -USR1 -x sxhkdq
+	killall sxhkd && sxhkd
 	bspc wm -r
 
 # -----------------------------------------------------------------
@@ -71,8 +71,25 @@ super + shift + r
 # -----------------------------------------------------------------
 
 # quit/restart bspwm
+
 super + 0
-	bspc quit
+	xscreensaver-command -lock
+
+super + Escape
+	zenity --question --text "Logout?" && bspc quit
+
+super + shift + Escape
+	zenity --question --text "Reboot?" && systemctl reboot
+
+super + alt + Escape
+	zenity --question --text "Poweroff?" && systemctl poweroff
+
+bindsym l exec --no-startup-id $i3_path/scripts/dodolock.sh, mode "default"
+bindsym o exec --no-startup-id i3-msg exit, mode "default"
+bindsym s exec --no-startup-id $i3_path/scripts/dodolock.sh && systemctl suspend, mode "default"
+bindsym h exec --no-startup-id $i3_path/scripts/dodolock.sh && systemctl hibernate, mode "default"
+bindsym r exec --no-startup-id systemctl reboot, mode "default"
+bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 
 # close and kill
 super + {_,shift + }BackSpace

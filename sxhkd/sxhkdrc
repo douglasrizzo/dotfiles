@@ -55,15 +55,24 @@ super + F7
 	
 super + F8
 	~/.config/i3/scripts/maybe_run.sh spotify
-	
 
 # program launcher
 super + @space
 	rofi -show combi
 
+@Print
+	scrot -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Screenshot saved"
+
+super + @Print
+	scrot -u -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Saved a screenshot of the currently focused window"
+
+super + shift + @Print
+	notify-send "Click a window or drag an area for the screenshot" && scrot -s -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Screenshot saved"
+
 # make sxhkd reload its configuration files:
 super + shift + r
-	killall sxhkd && sxhkd
+	killall sxhkd 
+	sxhkd
 	bspc wm -r
 
 # -----------------------------------------------------------------

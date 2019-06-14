@@ -43,6 +43,7 @@
         "*.glo",
         "*.gls",
         "*.glsdefs",
+        "*.glstex",
         "*.hd",
         "*.idx",
         "*.ilg",
@@ -121,6 +122,14 @@
         {
             "name": "makeglossaries",
             "command": "makeglossaries",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bib2gls",
+            "command": "bib2gls",
             "args": [
                 "%DOCFILE%"
             ],

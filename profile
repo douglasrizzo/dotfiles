@@ -17,6 +17,9 @@ export PATH="$PATH:$HOME/.texlive/2019/bin/x86_64-linux"
 export MANPATH="$HOME/.texlive/2019/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$HOME/.texlive/2019/texmf-dist/doc/info:$INFOPATH"
 
+#this is supposed to fix Java GUI applications in bspwm
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # variables necessary by Malmo and MarLo
 # export MALMO_MINECRAFT_ROOT=$HOME/MalmoPlatform/Minecraft
 # export MALMO_XSD_PATH=$HOME/MalmoPlatform/Schemas

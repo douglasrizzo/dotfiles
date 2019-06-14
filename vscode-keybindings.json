@@ -11,5 +11,15 @@
     {
         "key": "ctrl+shift+tab",
         "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "enter",
+        "command": "-latex-workshop.onEnterKey",
+        "when": "editorTextFocus && !editorReadonly && !suggestWidgetVisible && !vim.active && editorLangId == 'latex'"
+    },
+    {
+        "key": "enter",
+        "command": "-latex-workshop.onEnterKey",
+        "when": "editorTextFocus && vim.active && !editorReadonly && !suggestWidgetVisible && editorLangId == 'latex' && vim.mode == 'Insert'"
     }
 ]

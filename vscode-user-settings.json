@@ -20,7 +20,7 @@
     // The command to execute when using external viewer.
     // This function is not officially supported. %PDF% is the placeholder for the absolute path to the generated PDF file.
     "latex-workshop.view.pdf.external.command": {
-        "command": "qpdfview",
+        "command": "evince",
         "args": [
             "%PDF%"
         ]

@@ -10,18 +10,11 @@ Dependencies that can be installed using package managers are the following:
 sudo pacman -S adobe-source-code-pro-fonts /
                 blueman /
                 bspwm /
-                compton /
                 feh /
-                i3-gaps /
-                i3-wm /
-                i3lock /
-                i3status /
-                keepassx2 /
                 kitty /
                 libmpdclient /
                 network-manager-applet /
                 otf-font-awesome /
-                pamac-tray /
                 pamixer /
                 pavucontrol /
                 polybar /
@@ -42,6 +35,7 @@ sudo pacman -S adobe-source-code-pro-fonts /
                 zsh-syntax-highlighting
 
 yay -S gitkraken /
+       keepassx2 /
        jabref /
        megasync /
        otf-san-francisco /

@@ -93,13 +93,6 @@ super + shift + Escape
 super + alt + Escape
 	zenity --question --text "Poweroff?" && systemctl poweroff
 
-bindsym l exec --no-startup-id $i3_path/scripts/dodolock.sh, mode "default"
-bindsym o exec --no-startup-id i3-msg exit, mode "default"
-bindsym s exec --no-startup-id $i3_path/scripts/dodolock.sh && systemctl suspend, mode "default"
-bindsym h exec --no-startup-id $i3_path/scripts/dodolock.sh && systemctl hibernate, mode "default"
-bindsym r exec --no-startup-id systemctl reboot, mode "default"
-bindsym p exec --no-startup-id systemctl poweroff, mode "default"
-
 # close and kill
 super + {_,shift + }BackSpace
 	bspc node -{c,k}

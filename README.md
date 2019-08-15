@@ -41,6 +41,7 @@ yay -S gitkraken /
        megasync /
        spotify /
        telegram-desktop /
+       ttf-roboto-mono /
        visual-studio-code-bin /
        xgetres
        

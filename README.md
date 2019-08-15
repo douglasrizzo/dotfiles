@@ -11,6 +11,7 @@ sudo pacman -S adobe-source-code-pro-fonts /
                 blueman /
                 bspwm /
                 feh /
+                keepassxc /
                 kitty /
                 libmpdclient /
                 network-manager-applet /
@@ -35,10 +36,8 @@ sudo pacman -S adobe-source-code-pro-fonts /
                 zsh-syntax-highlighting
 
 yay -S gitkraken /
-       keepassx2 /
        jabref /
        megasync /
-       otf-san-francisco /
        spotify /
        telegram-desktop /
        visual-studio-code-bin

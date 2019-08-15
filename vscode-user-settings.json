@@ -1,7 +1,6 @@
 {
     "editor.detectIndentation": true,
-    "editor.fontFamily": "'IBM Plex Mono', 'Source Code Pro', 'Roboto Mono', 'monospace', monospace",
-    "editor.fontSize": 16,
+    "editor.fontFamily": "'Roboto Mono', 'IBM Plex Mono', 'Source Code Pro', 'monospace', monospace",
     "editor.formatOnPaste": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",

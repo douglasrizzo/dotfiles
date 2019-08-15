@@ -33,7 +33,8 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-1 = Noto Sans:pixelsize=9;1
+font-0 = Lexend Deca:pixelsize=10;2
+font-1 = monospace:pixelsize=9;1
 font-2 = Font Awesome 5 Free:pixelsize=9;2
 font-3 = Font Awesome 5 Free Solid:pixelsize=9;2
 font-4 = Font Awesome 5 Brands:pixelsize=9;2
@@ -71,7 +72,6 @@ background-alt = ${xrdb:color3}
 primary = ${xrdb:color4}
 secondary = ${xrdb:color5}
 alert = ${xrdb:color6}
-font-0 = monospace:pixelsize=9;1
 i3-label-focused-padding = 2
 i3-label-unfocused-padding = 1
 

@@ -9,15 +9,16 @@ nm-applet &
 blueman-applet &
 xscreensaver &
 
-# dunst -config $dunst_path/dunstrc \
-#                                   -lb "$bgcolor" \
-#                                   -nb "$bgcolor" \
-#                                   -cb "$bgcolor" \
-#                                   -lf "$fgcolor" \
-#                                   -bf "fgcolor" \
-#                                   -cf "$fgcolor" \
-#                                   -nf "$fgcolor" \
-#                                   -frame_color "$fgcolor"
+# xgetres is an AUR application that allows us to get the values from Xresources
+dunst -config $dunst_path/dunstrc \
+    -lb "$(xgetres background)" \
+    -nb "$(xgetres background)" \
+    -cb "$(xgetres background)" \
+    -lf "$(xgetres foreground)" \
+    -bf "$(xgetres foreground)" \
+    -cf "$(xgetres foreground)" \
+    -nf "$(xgetres foreground)" \
+    -frame_color "$(xgetres foreground)"
 
 if [ $(hostname) == 'dodo-pc' -o $(hostname) == 'dodo-brix' ]; then
     bspc monitor -d 1 2 3 4 5 6 7 8 9
@@ -26,12 +27,12 @@ elif [[ $(hostname) == 'dodo-laptop' ]]; then
     bspc monitor eDP1 -d 5 6 7 8
 fi
 
-bspc config border_width         2
-bspc config window_gap           2
+bspc config border_width 2
+bspc config window_gap 2
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
 
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
 # bspc rule -a Chromium desktop='^2'

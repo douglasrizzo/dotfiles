@@ -41,7 +41,8 @@ yay -S gitkraken /
        megasync /
        spotify /
        telegram-desktop /
-       visual-studio-code-bin
+       visual-studio-code-bin /
+       xgetres
        
 mkdir -p ~/.local/share/fonts
 wget https://github.com/ThomasJockin/lexend/raw/master/fonts/ttf/LexendDeca-Regular.ttf -O ~/.local/share/fonts/LexendDeca-Regular.ttf && fc-cache

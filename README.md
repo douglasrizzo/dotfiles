@@ -23,6 +23,7 @@ sudo pacman -S adobe-source-code-pro-fonts /
                 pulseaudio-alsa /
                 python /
                 rofi /
+                scrot /
                 sxhkd /
                 ttf-font-awesome /
                 ttf-ibm-plex /

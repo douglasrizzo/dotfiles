@@ -42,10 +42,9 @@ yay -S gitkraken /
        spotify /
        telegram-desktop /
        visual-studio-code-bin
-
-curl https://bootstrap.pypa.io/get-pip.py | python
-sudo -H python get-pip.py
-sudo pip install py3status
+       
+mkdir -p ~/.local/share/fonts
+wget https://github.com/ThomasJockin/lexend/raw/master/fonts/ttf/LexendDeca-Regular.ttf -O ~/.local/share/fonts/LexendDeca-Regular.ttf && fc-cache
 
 code --install-extension --force abelcour.asp-syntax-highlight
 code --install-extension --force ban.spellright

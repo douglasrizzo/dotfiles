@@ -50,6 +50,7 @@ rm -rf ~/.config/polybar && ln -vsf `pwd`/polybar/ ~/.config
 rm -rf ~/.config/rofi && ln -vsf `pwd`/rofi/ ~/.config
 rm -rf ~/.config/terminator && ln -vsf `pwd`/terminator/ ~/.config
 rm -rf ~/.config/kitty && ln -vsf `pwd`/kitty/ ~/.config
-rm -rf ~/.config/bspwm && ln -vsf `pwd`/bspwm ~/.config
-rm -rf ~/.config/sxhkd && ln -vsf `pwd`/sxhkd ~/.config
-rm -rf ~/.config/scripts && ln -vsf `pwd`/scripts ~/.config
+rm -rf ~/.config/bspwm && ln -vsf `pwd`/bspwm/ ~/.config
+rm -rf ~/.config/sxhkd && ln -vsf `pwd`/sxhkd/ ~/.config
+rm -rf ~/.config/scripts && ln -vsf `pwd`/scripts/ ~/.config
+rm -rf ~/.config/yapf && ln -vsf `pwd`/yapf/ ~/.config

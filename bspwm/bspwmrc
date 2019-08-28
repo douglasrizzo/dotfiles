@@ -9,6 +9,17 @@ blueman-applet &
 xscreensaver &
 telegram-desktop &
 
+if [ $(hostname) == 'dodo-pc' ]; then
+    bspc monitor -d 1 2 3 4 5 6 7 8 9
+    setxkbmap -model apple -layout us -variant intl
+elif [ $(hostname) == 'dodo-laptop' ]; then
+    bspc monitor HDMI1 -d 1 2 3 4
+    bspc monitor eDP1 -d 5 6 7 8
+    setxkbmap -model dell -layout br
+elif [ $(hostname) == 'dodo-brix' ]; then
+    bspc monitor -d 1 2 3 4 5 6 7 8 9
+    setxkbmap -model dell -layout br
+fi
 
 # stop dunst if it has been started by any application that called notify-send
 killall dunst 
@@ -23,14 +34,6 @@ dunst -config ~/.config/dunst/dunstrc \
     -cf "$(xgetres foreground)" \
     -nf "$(xgetres foreground)" \
     -frame_color "$(xgetres foreground)"
-
-if [ $(hostname) == 'dodo-pc' -o $(hostname) == 'dodo-brix' ]; then
-    bspc monitor -d 1 2 3 4 5 6 7 8 9
-elif [[ $(hostname) == 'dodo-laptop' ]]; then
-    bspc monitor HDMI1 -d 1 2 3 4
-    bspc monitor eDP1 -d 5 6 7 8
-fi
-
 bspc config border_width 2
 bspc config window_gap 2
 

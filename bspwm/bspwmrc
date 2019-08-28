@@ -1,13 +1,13 @@
 #! /bin/sh
 
 sxhkd &
-~/.screenlayout/$(hostname).sh
+~/.screenlayout/$(hostname).sh &
 ~/.config/polybar/launch.sh main &
 megasync &
-# telegram-desktop -startintray &
 nm-applet &
 blueman-applet &
 xscreensaver &
+telegram-desktop &
 
 # xgetres is an AUR application that allows us to get the values from Xresources
 dunst -config $dunst_path/dunstrc \

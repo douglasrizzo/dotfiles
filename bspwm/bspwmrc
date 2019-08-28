@@ -4,7 +4,7 @@ sxhkd &
 ~/.screenlayout/$(hostname).sh
 ~/.config/polybar/launch.sh main &
 megasync &
-telegram-desktop -startintray &
+# telegram-desktop -startintray &
 nm-applet &
 blueman-applet &
 xscreensaver &

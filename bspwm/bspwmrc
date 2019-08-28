@@ -9,8 +9,12 @@ blueman-applet &
 xscreensaver &
 telegram-desktop &
 
+
+# stop dunst if it has been started by any application that called notify-send
+killall dunst 
+
 # xgetres is an AUR application that allows us to get the values from Xresources
-dunst -config $dunst_path/dunstrc \
+dunst -config ~/.config/dunst/dunstrc \
     -lb "$(xgetres background)" \
     -nb "$(xgetres background)" \
     -cb "$(xgetres background)" \

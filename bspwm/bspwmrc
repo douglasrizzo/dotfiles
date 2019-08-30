@@ -26,12 +26,9 @@ if [ $(hostname) == 'dodo-pc' ]; then
     bspc monitor -d 1 2 3 4 5 6 7 8 9
     setxkbmap -model apple -layout us -variant intl
 elif [ $(hostname) == 'dodo-laptop' ]; then
-    bspc monitor HDMI1 -d 1 2 3 4
-    bspc monitor eDP1 -d 5 6 7 8
-    setxkbmap -model dell -layout br
-elif [ $(hostname) == 'dodo-brix' ]; then
-    bspc monitor -d 1 2 3 4 5 6 7 8 9
-    setxkbmap -model dell -layout br
+    bspc monitor eDP1 -d 1
+    bspc monitor HDMI1 -d 2 3 4 5 6 7 8 9
+    setxkbmap -model apple -layout us -variant intl
 fi
 
 # stop dunst if it has been started by any application that called notify-send

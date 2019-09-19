@@ -3,7 +3,7 @@ export EDITOR=/usr/bin/nano
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export XDG_CONFIG_HOME="$HOME/.config"
 # fix "xdg-open fork-bomb" export your preferred browser from here
-export BROWSER=/usr/bin/firefox
+export BROWSER=/usr/bin/chromium
 
 # adding TensorFlow models directory to our path
 export PYTHONPATH="$PYTHONPATH:$HOME/Code/models/research:$HOME/Code/models/research/slim"

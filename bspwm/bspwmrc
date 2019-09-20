@@ -24,7 +24,7 @@ telegram-desktop &
 
 if [ $(hostname) == 'dodo-pc' ]; then
     bspc monitor -d 1 2 3 4 5 6 7 8 9
-    setxkbmap -model apple -layout us -variant intl
+    setxkbmap -model microsoft -layout br
 elif [ $(hostname) == 'dodo-laptop' ]; then
     bspc monitor eDP1 -d 1
     bspc monitor HDMI1 -d 2 3 4 5 6 7 8 9
@@ -36,11 +36,11 @@ killall dunst
 
 # xgetres is an AUR application that allows us to get the values from Xresources
 dunst -config ~/.config/dunst/dunstrc \
+    -cb "$(xgetres background)" \
     -lb "$(xgetres background)" \
     -nb "$(xgetres background)" \
-    -cb "$(xgetres background)" \
-    -lf "$(xgetres foreground)" \
-    -bf "$(xgetres foreground)" \
     -cf "$(xgetres foreground)" \
+    -lf "$(xgetres foreground)" \
     -nf "$(xgetres foreground)" \
+    -bf "$(xgetres foreground)" \
     -frame_color "$(xgetres foreground)"

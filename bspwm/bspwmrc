@@ -22,12 +22,22 @@ blueman-applet &
 xscreensaver &
 telegram-desktop &
 
+NMONITORS=$(xrandr --listactivemonitors | wc -l)
+NMONITORS=$((NMONITORS-1))
 if [ $(hostname) == 'dodo-pc' ]; then
+    if [[ $NMONITORS == 2 ]]; then
     bspc monitor -d 1 2 3 4 5 6 7 8 9
+    else
+    bspc monitor -d 1 2 3 4 5 6 7 8 9
+    fi
     setxkbmap -model apple -layout us -variant intl
 elif [ $(hostname) == 'dodo-laptop' ]; then
-    bspc monitor eDP1 -d 1
-    bspc monitor HDMI1 -d 2 3 4 5 6 7 8 9
+    if [[ $NMONITORS == 1 ]]; then
+        bspc monitor -d 1 2 3 4 5 6 7 8 9
+    else
+        bspc monitor eDP1 -d 1
+        bspc monitor HDMI1 -d 2 3 4 5 6 7 8 9
+    fi
     setxkbmap -model apple -layout us -variant intl
 fi
 

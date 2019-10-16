@@ -28,6 +28,7 @@ ln -vsf `pwd`/screenlayout ~/.screenlayout
 ln -vsf `pwd`/compton.conf ~/.config/compton.conf
 ln -vsf `pwd`/latexindent/config.yaml  ~/.config/latexindent.yaml
 ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml
+sudo ln -vsf ~/Code/dotfiles/10-libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf
 
 # create vscode user config directory
 mkdir -p ~/.config/Code/User

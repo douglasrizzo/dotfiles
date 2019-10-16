@@ -1,6 +1,6 @@
 {
     "editor.detectIndentation": true,
-    "editor.fontFamily": "'Cascadia Code', 'Roboto Mono', 'IBM Plex Mono', 'Source Code Pro', 'monospace', monospace",
+    "editor.fontFamily": "'Oxygen Mono', 'monospace', monospace",
     "editor.formatOnPaste": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",

@@ -138,5 +138,8 @@
     "autoDocstring.docstringFormat": "sphinx",
     "editor.suggestSelection": "first",
     "latex-workshop.view.pdf.external.synctex.command": "/usr/bin/okular %PDF%",
-    "editor.fontSize": 15
+    "editor.fontSize": 15,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
 }

@@ -1,12 +1,15 @@
 adobe-source-code-pro-fonts
 blueman
 bspwm
+chromium
 evince
 feh
+gimp
 keepassxc
 kitty
 libmpdclient
 network-manager-applet
+nomacs
 ntp
 otf-font-awesome
 p7zip
@@ -24,7 +27,7 @@ ttf-font-awesome
 ttf-ibm-plex
 ttf-roboto
 unrar
-unzip/
+unzip
 xarchiver
 xorg-xbacklight
 xorg-xsetroot

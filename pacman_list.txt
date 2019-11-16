@@ -22,6 +22,7 @@ pulseaudio-alsa
 python
 rofi
 scrot
+steam-manjaro
 sxhkd
 ttf-font-awesome
 ttf-ibm-plex

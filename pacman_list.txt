@@ -2,6 +2,7 @@ adobe-source-code-pro-fonts
 blueman
 bspwm
 chromium
+dunst
 evince
 feh
 gimp
@@ -29,6 +30,7 @@ ttf-ibm-plex
 ttf-roboto
 unrar
 unzip
+vlc
 xarchiver
 xorg-xbacklight
 xorg-xsetroot

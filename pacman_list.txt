@@ -25,6 +25,7 @@ rofi
 scrot
 steam-manjaro
 sxhkd
+thunderbird
 ttf-font-awesome
 ttf-ibm-plex
 ttf-roboto

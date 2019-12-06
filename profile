@@ -11,9 +11,10 @@ export PYTHONPATH="$PYTHONPATH:$HOME/Code/models/research:$HOME/Code/models/rese
 # StarCraft 2 path, used by pysc2
 export SC2PATH="/opt/StarCraftII"
 
-export PATH="$PATH:$HOME/.anaconda3/bin"
+export PATH="$HOME/.anaconda3/bin:$PATH"
+export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.texlive/2019/bin/x86_64-linux"
+export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 export MANPATH="$HOME/.texlive/2019/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$HOME/.texlive/2019/texmf-dist/doc/info:$INFOPATH"
 
@@ -26,7 +27,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # this is a nuisance when not using Malmo, so only uncomment it when doing Malmo-related experiments
 # export TERM=xterm
 
-PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"; export PATH;
+export PATH="$PATH:$HOME/.perl5/bin"
 PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"$HOME/.perl5\""; export PERL_MB_OPT;

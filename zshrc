@@ -62,6 +62,7 @@ plugins=(
   git
   compleat
   sudo
+  ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh

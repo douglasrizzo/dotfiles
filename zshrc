@@ -115,6 +115,8 @@ bindkey '^H' backward-delete-word
 bindkey '5~' delete-word
 bindkey '3~' delete-word
 
+export TERM=xterm-256color
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$(${HOME}/.anaconda3/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"

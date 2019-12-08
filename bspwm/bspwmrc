@@ -13,14 +13,7 @@ bspc config gapless_monocle true
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
 
-sxhkd &
 ~/.screenlayout/$(hostname).sh &
-~/.config/polybar/launch.sh main &
-megasync &
-nm-applet &
-blueman-applet &
-xscreensaver &
-telegram-desktop &
 
 NMONITORS=$(xrandr --listactivemonitors | wc -l)
 NMONITORS=$((NMONITORS-1))
@@ -40,6 +33,14 @@ elif [ $(hostname) == 'dodo-laptop' ]; then
     fi
     setxkbmap -model apple -layout us -variant intl
 fi
+
+sxhkd &
+~/.config/polybar/launch.sh main &
+megasync &
+nm-applet &
+blueman-applet &
+xscreensaver &
+telegram-desktop &
 
 # stop dunst if it has been started by any application that called notify-send
 killall dunst 

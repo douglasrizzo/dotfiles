@@ -134,12 +134,12 @@
             "env": {}
         }
     ],
-    "workbench.colorTheme": "One Dark Pro Bold",
     "autoDocstring.docstringFormat": "sphinx",
     "editor.suggestSelection": "first",
     "latex-workshop.view.pdf.external.synctex.command": "/usr/bin/okular %PDF%",
     "editor.fontSize": 15,
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
-    }
+    },
+    "python.jediEnabled": false
 }

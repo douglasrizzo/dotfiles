@@ -2,6 +2,14 @@
 # wm independent hotkeys
 # -----------------------------------------------------------------
 
+# Control media players through media keys and playerctl
+XF86AudioPlay
+	playerctl play-pause
+XF86AudioNext
+	playerctl next
+XF86AudioPrev
+	playerctl previous
+
 # Pulse Audio controls
 XF86AudioRaiseVolume
 	pactl set-sink-volume 0 +5% #increase sound volume

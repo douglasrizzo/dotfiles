@@ -30,6 +30,9 @@ ln -vsf `pwd`/latexindent/config.yaml  ~/.config/latexindent.yaml
 ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml
 sudo ln -vsf ~/Code/dotfiles/10-libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf
 
+# custom scripts to be used as terminal apps
+ln -vsf `pwd`/scripts/micro-kitty ~/.local/bin/micro-kitty
+
 # create vscode user config directory
 mkdir -p ~/.config/Code/User
 ln -vsf `pwd`/vscode-user-settings.json ~/.config/Code/User/settings.json

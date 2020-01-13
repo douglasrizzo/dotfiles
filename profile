@@ -20,6 +20,8 @@ export INFOPATH="$HOME/.texlive/2019/texmf-dist/doc/info:$INFOPATH"
 
 #this is supposed to fix Java GUI applications in bspwm
 export _JAVA_AWT_WM_NONREPARENTING=1
+#this fixes jagged fonts in Java software such as Chatty
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
 # variables necessary by Malmo and MarLo
 # export MALMO_MINECRAFT_ROOT=$HOME/MalmoPlatform/Minecraft

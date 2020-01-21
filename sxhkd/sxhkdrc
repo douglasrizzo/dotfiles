@@ -65,7 +65,7 @@ super + F8
 	~/.config/scripts/maybe_run.sh spotify
 
 # program launcher
-super + @space
+super + space
 	rofi -show combi
 
 @Print

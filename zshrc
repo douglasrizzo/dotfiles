@@ -117,6 +117,10 @@ bindkey '3~' delete-word
 
 #export TERM=xterm-256color
 
+stream() {
+	(streamlink https://twitch.tv/$1 best &) && sleep 2 && disown
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$(${HOME}/.anaconda3/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"

@@ -50,7 +50,7 @@ super + F3
 	pcmanfm
 	
 super + F4
-	~/.config/scripts/maybe_run.sh jabref
+	~/.config/scripts/maybe_run.sh zotero
 	
 super + F5
 	telegram-desktop

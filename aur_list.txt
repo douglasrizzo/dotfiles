@@ -1,5 +1,5 @@
 gitkraken
-jabref
+zotero
 megasync
 spotify
 telegram-desktop

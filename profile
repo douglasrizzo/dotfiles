@@ -10,7 +10,7 @@ export PYTHONPATH="$PYTHONPATH:$HOME/Code/models/research:$HOME/Code/models/rese
 
 # StarCraft 2 path, used by pysc2
 export SC2PATH="/opt/StarCraftII"
-export MICRORTSPATH="$HOME/Code/microrts/"
+export MICRORTSPATH="$HOME/Code/microrts/bin/microrts.jar"
 
 export PATH="$HOME/.anaconda3/bin:$PATH"
 export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"

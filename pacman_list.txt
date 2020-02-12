@@ -17,6 +17,7 @@ p7zip
 pamixer
 pavucontrol
 pcmanfm
+picom
 polybar
 pulseaudio
 pulseaudio-alsa

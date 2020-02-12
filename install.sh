@@ -25,7 +25,7 @@ ln -vsf `pwd`/xcolors ~/.xcolors
 ln -vsf `pwd`/screenlayout ~/.screenlayout
 
 # .config files
-ln -vsf `pwd`/compton.conf ~/.config/compton.conf
+ln -vsf `pwd`/picom.conf ~/.config/picom.conf
 ln -vsf `pwd`/latexindent/config.yaml  ~/.config/latexindent.yaml
 ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml
 sudo ln -vsf `pwd`/10-libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf

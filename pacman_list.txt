@@ -6,6 +6,7 @@ dunst
 evince
 feh
 gimp
+hsetroot
 keepassxc
 kitty
 libmpdclient

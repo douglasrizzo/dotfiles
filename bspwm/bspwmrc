@@ -37,6 +37,7 @@ fi
 
 sxhkd &
 picom --config $HOME/.config/picom.conf &
+hsetroot -solid black
 ~/.config/polybar/launch.sh main &
 megasync &
 nm-applet &

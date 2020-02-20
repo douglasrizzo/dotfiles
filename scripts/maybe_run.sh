@@ -1,4 +1,4 @@
-ps -e | grep $1
+pidof $1
 r=$?
 
 case $r in

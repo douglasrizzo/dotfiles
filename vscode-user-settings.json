@@ -1,6 +1,6 @@
 {
     "editor.detectIndentation": true,
-    "editor.fontFamily": "'Oxygen Mono', 'monospace', monospace",
+    "editor.fontFamily": "'B612 Mono', 'monospace', monospace",
     "editor.formatOnPaste": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",

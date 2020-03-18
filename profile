@@ -24,6 +24,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #this fixes jagged fonts in Java software such as Chatty
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
+export PATH="/opt/cuda-10.1/bin:$PATH"
+export CPATH="/opt/cuda-10.1/include:$CPATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda-10.1/lib64:/opt/cuda-10.1/lib"
+
 # variables necessary by Malmo and MarLo
 # export MALMO_MINECRAFT_ROOT=$HOME/MalmoPlatform/Minecraft
 # export MALMO_XSD_PATH=$HOME/MalmoPlatform/Schemas

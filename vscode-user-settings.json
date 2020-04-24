@@ -141,5 +141,10 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "python.pythonPath": "/home/dodo/.anaconda3/bin/python",
+    "python.dataScience.askForKernelRestart": false,
+    "python.analysis.cacheFolderPath": ".vscode-python-cache",
+    "python.autoComplete.addBrackets": true,
+    "python.condaPath": "/home/dodo/.anaconda3/bin/conda"
 }

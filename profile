@@ -15,7 +15,7 @@ export MICRORTSPATH="$HOME/Code/microrts/bin/microrts.jar"
 export PATH="$HOME/.anaconda3/bin:$PATH"
 export PATH="$HOME/.texlive/2020/bin/x86_64-linux:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 export MANPATH="$HOME/.texlive/2020/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$HOME/.texlive/2020/texmf-dist/doc/info:$INFOPATH"
 
@@ -23,6 +23,10 @@ export INFOPATH="$HOME/.texlive/2020/texmf-dist/doc/info:$INFOPATH"
 export _JAVA_AWT_WM_NONREPARENTING=1
 #this fixes jagged fonts in Java software such as Chatty
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+
+export PATH="/opt/cuda-10.1/bin:$PATH"
+export CPATH="/opt/cuda-10.1/include:$CPATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda-10.1/lib64:/opt/cuda-10.1/lib"
 
 # variables necessary by Malmo and MarLo
 # export MALMO_MINECRAFT_ROOT=$HOME/MalmoPlatform/Minecraft

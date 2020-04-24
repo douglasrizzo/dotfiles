@@ -45,6 +45,7 @@ hsetroot -solid black
 ~/.config/scripts/maybe_run.sh blueman-applet &
 ~/.config/scripts/maybe_run.sh xscreensaver &
 ~/.config/scripts/maybe_run.sh telegram-desktop &
+~/.config/scripts/maybe_run.sh discord &
 
 # stop dunst if it has been started by any application that called notify-send
 killall dunst 

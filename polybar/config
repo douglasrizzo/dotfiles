@@ -368,7 +368,7 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${root.foreground-alt}
 format-full-underline = #0f0
 
-label-discharging = %time% (%consumption% W)
+label-discharging = %percentage%% (%time%)
 format-discharging = <ramp-capacity> <label-discharging>
 ;format-discharging-underline = ${ramp-capacity-foreground}
 

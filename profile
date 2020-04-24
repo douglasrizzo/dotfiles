@@ -13,11 +13,11 @@ export SC2PATH="/opt/StarCraftII"
 export MICRORTSPATH="$HOME/Code/microrts/bin/microrts.jar"
 
 export PATH="$HOME/.anaconda3/bin:$PATH"
-export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"
+export PATH="$HOME/.texlive/2020/bin/x86_64-linux:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
-export MANPATH="$HOME/.texlive/2019/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="$HOME/.texlive/2019/texmf-dist/doc/info:$INFOPATH"
+export MANPATH="$HOME/.texlive/2020/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="$HOME/.texlive/2020/texmf-dist/doc/info:$INFOPATH"
 
 #this is supposed to fix Java GUI applications in bspwm
 export _JAVA_AWT_WM_NONREPARENTING=1

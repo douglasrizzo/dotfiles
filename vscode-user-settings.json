@@ -1,6 +1,6 @@
 {
     "editor.detectIndentation": true,
-    "editor.fontFamily": "'B612 Mono', 'monospace', monospace",
+    "editor.fontFamily": "'B612 Mono', 'monospace', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Brands'",
     "editor.formatOnPaste": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",

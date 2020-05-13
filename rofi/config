@@ -1,6 +1,6 @@
 ! Exclamation marks are comments
 ! Use rofi -dump-xresources to see which parameters can be changed
 
-rofi.modi:       window,drun,run,combi
-rofi.combi-modi: window,drun
-rofi.theme:      dodo
+rofi.modi:       drun
+! rofi.combi-modi: drun
+rofi.theme:      slate

@@ -3,20 +3,14 @@
 # -----------------------------------------------------------------
 
 # Control media players through media keys and playerctl
-XF86AudioPlay
-	playerctl play-pause
-XF86AudioNext
-	playerctl next
-XF86AudioPrev
-	playerctl previous
+XF86Audio{Play,Next,Prev}
+	playerctl {play-pause,next,previous}
 
 # Pulse Audio controls
-XF86AudioRaiseVolume
-	pactl set-sink-volume 0 +5% #increase sound volume
-XF86AudioLowerVolume
-	pactl set-sink-volume 0 -5% #decrease sound volume
+XF86Audio{RaiseVolume,LowerVolume}
+	pactl set-sink-volume 0 {+5%,-5%}
 XF86AudioMute
-	pactl set-sink-mute 0 toggle # mute sound
+	pactl set-sink-mute 0 toggle
 
 # Screen brightness controls
 XF86MonBrightnessUp
@@ -24,50 +18,26 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	xbacklight -dec 10 && notify-send 'brightness down' || notify-send 'trouble invoking xbacklight'
 
-XF86HomePage
-	firefox
-	
-XF86Mail
-	thunderbird
+# some system settings shortcuts
+super + ctrl + {a,v}
+	{pavucontrol,arandr}
 
-XF86Calculator
-	speedcrunch
+# application shortcuts
 
-super + ctrl + m
-	pavucontrol
+XF86{HomePage,Mail,Calculator}
+	{firefox,thunderbird,speedcrunch}
 
-# terminal emulator
-super + Return
-	kitty
+super + {Return,F4,F8,F9,F10,F11,F12}
+	{kitty,thunderbird,discord,telegram-desktop,firefox,pcmanfm,code}
 
-super + F1
-	code
-	
-super + F2
-	firefox
-	
-super + F3
-	pcmanfm
-	
-super + F4
-	~/.config/scripts/maybe_run.sh zotero
-	
-super + F5
-	telegram-desktop
-	
-super + F6
-	~/.config/scripts/maybe_run.sh gitkraken
-	
-super + F7
-	thunderbird
-	
-super + F8
-	~/.config/scripts/maybe_run.sh spotify
+super + {F5,F6,F7}
+	~/.config/scripts/maybe_run.sh {spotify,zotero,gitkraken}
 
 # program launcher
 super + space
-	rofi -show combi
+	rofi -show
 
+# screenshots
 @Print
 	scrot -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Screenshot saved"
 

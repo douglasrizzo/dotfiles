@@ -48,16 +48,16 @@ super + shift + @Print
 	notify-send "Click a window or drag an area for the screenshot" && scrot -s -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Screenshot saved"
 
 # make sxhkd reload its configuration files:
-super + shift + r
-	killall sxhkd 
-	sxhkd
-	bspc wm -r
+super + shift + Escape
+	pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
 
 # -----------------------------------------------------------------
 # bspwm hotkeys
 # -----------------------------------------------------------------
 
 # quit/restart bspwm
+super + alt + r
+	bspc wm -r && notify-send "bspwm restarted"
 
 {super + 0, XF86Eject}
 	xscreensaver-command -lock

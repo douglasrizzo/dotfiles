@@ -8,7 +8,6 @@
     "explorer.confirmDelete": false,
     "git.autofetch": true,
     "latex-workshop.latex.autoClean.run": "onBuilt",
-    "latex-workshop.latexindent.path": "/home/dodo/.texlive/2019/bin/x86_64-linux/latexindent",
     "latex-workshop.view.pdf.viewer": "external",
     "python.formatting.provider": "yapf",
     "spellright.addToSystemDictionary": false,

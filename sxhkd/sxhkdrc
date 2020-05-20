@@ -122,19 +122,29 @@ super + {_,shift + }Tab
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
-# super + {grave,Tab}
-#	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-# super + {o,i}
-# 	bspc wm -h off; \
-# 	bspc node {older,newer} -f; \
-# 	bspc wm -h on
-
 # focus or send to the given desktop
 super + {_,ctrl + }{1-9}
 	bspc {desktop -f,node -d} '^{1-9}'
+
+# -----------------------------------------------------------------
+# focus/swap with mouse
+# -----------------------------------------------------------------
+
+# focus windows in same desktop
+button1{1,0}
+	bspc node -f {next,prev}.local
+
+# swap windows in same desktop
+ctrl + button1{1,0}
+	bspc node -s {prev,next}.local
+
+# focus next/previous desktop
+super + button1{1,0}
+	bspc desktop -f {prev,next}.local
+
+# swap window to next/previous desktop
+super + ctrl + button1{1,0}
+	bspc node -d {prev,next}.local
 
 # -----------------------------------------------------------------
 # preselect

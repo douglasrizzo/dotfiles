@@ -3,4 +3,4 @@
 
 rofi.modi:       drun
 ! rofi.combi-modi: drun
-rofi.theme:      slate
+rofi.theme:      dodo-slate

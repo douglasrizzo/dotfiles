@@ -47,13 +47,13 @@ super + @Print
 super + shift + @Print
 	notify-send "Click a window or drag an area for the screenshot" && scrot -s -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Screenshot saved"
 
-# make sxhkd reload its configuration files:
-super + shift + Escape
-	pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
-
 # -----------------------------------------------------------------
 # bspwm hotkeys
 # -----------------------------------------------------------------
+
+# make sxhkd reload its configuration files:
+super + shift + r
+	pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
 
 # quit/restart bspwm
 super + alt + r

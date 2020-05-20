@@ -144,4 +144,6 @@
     "python.analysis.cacheFolderPath": "~/.vscode-python-cache",
     "python.autoComplete.addBrackets": true,
     "python.venvPath": "~/.virtualenvs",
+    "workbench.colorTheme": "Ayu Dark",
+    "workbench.iconTheme": "ayu",
 }

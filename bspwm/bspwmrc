@@ -24,7 +24,7 @@ if [ $(hostname) == 'dodo-pc' ]; then
     else
         bspc monitor -d 1 2 3 4 5 6 7 8 9
     fi
-    setxkbmap -model microsoft -layout br
+    # setxkbmap -layout br
 elif [ $(hostname) == 'dodo-laptop' ]; then
     if [[ $NMONITORS == 1 ]]; then
         bspc monitor -d 1 2 3 4 5 6 7 8 9
@@ -32,18 +32,13 @@ elif [ $(hostname) == 'dodo-laptop' ]; then
         bspc monitor eDP1 -d 1
         bspc monitor HDMI1 -d 2 3 4 5 6 7 8 9
     fi
-    setxkbmap -model apple -layout us -variant intl
+    # setxkbmap -model apple -layout us -variant intl
 fi
+
 
 sxhkd &
 picom --config $HOME/.config/picom.conf &
 hsetroot -solid black
-~/.config/polybar/launch.sh main &
-~/.config/scripts/maybe_run.sh megasync &
-~/.config/scripts/maybe_run.sh nm-applet &
-~/.config/scripts/maybe_run.sh blueman-applet &
-~/.config/scripts/maybe_run.sh xscreensaver &
-~/.config/scripts/maybe_run.sh telegram-desktop &
 
 # stop dunst if it has been started by any application that called notify-send
 killall dunst 
@@ -57,4 +52,14 @@ dunst -config ~/.config/dunst/dunstrc \
     -lf "$(xgetres foreground)" \
     -nf "$(xgetres foreground)" \
     -bf "$(xgetres foreground)" \
-    -frame_color "$(xgetres foreground)"
+    -frame_color "$(xgetres foreground)" &
+
+sleep 1
+
+~/.config/polybar/launch.sh main &
+~/.config/scripts/maybe_run.sh megasync &
+~/.config/scripts/maybe_run.sh nm-applet &
+~/.config/scripts/maybe_run.sh blueman-applet &
+~/.config/scripts/maybe_run.sh xscreensaver &
+~/.config/scripts/maybe_run.sh telegram-desktop &
+~/.config/scripts/maybe_run.sh discord &

@@ -109,6 +109,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
 label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -368,7 +369,7 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${root.foreground-alt}
 format-full-underline = #0f0
 
-label-discharging = %time% (%consumption% W)
+label-discharging = %percentage%% (%time%)
 format-discharging = <ramp-capacity> <label-discharging>
 ;format-discharging-underline = ${ramp-capacity-foreground}
 

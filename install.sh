@@ -31,7 +31,7 @@ ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml
 sudo ln -vsf `pwd`/10-libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf
 
 # custom scripts to be used as terminal apps
-ln -vsf `pwd`/scripts/micro-kitty ~/.local/bin/micro-kitty
+ln -vsf `pwd`/scripts/micro-kitty ~/.local/bin/mk
 
 # create vscode user config directory
 mkdir -p ~/.config/Code/User
@@ -57,3 +57,6 @@ rm -rf ~/.config/bspwm && ln -vsf `pwd`/bspwm/ ~/.config
 rm -rf ~/.config/sxhkd && ln -vsf `pwd`/sxhkd/ ~/.config
 rm -rf ~/.config/scripts && ln -vsf `pwd`/scripts/ ~/.config
 rm -rf ~/.config/yapf && ln -vsf `pwd`/yapf/ ~/.config
+
+# download and install rofi themes
+git clone https://github.com/davatorium/rofi-themes.git && mv rofi-themes/User\ Themes/*.rasi ~/.config/rofi/ && rm -rf rofi-themes

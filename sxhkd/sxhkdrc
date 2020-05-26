@@ -120,7 +120,7 @@ super + {_,shift + }Tab
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+	bspc desktop -f {prev,next}.occupied
 
 # focus or send to the given desktop
 super + {_,ctrl + }{1-9}
@@ -140,7 +140,7 @@ ctrl + button1{1,0}
 
 # focus next/previous desktop
 super + button1{1,0}
-	bspc desktop -f {prev,next}.local
+	bspc desktop -f {prev,next}.occupied
 
 # swap window to next/previous desktop
 super + ctrl + button1{1,0}

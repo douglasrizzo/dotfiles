@@ -146,4 +146,9 @@
     "python.venvPath": "~/.virtualenvs",
     "workbench.colorTheme": "Ayu Dark",
     "workbench.iconTheme": "ayu",
+    "C_Cpp.clang_format_fallbackStyle": "Chromium",
+    "editor.formatOnSave": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSurroundingLines": 3,
+    "files.insertFinalNewline": true,
 }

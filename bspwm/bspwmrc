@@ -36,7 +36,7 @@ elif [ $(hostname) == 'dodo-laptop' ]; then
 fi
 
 
-sxhkd &
+sxhkd -m 1 &
 picom --config $HOME/.config/picom.conf &
 hsetroot -solid black
 

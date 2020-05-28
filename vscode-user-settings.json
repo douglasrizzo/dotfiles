@@ -151,4 +151,5 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.cursorSurroundingLines": 3,
     "files.insertFinalNewline": true,
+    "files.eol": "\n",
 }

@@ -1,6 +1,7 @@
 gitkraken
 zotero
 megasync
+rofi-file-browser-extended-git
 spotify
 telegram-desktop
 ttf-roboto-mono

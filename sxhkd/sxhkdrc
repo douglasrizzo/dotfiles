@@ -35,7 +35,11 @@ super + {F5,F6,F7}
 
 # program launcher
 super + space
-	rofi -show
+	rofi -show drun
+
+# quick file browser
+super + alt + space
+	rofi -show file-browser
 
 # screenshots
 @Print

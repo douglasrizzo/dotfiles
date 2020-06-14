@@ -13,10 +13,10 @@ bspc config gapless_monocle true
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
 
-~/.screenlayout/$(hostname).sh &
+# ~/.screenlayout/$(hostname).sh &
 
 NMONITORS=$(xrandr --listactivemonitors | wc -l)
-NMONITORS=$((NMONITORS-1))
+NMONITORS=$((NMONITORS - 1))
 if [ $(hostname) == 'dodo-pc' ]; then
     if [[ $NMONITORS == 2 ]]; then
         bspc monitor DP-0 -d 1
@@ -35,13 +35,12 @@ elif [ $(hostname) == 'dodo-laptop' ]; then
     # setxkbmap -model apple -layout us -variant intl
 fi
 
-
 sxhkd -m 1 &
 picom --config $HOME/.config/picom.conf &
 hsetroot -solid black
 
 # stop dunst if it has been started by any application that called notify-send
-killall dunst 
+killall dunst
 
 # xgetres is an AUR application that allows us to get the values from Xresources
 dunst -config ~/.config/dunst/dunstrc \

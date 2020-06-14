@@ -1,22 +1,37 @@
 {
+    "autoDocstring.docstringFormat": "sphinx",
+    "C_Cpp.clang_format_fallbackStyle": "Chromium",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSurroundingLines": 3,
     "editor.detectIndentation": true,
     "editor.fontFamily": "'B612 Mono', 'monospace', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Brands'",
+    "editor.fontSize": 15,
     "editor.formatOnPaste": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
+    "editor.suggestSelection": "first",
     "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
     "git.autofetch": true,
+    "latex-utilities.tikzpreview.enabled": false,
     "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.view.pdf.viewer": "external",
+    "python.analysis.cacheFolderPath": "~/.vscode-python-cache",
+    "python.autoComplete.addBrackets": true,
+    "python.dataScience.askForKernelRestart": false,
     "python.formatting.provider": "yapf",
+    "python.jediEnabled": false,
+    "python.linting.mypyEnabled": true,
+    "python.pythonPath": "/home/dodo/.anaconda3/bin/python",
+    "python.venvPath": "~/.virtualenvs",
     "spellright.addToSystemDictionary": false,
     "terminal.external.linuxExec": "kitty",
     "workbench.activityBar.visible": false,
-    // "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Ayu Dark Bordered",
+    "workbench.iconTheme": "ayu",
     "workbench.startupEditor": "newUntitledFile",
-    // Files to clean.
-    // This property must be an array of strings. File globs such as *.removeme, something?.aux can be used.
     "latex-workshop.latex.clean.fileTypes": [
         "*.acn",
         "*.acr",
@@ -40,10 +55,10 @@
         "*.ind",
         "*.ins",
         "*.ist",
-        "*.log",
         "*.loa",
         "*.loe",
         "*.lof",
+        "*.log",
         "*.lot",
         "*.mw",
         "*.nav",
@@ -133,23 +148,13 @@
             "env": {}
         }
     ],
-    "autoDocstring.docstringFormat": "sphinx",
-    "editor.suggestSelection": "first",
-    "editor.fontSize": 15,
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "python.pythonPath": "/home/dodo/.anaconda3/bin/python",
-    "python.dataScience.askForKernelRestart": false,
-    "python.analysis.cacheFolderPath": "~/.vscode-python-cache",
-    "python.autoComplete.addBrackets": true,
-    "python.venvPath": "~/.virtualenvs",
-    "workbench.colorTheme": "Ayu Dark",
-    "workbench.iconTheme": "ayu",
-    "C_Cpp.clang_format_fallbackStyle": "Chromium",
-    "editor.formatOnSave": true,
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.cursorSurroundingLines": 3,
-    "files.insertFinalNewline": true,
-    "files.eol": "\n",
+    "[latex]": {
+        "editor.formatOnSave": false
+    },
+    "[python]": {
+        "editor.formatOnSave": true
+    }
 }

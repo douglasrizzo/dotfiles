@@ -36,7 +36,7 @@ elif [ $(hostname) == 'dodo-laptop' ]; then
 fi
 
 sxhkd -m 1 &
-picom --config $HOME/.config/picom.conf &
+# picom --config $HOME/.config/picom.conf &
 hsetroot -solid black
 
 # stop dunst if it has been started by any application that called notify-send

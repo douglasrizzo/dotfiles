@@ -28,6 +28,7 @@ ln -vsf `pwd`/screenlayout ~/.screenlayout
 ln -vsf `pwd`/picom.conf ~/.config/picom.conf
 ln -vsf `pwd`/latexindent/config.yaml  ~/.config/latexindent.yaml
 ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml
+ln -vsf `pwd`/alacritty.yml ~/.config/alacritty.yml
 sudo ln -vsf `pwd`/10-libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf
 
 # custom scripts to be used as terminal apps

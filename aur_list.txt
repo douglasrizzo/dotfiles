@@ -1,3 +1,4 @@
+alacritty
 gitkraken
 zotero
 megasync

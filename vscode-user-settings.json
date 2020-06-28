@@ -29,7 +29,7 @@
     "spellright.addToSystemDictionary": false,
     "terminal.external.linuxExec": "kitty",
     "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Ayu Dark Bordered",
+    "workbench.colorTheme": "Ayu Dark",
     "workbench.iconTheme": "ayu",
     "workbench.startupEditor": "newUntitledFile",
     "latex-workshop.latex.clean.fileTypes": [
@@ -156,5 +156,7 @@
     },
     "[python]": {
         "editor.formatOnSave": true
-    }
+    },
+    "python.languageServer": "Microsoft",
+    "editor.tabSize": 2
 }

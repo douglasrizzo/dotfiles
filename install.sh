@@ -25,6 +25,7 @@ ln -vsf `pwd`/xcolors ~/.xcolors
 ln -vsf `pwd`/screenlayout ~/.screenlayout
 
 # .config files
+ln -vsf `pwd`/dodo.zsh-theme $HOME/.oh-my-zsh/themes/
 ln -vsf `pwd`/picom.conf ~/.config/picom.conf
 ln -vsf `pwd`/latexindent/config.yaml  ~/.config/latexindent.yaml
 ln -vsf `pwd`/latexindent/config_location.yaml ~/.indentconfig.yaml

@@ -111,8 +111,8 @@ interval = 25
 mount-0 = /
 mount-1 = /home
 
-label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
+label-mounted =  %{F#0a81f5}%mountpoint%%{F-}:%percentage_used%%
+label-unmounted =
 label-unmounted-foreground = ${root.foreground-alt}
 
 ;format-underline = #f90000
@@ -260,20 +260,21 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = :
 format-prefix-foreground = ${root.foreground-alt}
 ;format-underline = #f90000
 ;format-overline = ${self.format-underline}
-label = : %percentage:2%%
+label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = :
+format = "<label>"
 format-prefix-foreground = ${root.foreground-alt}
 ;format-underline = #4bffdc
 ;format-overline = ${self.format-underline}
-label = : %percentage_used%%
+label = %gb_used%/%gb_total% (%percentage_used%%)
 
 [module/wlan]
 type = internal/network
@@ -323,7 +324,7 @@ date-alt = %Y-%m-%d
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = ": "
+format-prefix = :
 format-prefix-foreground = ${root.foreground}
 ;format-underline = #0a6cf5
 ;format-overline = ${self.format-underline}

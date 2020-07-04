@@ -1,10 +1,12 @@
 alacritty
 gitkraken
-zotero
+lexend-fonts-git
 megasync
 rofi-file-browser-extended-git
 spotify
 telegram-desktop
+ttf-b612
 ttf-roboto-mono
 visual-studio-code-bin
 xgetres
+zotero

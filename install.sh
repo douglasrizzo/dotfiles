@@ -2,10 +2,6 @@
 sudo pacman -S --needed - < pacman_list.txt
 yay -S - < aur_list.txt
 
-# download font used by polybar
-mkdir -p ~/.local/share/fonts
-wget https://github.com/ThomasJockin/lexend/raw/master/fonts/ttf/LexendDeca-Regular.ttf -O ~/.local/share/fonts/LexendDeca-Regular.ttf && fc-cache
-
 # install vscode extensions (currently not working)
 code --install-extension ban.spellright
 code --install-extension foxundermoon.shell-format

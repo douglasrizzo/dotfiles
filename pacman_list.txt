@@ -5,10 +5,10 @@ chromium
 dunst
 evince
 feh
+flameshot
 gimp
 hsetroot
 keepassxc
-kitty
 libmpdclient
 network-manager-applet
 nomacs
@@ -24,7 +24,6 @@ pulseaudio
 pulseaudio-alsa
 python
 rofi
-scrot
 steam-manjaro
 sxhkd
 thunderbird

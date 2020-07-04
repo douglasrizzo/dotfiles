@@ -43,13 +43,13 @@ super + alt + space
 
 # screenshots
 @Print
-	scrot -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Screenshot saved"
+	mkdir -p ~/Pictures/screenshots && flameshot full -p ~/Pictures/screenshots
 
 super + @Print
-	scrot -u -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Saved a screenshot of the currently focused window"
+	mkdir -p ~/Pictures/screenshots && flameshot screen -p ~/Pictures/screenshots
 
 super + shift + @Print
-	notify-send "Click a window or drag an area for the screenshot" && scrot -s -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots/' && notify-send "Screenshot saved"
+  mkdir -p ~/Pictures/screenshots && flameshot gui -p ~/Pictures/screenshots
 
 # -----------------------------------------------------------------
 # bspwm hotkeys

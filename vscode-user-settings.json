@@ -27,7 +27,7 @@
     "python.pythonPath": "/home/dodo/.anaconda3/bin/python",
     "python.venvPath": "~/.virtualenvs",
     "spellright.addToSystemDictionary": false,
-    "terminal.external.linuxExec": "kitty",
+    "terminal.external.linuxExec": "alacritty",
     "workbench.activityBar.visible": false,
     "workbench.colorTheme": "Ayu Dark",
     "workbench.iconTheme": "ayu",

@@ -39,14 +39,15 @@ font-2 = Font Awesome 5 Free:pixelsize=10;2
 font-3 = Font Awesome 5 Free Solid:pixelsize=10;2
 font-4 = Font Awesome 5 Brands:pixelsize=10;2
 
-modules-left   = bspwm filesystem memory cpu
-modules-center = xwindow
-modules-right  = battery date
+modules-left   = bspwm date temperature battery filesystem memory cpu
+;modules-center = xwindow
+modules-right  = xwindow
 
 tray-position = right
 tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
+separator=~
 
 ; Tray icon max size
 tray-maxsize = 24
@@ -106,7 +107,7 @@ label-indicator-underline = ${root.secondary}
 
 [module/filesystem]
 type = internal/fs
-interval = 25
+interval = 10
 
 mount-0 = /
 mount-1 = /home
@@ -291,12 +292,12 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${root.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${root.foreground-alt}
+;ramp-signal-0 = 
+;ramp-signal-1 = 
+;ramp-signal-2 = 
+;ramp-signal-3 = 
+;ramp-signal-4 = 
+;ramp-signal-foreground = ${root.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -381,16 +382,16 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 
 ramp-capacity-0-foreground = #f00
-ramp-capacity-1-foreground = #f70
-ramp-capacity-2-foreground = #ff0
-ramp-capacity-3-foreground = #7f0
-ramp-capacity-4-foreground = #0f0
+ramp-capacity-1-foreground = #f40
+ramp-capacity-2-foreground = #f70
+ramp-capacity-3-foreground = #fa0
+ramp-capacity-4-foreground = #ff0
 
-ramp-capacity-0-underline = ${self.ramp-capacity-0-foreground}
-ramp-capacity-1-underline = ${self.ramp-capacity-1-foreground}
-ramp-capacity-2-underline = ${self.ramp-capacity-2-foreground}
-ramp-capacity-3-underline = ${self.ramp-capacity-3-foreground}
-ramp-capacity-4-underline = ${self.ramp-capacity-4-foreground}
+;ramp-capacity-0-underline = ${self.ramp-capacity-0-foreground}
+;ramp-capacity-1-underline = ${self.ramp-capacity-1-foreground}
+;ramp-capacity-2-underline = ${self.ramp-capacity-2-foreground}
+;ramp-capacity-3-underline = ${self.ramp-capacity-3-foreground}
+;ramp-capacity-4-underline = ${self.ramp-capacity-4-foreground}
 
 format-charging = <animation-charging> <label-charging>
 format-charging-foreground = #88f
@@ -406,22 +407,31 @@ animation-charging-4 = ${self.ramp-capacity-4}
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
-
+base-temperature = 35
+warn-temperature = 85
+units = true
+hwmon-path = /sys/devices/virtual/hwmon/hwmon3/temp1_input
 format = <ramp> <label>
-;format-underline = #f50a4d
+;format-underline = ${root.background}
 ;format-overline = ${self.format-underline}
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+;format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${root.secondary}
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #fff
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${root.foreground-alt}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+ramp-0-foreground = #ff0
+ramp-1-foreground = #fa0
+ramp-2-foreground = #f70
+ramp-3-foreground = #f40
+ramp-4-foreground = #f00
 
 [module/powermenu]
 type = custom/menu

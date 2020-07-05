@@ -16,7 +16,6 @@ offset-x = 0
 offset-y = 0
 ; radius = 6.0
 ; fixed-center = false
-bottom = true
 
 line-size = 3
 line-color = #f00
@@ -39,18 +38,7 @@ font-2 = Font Awesome 5 Free:pixelsize=10;2
 font-3 = Font Awesome 5 Free Solid:pixelsize=10;2
 font-4 = Font Awesome 5 Brands:pixelsize=10;2
 
-modules-left   = bspwm date temperature battery filesystem memory cpu
-;modules-center = xwindow
-modules-right  = xwindow
-
-tray-position = right
-tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
 separator=~
-
-; Tray icon max size
-tray-maxsize = 24
 
 wm-restack = bspwm
 ;wm-restack = i3
@@ -75,6 +63,33 @@ secondary = ${xrdb:color5}
 alert = ${xrdb:color6}
 i3-label-focused-padding = 2
 i3-label-unfocused-padding = 1
+
+; Tray icon max size
+tray-maxsize = 24
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+[bar/single]
+inherit = bar/main
+modules-left = bspwm date temperature battery filesystem memory cpu
+modules-right = xwindow
+bottom = true
+tray-position = right
+
+[bar/bottom]
+inherit = bar/main
+modules-left = cpu memory filesystem
+modules-right = battery temperature
+bottom = true
+tray-position = right
+
+[bar/top]
+inherit = bar/main
+modules-left = bspwm
+modules-center = xwindow
+modules-right = date
+bottom = false
 
 [module/xwindow]
 type = internal/xwindow

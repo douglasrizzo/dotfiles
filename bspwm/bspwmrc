@@ -3,7 +3,7 @@
 bspc config border_width 2
 bspc config window_gap 2
 
-bspc config split_ratio 0.52
+bspc config split_ratio 0.5
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 
@@ -15,24 +15,47 @@ bspc config gapless_monocle true
 
 # ~/.screenlayout/$(hostname).sh &
 
-NMONITORS=$(xrandr --listactivemonitors | wc -l)
-NMONITORS=$((NMONITORS - 1))
-if [ $(hostname) == 'dodo-pc' ]; then
-    if [[ $NMONITORS == 2 ]]; then
-        bspc monitor DP-0 -d 1
-        bspc monitor HDMI-0 -d 2 3 4 5 6 7 8 9
-    else
-        bspc monitor -d 1 2 3 4 5 6 7 8 9
-    fi
-    # setxkbmap -layout br
-elif [ $(hostname) == 'dodo-laptop' ]; then
-    if [[ $NMONITORS == 1 ]]; then
-        bspc monitor -d 1 2 3 4 5 6 7 8 9
-    else
-        bspc monitor eDP1 -d 1
-        bspc monitor HDMI1 -d 2 3 4 5 6 7 8 9
-    fi
-    # setxkbmap -model apple -layout us -variant intl
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+# grab number of active monitors and name of first monitor
+NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
+MONITOR1=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+# grab second monitor name, if it exists
+if [[ $NMONITORS == 2 ]]; then
+    MONITOR2=$(xrandr --listactivemonitors | tail -n 2 | head -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+fi
+
+# organize big and small monitors
+if [[ $MONITOR1 == *"HDMI"* ]]; then
+  BIGMONITOR=$MONITOR1
+  SMALLMONITOR=$MONITOR2
+else
+  SMALLMONITOR=$MONITOR1
+  BIGMONITOR=$MONITOR2
+fi
+
+# if the monitor exists, configure its resolution and its polybar
+if [[ $SMALLMONITOR ]]; then
+  xrandr --output $SMALLMONITOR --mode 1366x768 --pos 0x0 --rotate normal
+  MONITOR=$SMALLMONITOR polybar --reload single &
+fi
+if [[ $BIGMONITOR ]]; then
+  xrandr --output $BIGMONITOR --primary --mode 1920x1080 --pos 1366x0 --rotate normal
+  MONITOR=$BIGMONITOR polybar --reload bottom &
+  MONITOR=$BIGMONITOR polybar --reload top &
+fi
+xrandr --output VIRTUAL1 --off
+
+# delegate bspwm desktops to each monitor
+if [[ $NMONITORS == 2 ]]; then
+    bspc monitor $SMALLMONITOR -d 1
+    bspc monitor $BIGMONITOR -d 2 3 4 5 6 7 8 9
+else
+    bspc monitor -d 1 2 3 4 5 6 7 8 9
 fi
 
 sxhkd -m 1 &
@@ -55,7 +78,6 @@ dunst -config ~/.config/dunst/dunstrc \
 
 sleep 1
 
-~/.config/polybar/launch.sh main &
 ~/.config/scripts/maybe_run.sh megasync &
 ~/.config/scripts/maybe_run.sh nm-applet &
 ~/.config/scripts/maybe_run.sh blueman-applet &

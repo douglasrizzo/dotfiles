@@ -79,7 +79,7 @@ tray-position = right
 
 [bar/bottom]
 inherit = bar/main
-modules-left = cpu memory filesystem
+modules-left = filesystem memory cpu 
 modules-right = battery temperature
 bottom = true
 tray-position = right
@@ -280,17 +280,55 @@ format-prefix = :
 format-prefix-foreground = ${root.foreground-alt}
 ;format-underline = #f90000
 ;format-overline = ${self.format-underline}
-label = %percentage:2%%
+label = %percentage:3%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = :
-format = "<label>"
+format = "<label> <bar-used>"
 format-prefix-foreground = ${root.foreground-alt}
-;format-underline = #4bffdc
-;format-overline = ${self.format-underline}
-label = %gb_used%/%gb_total% (%percentage_used%%)
+;label = %gb_used%/%gb_total% (%percentage_used%%)
+label = %gb_used%
+
+; Only applies if <bar-used> is used
+bar-used-indicator =
+bar-used-width = 64
+bar-used-foreground-0 =  #00f
+bar-used-foreground-1 =  #10f
+bar-used-foreground-2 =  #20f
+bar-used-foreground-3 =  #30f
+bar-used-foreground-4 =  #40f
+bar-used-foreground-5 =  #50f
+bar-used-foreground-6 =  #60f
+bar-used-foreground-7 =  #70f
+bar-used-foreground-8 =  #80f
+bar-used-foreground-9 =  #90f
+bar-used-foreground-10 = #a0f
+bar-used-foreground-11 = #b0f
+bar-used-foreground-12 = #c0f
+bar-used-foreground-13 = #d0f
+bar-used-foreground-14 = #e0f
+bar-used-foreground-15 = #f0f
+bar-used-foreground-16 = #f0f
+bar-used-foreground-17 = #f0e
+bar-used-foreground-18 = #f0d
+bar-used-foreground-19 = #f0c
+bar-used-foreground-20 = #f0b
+bar-used-foreground-21 = #f0a
+bar-used-foreground-22 = #f09
+bar-used-foreground-23 = #f08
+bar-used-foreground-24 = #f07
+bar-used-foreground-25 = #f06
+bar-used-foreground-26 = #f05
+bar-used-foreground-27 = #f04
+bar-used-foreground-28 = #f03
+bar-used-foreground-29 = #f02
+bar-used-foreground-30 = #f01
+bar-used-foreground-31 = #f00
+bar-used-fill = |
+bar-used-empty = |
+bar-used-empty-foreground = #333
 
 [module/wlan]
 type = internal/network

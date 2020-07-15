@@ -3,4 +3,10 @@
 
 rofi.modi:       drun,file-browser
 ! rofi.combi-modi: drun
-rofi.theme:      dodo-slate
+! rofi.theme:      dodo-slate
+
+! Dark theme.
+rofi.theme: ~/.cache/wal/colors-rofi-dark
+
+! Light theme.
+! theme: "~/.cache/wal/colors-rofi-light"

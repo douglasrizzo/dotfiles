@@ -13,13 +13,29 @@
         "command": "workbench.action.previousEditor"
     },
     {
-        "key": "enter",
-        "command": "-latex-workshop.onEnterKey",
-        "when": "editorTextFocus && !editorReadonly && !suggestWidgetVisible && !vim.active && editorLangId == 'latex'"
+        "key": "ctrl+=",
+        "command": "-workbench.action.zoomIn"
     },
     {
-        "key": "enter",
-        "command": "-latex-workshop.onEnterKey",
-        "when": "editorTextFocus && vim.active && !editorReadonly && !suggestWidgetVisible && editorLangId == 'latex' && vim.mode == 'Insert'"
-    }
+        "key": "ctrl+-",
+        "command": "-workbench.action.zoomOut"
+    },
+    {
+        "key": "ctrl+=",
+        "command": "editor.action.fontZoomIn"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "editor.action.fontZoomOut"
+    },
+    // {
+    //     "key": "enter",
+    //     "command": "-latex-workshop.onEnterKey",
+    //     "when": "editorTextFocus && !editorReadonly && !suggestWidgetVisible && !vim.active && editorLangId == 'latex'"
+    // },
+    // {
+    //     "key": "enter",
+    //     "command": "-latex-workshop.onEnterKey",
+    //     "when": "editorTextFocus && vim.active && !editorReadonly && !suggestWidgetVisible && editorLangId == 'latex' && vim.mode == 'Insert'"
+    // }
 ]

@@ -157,6 +157,6 @@
     "[python]": {
         "editor.formatOnSave": true
     },
-    "python.languageServer": "Microsoft",
+    "python.languageServer": "Pylance",
     "editor.tabSize": 2
 }

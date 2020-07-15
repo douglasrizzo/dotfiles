@@ -29,7 +29,6 @@
     "spellright.addToSystemDictionary": false,
     "terminal.external.linuxExec": "alacritty",
     "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Ayu Dark",
     "workbench.iconTheme": "ayu",
     "workbench.startupEditor": "newUntitledFile",
     "latex-workshop.latex.clean.fileTypes": [
@@ -158,5 +157,7 @@
         "editor.formatOnSave": true
     },
     "python.languageServer": "Pylance",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "workbench.colorTheme": "FireFly Pro Midnight",
+    "window.zoomLevel": 0
 }

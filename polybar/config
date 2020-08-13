@@ -484,16 +484,16 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 60
 
-date = %d-%m
-date-alt = %Y-%m-%d
+date = %d/%m/%Y
+date-alt = %d/%m/%Y
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = :
-format-prefix-foreground = ${root.foreground}
+;format-prefix = :
+;format-prefix-foreground = ${root.foreground}
 ;format-underline = #0a6cf5
 ;format-overline = ${self.format-underline}
 
@@ -532,8 +532,10 @@ type = internal/battery
 battery = BAT0
 adapter = ADP1
 full-at = 98
-time-format = %H:%M
+time-format = %H:%M:%S
 
+;label-full =
+format-full = %percentage%%
 format-full-prefix = " "
 format-full-prefix-foreground = ${root.foreground-alt}
 format-full-underline = #0f0

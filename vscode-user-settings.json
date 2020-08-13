@@ -154,7 +154,7 @@
         "editor.formatOnSave": false
     },
     "[python]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "python.languageServer": "Pylance",
     "editor.tabSize": 2,

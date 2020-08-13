@@ -23,8 +23,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
 export PATH="/opt/cuda-10.1/bin:$PATH"
 export CPATH="/opt/cuda-10.1/include:$CPATH"
-export LD_LIBRARY_PATH="/usr/lib:/home/dodo/.anaconda3/lib:/opt/cuda-10.1/lib64:/opt/cuda-10.1/lib"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda-10.1/lib64:/opt/cuda-10.1/lib:/opt/TensorRT-6.0.1.5/lib"
+export LD_LIBRARY_PATH="/usr/lib:/home/dodo/.anaconda3/lib:/opt/cuda-10.1/lib64:/opt/cuda-10.1/lib:/opt/TensorRT-6.0.1.5/lib"
 
 # variables necessary by Malmo and MarLo
 # export MALMO_MINECRAFT_ROOT=$HOME/MalmoPlatform/Minecraft
@@ -33,13 +32,9 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda-10.1/lib64:/opt/cuda-10.1/lib
 # export TERM=xterm
 
 export PATH="$PATH:$HOME/.perl5/bin"
-PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-export PERL5LIB
-PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-export PERL_LOCAL_LIB_ROOT
-PERL_MB_OPT="--install_base \"$HOME/.perl5\""
-export PERL_MB_OPT
-PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
-export PERL_MM_OPT
+export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"$HOME/.perl5\""
+export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
 
 export TERMINAL="alacritty"

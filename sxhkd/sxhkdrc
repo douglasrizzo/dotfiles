@@ -28,7 +28,7 @@ XF86{HomePage,Mail,Calculator}
 	{firefox,thunderbird,speedcrunch}
 
 super + {Return,F4,F8,F9,F10,F11,F12}
-	{alacritty,thunderbird,discord-canary,telegram-desktop,firefox,thunar,code}
+	{alacritty,thunderbird,discord,telegram-desktop,firefox,pcmanfm,code}
 
 super + {F5,F6,F7}
 	~/.config/scripts/maybe_run.sh {spotify,zotero,gitkraken}

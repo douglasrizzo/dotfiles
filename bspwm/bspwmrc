@@ -108,4 +108,4 @@ start_dunst
 ~/.config/scripts/maybe_run.sh blueman-applet &
 ~/.config/scripts/maybe_run.sh xscreensaver &
 ~/.config/scripts/maybe_run.sh telegram-desktop &
-~/.config/scripts/maybe_run.sh discord-canary DiscordCanary &
+~/.config/scripts/maybe_run.sh discord Discord &

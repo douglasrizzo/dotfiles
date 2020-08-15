@@ -108,14 +108,14 @@ tray-padding = 2
 inherit = bar/main
 modules-left = bspwm filesystem_tiny memory_tiny cpu
 modules-center = xwindow
-modules-right = temperature battery date
+modules-right = temperature battery date updates-arch-combined
 bottom = true
 tray-position = right
 
 [bar/bottom]
 inherit = bar/main
 modules-left = filesystem_big memory_big cpu 
-modules-right = battery temperature
+modules-right = battery temperature updates-arch-combined
 bottom = true
 tray-position = right
 
@@ -125,6 +125,16 @@ modules-left = bspwm
 modules-center = xwindow
 modules-right = date
 bottom = false
+
+[module/network-traffic]
+type = custom/script
+exec = ~/.config/polybar/scripts/network-traffic.sh
+tail = true
+
+[module/system-cpu-temppercore]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-cpu-temppercore.sh
+interval = 3
 
 [module/xwindow]
 type = internal/xwindow
@@ -313,7 +323,7 @@ card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = .5
 label = %percentage-cores:3%
 ;format-underline = #f90000
 ;format-overline = ${self.format-underline}
@@ -447,7 +457,7 @@ bar-used-empty-foreground = #333
 [module/wlan]
 type = internal/network
 interface = wlp6s0
-interval = 3.0
+interval = 3
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
@@ -469,7 +479,7 @@ format-disconnected =
 [module/eth]
 type = internal/network
 interface = enp7s0
-interval = 3.0
+interval = 3
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
@@ -486,7 +496,7 @@ format-disconnected =
 type = internal/date
 interval = 60
 
-date = %d/%m/%Y
+date = %d/%m
 date-alt = %d/%m/%Y
 
 time = %H:%M
@@ -532,10 +542,10 @@ type = internal/battery
 battery = BAT0
 adapter = ADP1
 full-at = 98
-time-format = %H:%M:%S
+time-format = %H:%M
 
-;label-full =
-format-full = %percentage%%
+label-full = %percentage%
+format-full = <ramp-capacity> <label-full>
 format-full-prefix = " "
 format-full-prefix-foreground = ${root.foreground-alt}
 format-full-underline = #0f0

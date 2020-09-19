@@ -41,5 +41,4 @@ yay
 zenity
 zip
 zsh
-zsh-autosuggestions
-zsh-syntax-highlighting
+

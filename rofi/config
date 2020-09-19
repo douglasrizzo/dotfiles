@@ -9,4 +9,4 @@ rofi.modi:       drun,file-browser
 rofi.theme: ~/.cache/wal/colors-rofi-dark
 
 ! Light theme.
-! theme: "~/.cache/wal/colors-rofi-light"
+! rofi.theme: ~/.cache/wal/colors-rofi-light

@@ -29,14 +29,14 @@ config_terminal() {
 
 link_stuff() {
   echo "${bold}Linking user level files...${normal}"
-  ln -vsf $(pwd)/Xresources ~/.myXresources
-  ln -vsf $(pwd)/profile ~/.profile
-  ln -vsf $(pwd)/xprofile ~/.xprofile
-  ln -vsf $(pwd)/profile ~/.zprofile
   ln -vsf $(pwd)/bibtoolrsc ~/.bibtoolrsc
-  ln -vsf $(pwd)/xcolors ~/.xcolors
-  ln -vsf $(pwd)/screenlayout ~/.screenlayout
   ln -vsf $(pwd)/nanorc ~/.nanorc
+  ln -vsf $(pwd)/profile ~/.profile
+  ln -vsf $(pwd)/profile ~/.zprofile
+  ln -vsf $(pwd)/screenlayout ~/.screenlayout
+  ln -vsf $(pwd)/xcolors ~/.xcolors
+  ln -vsf $(pwd)/xprofile ~/.xprofile
+  ln -vsf $(pwd)/Xresources ~/.myXresources
 
   echo "${bold}Linking ~/.config files...${normal}"
   ln -vsf $(pwd)/dodo.zsh-theme $HOME/.oh-my-zsh/themes/
@@ -52,18 +52,18 @@ link_stuff() {
   ln -vsf $(pwd)/vscode-keybindings.json ~/.config/Code/User/keybindings.json
 
   echo "${bold}Linking ~/.config directories...${normal}"
-  rm -rf ~/.config/zsh && ln -vsf $(pwd)/zsh ~/.config
+  rm -rf ~/.config/bspwm && ln -vsf $(pwd)/bspwm/ ~/.config
   rm -rf ~/.config/dunst && ln -vsf $(pwd)/dunst/ ~/.config
   rm -rf ~/.config/htop && ln -vsf $(pwd)/htop/ ~/.config
   rm -rf ~/.config/i3 && ln -vsf $(pwd)/i3/ ~/.config
+  rm -rf ~/.config/kitty && ln -vsf $(pwd)/kitty/ ~/.config
   rm -rf ~/.config/polybar && ln -vsf $(pwd)/polybar/ ~/.config
   rm -rf ~/.config/rofi && ln -vsf $(pwd)/rofi/ ~/.config
-  rm -rf ~/.config/terminator && ln -vsf $(pwd)/terminator/ ~/.config
-  rm -rf ~/.config/kitty && ln -vsf $(pwd)/kitty/ ~/.config
-  rm -rf ~/.config/bspwm && ln -vsf $(pwd)/bspwm/ ~/.config
-  rm -rf ~/.config/sxhkd && ln -vsf $(pwd)/sxhkd/ ~/.config
   rm -rf ~/.config/scripts && ln -vsf $(pwd)/scripts/ ~/.config
+  rm -rf ~/.config/sxhkd && ln -vsf $(pwd)/sxhkd/ ~/.config
+  rm -rf ~/.config/terminator && ln -vsf $(pwd)/terminator/ ~/.config
   rm -rf ~/.config/yapf && ln -vsf $(pwd)/yapf/ ~/.config
+  rm -rf ~/.config/zsh && ln -vsf $(pwd)/zsh ~/.config
 }
 
 download_stuff() {

@@ -99,7 +99,7 @@ start_polybar &
 # -m is the mode, necessary for non-US keyboards
 sxhkd -m 1 &
 # picom --config $HOME/.config/picom.conf &
-hsetroot -solid black
+# hsetroot -solid black
 
 start_dunst
 
@@ -108,4 +108,4 @@ start_dunst
 ~/.config/scripts/maybe_run.sh blueman-applet &
 ~/.config/scripts/maybe_run.sh xscreensaver &
 ~/.config/scripts/maybe_run.sh telegram-desktop &
-~/.config/scripts/maybe_run.sh discord Discord &
+~/.config/scripts/maybe_run.sh discord-ptb DiscordPtb &

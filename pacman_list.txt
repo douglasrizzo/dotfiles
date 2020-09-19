@@ -1,5 +1,4 @@
 adobe-source-code-pro-fonts
-blueman
 bspwm
 chromium
 dunst
@@ -10,14 +9,21 @@ gimp
 hsetroot
 keepassxc
 libmpdclient
+nano-syntax-highlighting
+nemo
+nemo-bulk-rename
+nemo-compare
+nemo-fileroller
+nemo-image-converter
+nemo-pdf-tools
+nemo-preview
+nemo-python
 network-manager-applet
-nomacs
 ntp
 otf-font-awesome
 p7zip
 pamixer
 pavucontrol
-pcmanfm
 picom
 polybar
 pulseaudio
@@ -26,7 +32,6 @@ python
 rofi
 steam-manjaro
 sxhkd
-thunderbird
 ttf-font-awesome
 ttf-ibm-plex
 ttf-roboto

@@ -1,3 +1,5 @@
+export ZDOTDIR="$HOME/.config/zsh"
+
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/home/dodo/.local/bin/mk
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"

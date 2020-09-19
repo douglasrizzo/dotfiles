@@ -113,8 +113,35 @@ pip_install_stuff() {
     yapf
 }
 
+code_install_stuff() {
+  for ext in \
+    adamvoss.vscode-languagetool \
+    alanwalk.markdown-toc \
+    ankitcode.firefly \
+    coenraads.bracket-pair-colorizer-2 \
+    davidanson.vscode-markdownlint \
+    dlasagno.wal-theme \
+    efoerster.texlab \
+    foxundermoon.shell-format \
+    lextudio.restructuredtext \
+    ms-python.python \
+    ms-python.vscode-pylance \
+    njpwerner.autodocstring \
+    sandcastle.vscode-open \
+    shan.code-settings-sync \
+    teabyii.ayu \
+    tyriar.sort-lines \
+    valentjn.vscode-ltex \
+    visualstudioexptteam.vscodeintellicode \
+    vomout.latex-syntax \
+    xaver.clang-format; do
+    code --install-extension $ext
+  done
+}
+
 link_stuff
 config_terminal
 download_stuff
 install_stuff
 pip_install_stuff
+code_install_stuff

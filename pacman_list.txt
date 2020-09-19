@@ -32,6 +32,7 @@ python
 rofi
 steam-manjaro
 sxhkd
+texlab
 ttf-font-awesome
 ttf-ibm-plex
 ttf-roboto
@@ -46,4 +47,3 @@ yay
 zenity
 zip
 zsh
-

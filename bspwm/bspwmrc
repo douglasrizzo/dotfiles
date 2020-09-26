@@ -9,12 +9,12 @@ start_polybar() {
   while pgrep -u $UID -x polybar >/dev/null; do sleep .05; done
 
   # if the monitor exists, configure its polybar
-  if [[ $SMALLMONITOR ]]; then
-    MONITOR=$SMALLMONITOR polybar --reload single &
-  fi
   if [[ $BIGMONITOR ]]; then
     MONITOR=$BIGMONITOR polybar --reload bottom &
     MONITOR=$BIGMONITOR polybar --reload top &
+  fi
+  if [[ $SMALLMONITOR ]]; then
+    MONITOR=$SMALLMONITOR polybar --reload single &
   fi
 }
 
@@ -57,13 +57,13 @@ else
 fi
 
 # if the monitor exists, configure its resolution
+xrandr --output VIRTUAL1 --off
 if [[ $SMALLMONITOR ]]; then
   xrandr --output $SMALLMONITOR --mode 1366x768 --rotate normal
 fi
 if [[ $BIGMONITOR ]]; then
   xrandr --output $BIGMONITOR --primary --mode 1920x1080 --rotate normal
 fi
-xrandr --output VIRTUAL1 --off
 
 # delegate bspwm desktops to each monitor
 if [[ $NMONITORS == 2 ]]; then

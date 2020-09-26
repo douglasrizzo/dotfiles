@@ -105,9 +105,11 @@ picom --config $HOME/.config/picom.conf &
 
 start_dunst
 
-~/.config/scripts/maybe_run.sh megasync &
-~/.config/scripts/maybe_run.sh nm-applet &
-~/.config/scripts/maybe_run.sh blueman-applet &
-~/.config/scripts/maybe_run.sh xscreensaver &
-~/.config/scripts/maybe_run.sh telegram-desktop &
-~/.config/scripts/maybe_run.sh discord-ptb DiscordPtb &
+if [[ $1 -eq 0 ]]; then
+  ~/.config/scripts/maybe_run.sh megasync &
+  ~/.config/scripts/maybe_run.sh nm-applet &
+  ~/.config/scripts/maybe_run.sh blueman-applet &
+  ~/.config/scripts/maybe_run.sh xscreensaver &
+  ~/.config/scripts/maybe_run.sh telegram-desktop &
+  ~/.config/scripts/maybe_run.sh discord-ptb DiscordPTB &
+fi

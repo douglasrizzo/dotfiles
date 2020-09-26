@@ -39,8 +39,6 @@ start_dunst() {
   while ! pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 }
 
-# ~/.screenlayout/$(hostname).sh &
-
 # grab number of active monitors and name of first monitor
 NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
 MONITOR1=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
@@ -98,7 +96,7 @@ start_polybar &
 
 # -m is the mode, necessary for non-US keyboards
 sxhkd -m 1 &
-# picom --config $HOME/.config/picom.conf &
+picom --config $HOME/.config/picom.conf &
 # hsetroot -solid black
 
 start_dunst

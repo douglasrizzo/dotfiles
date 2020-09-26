@@ -54,11 +54,8 @@ offset-y = 0
 line-size = 3
 line-color = #f00
 
-border-size = 0
-border-color = #00000000
-
-border-left-size  = 0
-border-right-size = 0
+border-size = 3
+border-color = ${xrdb:color0:#222}
 
 padding-left = 0
 padding-right = 0

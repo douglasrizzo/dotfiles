@@ -46,6 +46,8 @@ link_stuff() {
   ln -vsf $(pwd)/alacritty.yml ~/.config/alacritty.yml
   sudo ln -vsf $(pwd)/10-libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf
 
+  ln -vsf $(pwd)/pywalfox_update.sh ~/.config/pywalfox_update.sh
+
   echo "${bold}Linking ~/.config VS Code settings and keybindings...${normal}"
   mkdir -p ~/.config/Code/User
   ln -vsf $(pwd)/vscode-user-settings.json ~/.config/Code/User/settings.json
@@ -111,6 +113,7 @@ pip_install_stuff() {
     pylint \
     pyls-mypy \
     pywal \
+    pywalfox \
     scipy \
     seaborn \
     stable-baselines \

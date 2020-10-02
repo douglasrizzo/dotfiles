@@ -163,5 +163,6 @@
     "python.dataScience.sendSelectionToInteractiveWindow": true,
     "python.analysis.completeFunctionParens": true,
     "latex-workshop.latexindent.path": "/home/dodo/.texlive/2020/bin/x86_64-linux/latexindent",
-    "latex.server.autoDownload": true
+    "latex.server.autoDownload": true,
+    "ltex.additionalRules.motherTongue": "pt-BR"
 }

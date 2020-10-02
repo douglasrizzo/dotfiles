@@ -66,10 +66,10 @@ super + shift + r
 super + alt + r
 	bspc wm -r && notify-send "bspwm restarted"
 
-{super + 0, XF86Eject}
+super + Escape
 	xscreensaver-command -lock
 
-super + Escape
+super + ctrl + Escape
 	zenity --question --text "Logout?" && bspc quit
 
 super + shift + Escape

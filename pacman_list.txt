@@ -1,14 +1,17 @@
 adobe-source-code-pro-fonts
 bspwm
+base-devel
 chromium
 dunst
 evince
 feh
 flameshot
+gcc
 gimp
 hsetroot
 keepassxc
 libmpdclient
+make
 nano-syntax-highlighting
 nemo
 nemo-bulk-rename
@@ -25,6 +28,7 @@ p7zip
 pamixer
 pavucontrol
 picom
+pkgconf
 polybar
 pulseaudio
 pulseaudio-alsa

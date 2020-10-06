@@ -54,3 +54,10 @@ yay
 zenity
 zip
 zsh
+lightdm
+lightdm-slick-greeter
+lightdm-settings 
+portmidi
+sdl_image
+sdl_mixer
+sdl_ttf

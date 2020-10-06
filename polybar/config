@@ -103,15 +103,15 @@ tray-padding = 2
 
 [bar/single]
 inherit = bar/main
-modules-left = bspwm filesystem_tiny memory_tiny cpu
+modules-left = bspwm filesystem memory_tiny cpu
 modules-center = xwindow
 modules-right = temperature battery date updates-arch-combined
-bottom = true
+bottom = false
 tray-position = right
 
 [bar/bottom]
 inherit = bar/main
-modules-left = filesystem_big memory_big cpu 
+modules-left = filesystem memory_big cpu 
 modules-right = battery temperature updates-arch-combined
 bottom = true
 tray-position = right
@@ -162,22 +162,15 @@ label-indicator-margin = 1
 label-indicator-background = ${root.secondary}
 label-indicator-underline = ${root.secondary}
 
-[module/filesystem_base]
+[module/filesystem]
 type = internal/fs
 interval = 10
+mount-0 = /
+; mount-1 = /home
 
 label-mounted =  %{F#0a81f5}%mountpoint%%{F-}:%percentage_used%%
 label-unmounted =
 label-unmounted-foreground = ${root.foreground-alt}
-
-[module/filesystem_tiny]
-inherit = module/filesystem_base
-mount-0 = /home
-
-[module/filesystem_big]
-inherit = module/filesystem_base
-mount-0 = /
-mount-1 = /home
 
 [module/bspwm]
 type = internal/bspwm
@@ -635,7 +628,7 @@ thermal-zone = 0
 base-temperature = 35
 warn-temperature = 85
 units = true
-hwmon-path = /sys/devices/virtual/hwmon/hwmon3/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input
 format = <ramp> <label>
 ;format-underline = ${root.background}
 ;format-overline = ${self.format-underline}

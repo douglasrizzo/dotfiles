@@ -90,8 +90,7 @@ start_polybar() {
 
   # if the monitor exists, configure its polybar
   if [[ $BIGMONITOR ]]; then
-    MONITOR=$BIGMONITOR polybar --reload bottom &
-    MONITOR=$BIGMONITOR polybar --reload top &
+    MONITOR=$BIGMONITOR polybar --reload single &
   fi
   if [[ $SMALLMONITOR ]]; then
     MONITOR=$SMALLMONITOR polybar --reload single &

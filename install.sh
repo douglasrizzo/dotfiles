@@ -135,6 +135,12 @@ code_install_stuff() {
   done
 }
 
+install_gpu_lightdm() {
+  sudo mhwd -a pci nonfree 0300
+  sudo pacman -S lightdm lightdm-slick-greeter lightdm-settings 
+  sudo systemctl enable lightdm.service --force
+}
+
 link_stuff
 config_terminal
 download_stuff

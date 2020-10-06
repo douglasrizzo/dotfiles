@@ -1,6 +1,7 @@
 adobe-source-code-pro-fonts
-bspwm
+arandr
 base-devel
+blueman
 chromium
 dunst
 evince
@@ -36,10 +37,12 @@ python
 rofi
 steam-manjaro
 sxhkd
+telegram-desktop
 texlab
 ttf-font-awesome
 ttf-ibm-plex
 ttf-roboto
+ttf-roboto-mono
 unrar
 unzip
 vlc

@@ -19,7 +19,7 @@ XF86MonBrightnessDown
 	xbacklight -dec 10 && notify-send 'brightness down' || notify-send 'trouble invoking xbacklight'
 
 # some system settings shortcuts
-super + ctrl + {a,v,k}
+super + {a,v,k}
 	{pavucontrol,arandr,~/.config/scripts/kb-layout.sh}
 
 # application shortcuts
@@ -59,15 +59,15 @@ super + shift + @Print
 # -----------------------------------------------------------------
 
 # make sxhkd reload its configuration files:
-super + shift + r
+super + r
 	pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
 
 # quit/restart bspwm
-super + alt + r
-	bspc wm -r && notify-send "bspwm restarted"
+super + ctrl + r
+	bspc wm -r
 
 super + Escape
-	xscreensaver-command -lock
+	(pidof xscreensaver >/dev/null || xscreensaver) && xscreensaver-command -lock
 
 super + ctrl + Escape
 	zenity --question --text "Logout?" && bspc quit
@@ -79,7 +79,7 @@ super + alt + Escape
 	zenity --question --text "Poweroff?" && systemctl poweroff
 
 # close and kill
-super + {_,shift + }BackSpace
+super + {_, ctrl} + BackSpace
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout

@@ -76,8 +76,8 @@ super + shift + Escape
 super + alt + Escape
 	zenity --question --text "Poweroff?" && systemctl poweroff
 
-# close and kill
-super + {_, ctrl} + BackSpace
+# close window/kill application
+super + {BackSpace,q}
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout

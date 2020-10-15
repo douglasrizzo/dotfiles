@@ -13,10 +13,8 @@ XF86AudioMute
 	pactl set-sink-mute 0 toggle
 
 # Screen brightness controls
-XF86MonBrightnessUp
-	xbacklight -inc 10 && notify-send 'brightness up' || notify-send 'trouble invoking xbacklight'
-XF86MonBrightnessDown
-	xbacklight -dec 10 && notify-send 'brightness down' || notify-send 'trouble invoking xbacklight'
+XF86MonBrightness{Up,Down}
+	~/.config/scripts/adjust_brightness.sh {+,-} eDP-1 || notify-send 'trouble invoking brightness script'
 
 # some system settings shortcuts
 super + {a,v,k}

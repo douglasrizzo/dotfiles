@@ -25,20 +25,21 @@ config_monitors() {
   fi
 
   # if the monitor exists, configure its resolution
-  xrandr --output VIRTUAL1 --off
-  if [[ $SMALLMONITOR ]]; then
-    xrandr --output $SMALLMONITOR --mode 1366x768 --rotate normal
-  fi
-  if [[ $BIGMONITOR ]]; then
-    xrandr --output $BIGMONITOR --primary --mode 1920x1080 --rotate normal
-  fi
-
-  # delegate bspwm desktops to each monitor
-  if [[ $NMONITORS == 2 ]]; then
-    if [[ $1 -eq 0 ]]; then
-      xrandr --output $SMALLMONITOR --left-of $BIGMONITOR
+  if [[ $1 -eq 0 ]]; then
+    if [[ $SMALLMONITOR ]]; then
+      xrandr --output $SMALLMONITOR --mode 1920x1080 --rotate normal
+    fi
+    if [[ $BIGMONITOR ]]; then
+      xrandr --output $BIGMONITOR --primary --mode 1920x1080 --rotate normal
     fi
 
+    if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
+      xrandr --output $SMALLMONITOR --left-of $BIGMONITOR
+    fi
+  fi
+
+  if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
+    # delegate bspwm desktops to each monitor
     bspc monitor $SMALLMONITOR -d 1
     bspc monitor $BIGMONITOR -d 2 3 4 5 6 7 8 9
   else
@@ -133,10 +134,10 @@ pidof picom >/dev/null || picom --config $HOME/.config/picom.conf &
 start_dunst
 
 if [[ $1 -eq 0 ]]; then
-  ~/.config/scripts/maybe_run.sh megasync &
-  ~/.config/scripts/maybe_run.sh nm-applet &
-  ~/.config/scripts/maybe_run.sh blueman-applet &
-  ~/.config/scripts/maybe_run.sh xscreensaver &
-  ~/.config/scripts/maybe_run.sh telegram-desktop &
-  ~/.config/scripts/maybe_run.sh discord-ptb DiscordPTB &
+  pidof megasync >/dev/null || megasync &
+  pidof nm-applet >/dev/null || nm-applet &
+  pidof blueman-applet >/dev/null || blueman-applet &
+  pidof xscreensaver >/dev/null || xscreensaver &
+  pidof telegram-desktop >/dev/null || telegram-desktop &
+  pidof DiscordPTB >/dev/null || discord-ptb &
 fi

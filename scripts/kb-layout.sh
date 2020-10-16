@@ -2,18 +2,18 @@ ANSWER=$(zenity --list --title="Keyboard Layout" --text "Pick keyboard layout be
 
 case $ANSWER in
 "QWERTY ABNT-2")
-    notify-send $ANSWER && setxkbmap -layout br -variant abnt2
+    notify-send $0 "$ANSWER" && setxkbmap -layout br -variant abnt2
     ;;
 "Apple US Intl")
-    notify-send "$ANSWER" && setxkbmap -model apple -layout us -variant intl
+    notify-send $0 "$ANSWER" && setxkbmap -model apple -layout us -variant intl
     ;;
 "Dvorak right-handed")
-    notify-send $ANSWER && setxkbmap -layout br -variant dvorak
+    notify-send $0 "$ANSWER" && setxkbmap -layout br -variant dvorak
     ;;
 "Dvorak")
-    notify-send $ANSWER && setxkbmap -layout us -variant dvorak-r
+    notify-send $0 "$ANSWER" && setxkbmap -layout us -variant dvorak-r
     ;;
 *)
-    notify-send "FUSHURURU"
+    notify-send $0 "Don't know what you're talking about"
     ;;
 esac

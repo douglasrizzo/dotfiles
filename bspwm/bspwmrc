@@ -124,9 +124,10 @@ config_wm
 
 start_polybar &
 
+# only try to start sxhkd and picom if they're not already running, regardless if starting or restarting bspwm
 # -m is the mode, necessary for non-US keyboards
-sxhkd -m 1 &
-picom --config $HOME/.config/picom.conf &
+pidof sxhkd >/dev/null || sxhkd -m 1 &
+pidof picom >/dev/null || picom --config $HOME/.config/picom.conf &
 # hsetroot -solid black
 
 start_dunst

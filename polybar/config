@@ -628,7 +628,14 @@ thermal-zone = 0
 base-temperature = 35
 warn-temperature = 85
 units = true
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input
+
 format = <ramp> <label>
 ;format-underline = ${root.background}
 ;format-overline = ${self.format-underline}

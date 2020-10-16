@@ -49,7 +49,7 @@ link_stuff() {
   ln -vsf $(pwd)/vscode-keybindings.json ~/.config/Code/User/keybindings.json
 
   echo "${bold}Linking ~/.config directories...${normal}"
-  for d in bspwm dunst htop i3 kitty polybar rofi scripts sxhkd terminator vlc yapf zsh; do
+  for d in bspwm dunst htop i3 kitty mpv polybar rofi scripts sxhkd terminator vlc yapf zsh; do
     rm -rf ~/.config/${d} && ln -vsf $(pwd)/${d} ~/.config
   done
 }

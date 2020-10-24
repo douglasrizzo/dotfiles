@@ -9,6 +9,7 @@ nemo-megasync
 ocs-url
 popcorntime-bin
 rofi-file-browser-extended-git
+rofi-keepassxc
 spotify-dev
 task-spooler
 ttf-b612

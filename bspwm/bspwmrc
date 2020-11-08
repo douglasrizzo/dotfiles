@@ -139,5 +139,5 @@ if [[ $1 -eq 0 ]]; then
   pidof blueman-applet >/dev/null || blueman-applet &
   pidof xscreensaver >/dev/null || xscreensaver &
   pidof telegram-desktop >/dev/null || telegram-desktop &
-  pidof DiscordPTB >/dev/null || discord-ptb &
+  pidof Discord >/dev/null || discord &
 fi

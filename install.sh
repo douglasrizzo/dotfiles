@@ -40,6 +40,7 @@ link_stuff() {
   ln -vsf $(pwd)/latexindent/config_location.yaml ~/.indentconfig.yaml
   ln -vsf $(pwd)/alacritty.yml ~/.config/alacritty.yml
   sudo ln -vsf $(pwd)/10-libinput.conf /etc/X11/xorg.conf.d/10-libinput.conf
+  sudo ln -vsf $(pwd)/10-monitor.conf /etc/X11/xorg.conf.d/10-monitor.conf
 
   ln -vsf $(pwd)/pywalfox_update.sh ~/.config/pywalfox_update.sh
 

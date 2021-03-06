@@ -17,8 +17,8 @@ XF86MonBrightness{Up,Down}
 	~/.config/scripts/adjust_brightness.sh {+,-} eDP-1 || notify-send 'trouble invoking brightness script'
 
 # some system settings shortcuts
-super + {a,v,k,p}
-	{pavucontrol,arandr,~/.config/scripts/kb-layout.sh,rofi-keepassxc -d $HOME/Documents/passwords.kdbx}
+super + {a,s,v,k,p}
+	{pavucontrol,~/.config/scripts/change_sinks.sh,arandr,~/.config/scripts/kb-layout.sh,rofi-keepassxc -d $HOME/Documents/passwords.kdbx} || notify-send 'command not found'
 
 # application shortcuts
 

@@ -1,3 +1,4 @@
+defaultIndent: "  "
 lookForAlignDelims:
    tabular: 
       multiColumnGrouping: 1

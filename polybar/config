@@ -106,7 +106,7 @@ inherit = bar/main
 modules-left = bspwm filesystem memory_tiny cpu
 modules-center = xwindow
 modules-right = temperature battery date updates-arch-combined
-bottom = false
+bottom = true
 tray-position = right
 
 [bar/bottom]

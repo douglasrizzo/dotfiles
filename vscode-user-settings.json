@@ -4,7 +4,7 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.cursorSurroundingLines": 3,
     "editor.detectIndentation": true,
-    "editor.fontFamily": "'B612 Mono', 'monospace', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Brands'",
+    "editor.fontFamily": "'JetBrains Mono', 'Font Awesome 5 Free', 'Font Awesome 5 Free Solid', 'Font Awesome 5 Brands'",
     "editor.fontSize": 15,
     "editor.formatOnPaste": true,
     "editor.multiCursorModifier": "ctrlCmd",

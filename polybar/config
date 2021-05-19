@@ -175,6 +175,13 @@ label-unmounted-foreground = ${root.foreground-alt}
 [module/bspwm]
 type = internal/bspwm
 
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
+;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+; Default: <label-state>
+format = <label-state> | <label-mode>
+
 label-focused = %index%
 label-focused-background = ${root.primary}
 label-focused-foreground = ${root.background}
@@ -191,6 +198,15 @@ label-urgent-padding = 1
 label-empty = 
 label-empty-foreground = ${root.foreground-alt}
 label-empty-padding = 1
+
+label-tiled = T
+label-tiled-padding = 1
+
+label-monocle = M
+label-monocle-background = ${root.foreground}
+label-monocle-foreground = ${root.background}
+label-monocle-underline = ${root.primary}
+label-monocle-padding = 1
 
 [module/i3]
 type = internal/i3

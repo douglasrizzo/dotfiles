@@ -1,0 +1,1 @@
+urwchancal standalone currfile adjustbox collectbox filemod glossaries-extra glossaries mfirstuc xfor datatool doublestroke ifoddpage csquotes was

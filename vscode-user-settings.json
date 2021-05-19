@@ -165,4 +165,13 @@
     "latex.server.autoDownload": true,
     "ltex.additionalRules.motherTongue": "pt-BR"
     "workbench.colorTheme": "Ayu Dark"
+    // these settings are for the TeXLab extension
+    // forward search allows me to open okular
+    "latex.build.executable": "latexmk",
+    "latex.forwardSearch.executable": "okular",
+    "latex.forwardSearch.args": [
+        "--unique",
+        // "file:%p"
+        "file:%p#src:%l%f"
+    ],
 }

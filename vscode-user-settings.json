@@ -20,7 +20,6 @@
     "latex-workshop.view.pdf.viewer": "external",
     "python.analysis.cacheFolderPath": "~/.vscode-python-cache",
     "python.autoComplete.addBrackets": true,
-    "python.dataScience.askForKernelRestart": false,
     "python.formatting.provider": "yapf",
     "python.jediEnabled": false,
     "python.linting.mypyEnabled": true,
@@ -159,12 +158,27 @@
     "python.languageServer": "Pylance",
     "editor.tabSize": 2,
     "window.zoomLevel": 0,
-    "python.dataScience.sendSelectionToInteractiveWindow": true,
     "python.analysis.completeFunctionParens": true,
     "latex-workshop.latexindent.path": "/home/dodo/.texlive/2020/bin/x86_64-linux/latexindent",
     "latex.server.autoDownload": true,
-    "ltex.additionalRules.motherTongue": "pt-BR"
-    "workbench.colorTheme": "Ayu Dark"
+    "ltex.additionalRules.motherTongue": "pt-BR",
+    "jupyter.askForKernelRestart": false,
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "jupyter.alwaysTrustNotebooks": true,
+    "[html]": {
+        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+    },
+    "workbench.colorTheme": "Ayu Dark",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "editor.fontLigatures": false,
+    "files.associations": {
+        "*.dtx": "latex"
+    },
     "zenMode.hideActivityBar": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.fullScreen": false,
@@ -179,4 +193,7 @@
         // "file:%p"
         "file:%p#src:%l%f"
     ],
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }

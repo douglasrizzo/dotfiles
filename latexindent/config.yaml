@@ -1,5 +1,5 @@
 defaultIndent: "  "
 lookForAlignDelims:
-   tabular: 
+   tabular:
       multiColumnGrouping: 1
-      alignDoubleBackSlash: 0
+      alignDoubleBackSlash: 1

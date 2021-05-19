@@ -91,4 +91,4 @@ rewrite.rule { month = " # { *}$" = ""}
 
 % rename url date field to be correctly used by BibTeX, BibLaTeX, abnTeX etc
 rename.field {urldate = urlaccessdate}
-rename.field {journal = journaltitle}
+% rename.field {journal = journaltitle}

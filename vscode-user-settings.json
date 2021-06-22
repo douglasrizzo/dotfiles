@@ -1,6 +1,5 @@
 {
     "autoDocstring.docstringFormat": "sphinx",
-    "C_Cpp.clang_format_fallbackStyle": "Chromium",
     "editor.cursorSmoothCaretAnimation": true,
     "editor.cursorSurroundingLines": 3,
     "editor.detectIndentation": true,
@@ -195,5 +194,9 @@
     ],
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "C_Cpp.clang_format_sortIncludes": true,
     }
 }

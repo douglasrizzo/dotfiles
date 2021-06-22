@@ -23,6 +23,7 @@ nemo-pdf-tools
 nemo-preview
 nemo-python
 network-manager-applet
+noto-fonts-cjk
 ntp
 otf-font-awesome
 p7zip

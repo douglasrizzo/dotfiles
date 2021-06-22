@@ -185,9 +185,9 @@
     "zenMode.silentNotifications": false,
     // these settings are for the TeXLab extension
     // forward search allows me to open okular
-    "latex.build.executable": "latexmk",
-    "latex.forwardSearch.executable": "okular",
-    "latex.forwardSearch.args": [
+    "texlab.build.executable": "latexmk",
+    "texlab.forwardSearch.executable": "okular",
+    "texlab.forwardSearch.args": [
         "--unique",
         // "file:%p"
         "file:%p#src:%l%f"

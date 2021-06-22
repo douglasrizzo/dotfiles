@@ -168,12 +168,9 @@
         "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
     },
     "workbench.colorTheme": "Ayu Dark",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "editor.fontLigatures": false,
     "files.associations": {
         "*.dtx": "latex"
@@ -198,5 +195,8 @@
     "C_Cpp.autocompleteAddParentheses": true,
     "C_Cpp.clang_format_fallbackStyle": "LLVM",
     "C_Cpp.clang_format_sortIncludes": true,
+
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
     }
 }

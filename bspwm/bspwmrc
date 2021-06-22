@@ -34,7 +34,7 @@ config_monitors() {
     fi
 
     if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
-      xrandr --output $SMALLMONITOR --left-of $BIGMONITOR
+      xrandr --output $SMALLMONITOR --right-of $BIGMONITOR
     fi
   fi
 

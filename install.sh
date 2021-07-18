@@ -59,13 +59,6 @@ download_stuff() {
   echo "${bold}Downloading rofi themes...${normal}"
   git clone https://github.com/davatorium/rofi-themes.git && mv rofi-themes/User\ Themes/*.rasi ~/.config/rofi/ && rm -rf rofi-themes
 
-  echo "${bold}Creating SpellRight dictionaries directory and download some utf-8 dicts...${normal}"
-  mkdir -p ~/.config/Code/Dictionaries
-  wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/en-US/index.aff -O ~/.config/Code/Dictionaries/en_US.aff
-  wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/en-US/index.dic -O ~/.config/Code/Dictionaries/en_US.dic
-  wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/pt-BR/index.aff -O ~/.config/Code/Dictionaries/pt_BR.aff
-  wget https://github.com/wooorm/dictionaries/raw/master/dictionaries/pt-BR/index.dic -O ~/.config/Code/Dictionaries/pt_BR.dic
-
   echo "${bold}Downloading TeX Live netinstall to ~/Downloads...${normal}"
   wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz -P ~/Downloads
 
@@ -138,7 +131,7 @@ code_install_stuff() {
 
 install_gpu_lightdm() {
   sudo mhwd -a pci nonfree 0300
-  sudo pacman -S lightdm lightdm-slick-greeter lightdm-settings 
+  sudo pacman -S lightdm lightdm-slick-greeter lightdm-settings
   sudo systemctl enable lightdm.service --force
 }
 

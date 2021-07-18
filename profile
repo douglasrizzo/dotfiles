@@ -11,7 +11,7 @@ export BROWSER=/usr/bin/firefox
 export SC2PATH="/opt/StarCraftII"
 export MICRORTSPATH="$HOME/Code/microrts/bin/microrts.jar"
 
-export PATH="$HOME/.anaconda3/bin:$PATH"
+export PATH="$PATH:$HOME/.anaconda3/bin"
 export PATH="$HOME/.texlive/2021/bin/x86_64-linux:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"

@@ -97,8 +97,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# add all private ssh keys in ~/.ssh/
+# https://unix.stackexchange.com/a/408795/116732
+if pgrep -u "$USER" ssh-agent > /dev/null; then
+	grep -slR "PRIVATE" ~/.ssh/ | xargs ssh-add >/dev/null 2>/dev/null
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -139,7 +142,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

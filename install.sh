@@ -43,11 +43,6 @@ link_stuff() {
 
   ln -vsf $(pwd)/pywalfox_update.sh ~/.config/pywalfox_update.sh
 
-  echo "${bold}Linking ~/.config VS Code settings and keybindings...${normal}"
-  mkdir -p ~/.config/Code/User
-  ln -vsf $(pwd)/vscode-user-settings.json ~/.config/Code/User/settings.json
-  ln -vsf $(pwd)/vscode-keybindings.json ~/.config/Code/User/keybindings.json
-
   echo "${bold}Linking ~/.config directories...${normal}"
   for d in bspwm dunst htop i3 kitty mpv polybar rofi scripts sxhkd terminator vlc yapf zsh; do
     rm -rf ~/.config/${d} && ln -vsf $(pwd)/${d} ~/.config

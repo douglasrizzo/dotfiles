@@ -49,14 +49,16 @@ super + alt + space
 	rofi -show file-browser
 
 # screenshots
-@Print
+{XF86Eject,@Print}
 	mkdir -p ~/Pictures/screenshots && flameshot full -p ~/Pictures/screenshots
 
-super + @Print
-	mkdir -p ~/Pictures/screenshots && flameshot screen -p ~/Pictures/screenshots
-
-super + shift + @Print
+# snipping tool
+ctrl + {XF86Eject,@Print}
   mkdir -p ~/Pictures/screenshots && flameshot gui -p ~/Pictures/screenshots
+
+## single screen
+shift + {XF86Eject,@Print}
+	mkdir -p ~/Pictures/screenshots && flameshot screen -p ~/Pictures/screenshots
 
 # -----------------------------------------------------------------
 # bspwm hotkeys

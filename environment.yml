@@ -1,0 +1,31 @@
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.8.*
+  - cudatoolkit=11.1
+  - pytorch
+  - torchvision
+  - pip:
+    - flake8-mypy
+    - ipython
+    - isort
+    - jupyterlab
+    - matplotlib
+    - mccabe
+    - mypy
+    - numpy
+    - opencv-python
+    - pandas
+    - pylama
+    - pylint
+    - pyls-mypy
+    - pywal
+    - pywalfox
+    - scikit-learn
+    - scipy
+    - seaborn
+    - streamlink
+    - tqdm
+    - wandb
+    - yapf

@@ -56,9 +56,6 @@ download_stuff() {
   echo "${bold}Downloading TeX Live netinstall to ~/Downloads...${normal}"
   wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz -P ~/Downloads
 
-  echo "${bold}Downloading Miniconda to ~/Downloads...${normal}"
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -P ~/Downloads
-
   echo "${bold}Downloading Zotero addons to ~/Downloads...${normal}"
   wget https://github.com/bwiernik/zotero-shortdoi/releases/download/v1.3.9/zotero-shortdoi-1.3.9.xpi -P ~/Downloads
   wget https://github.com/retorquere/zotero-better-bibtex/releases/download/v5.2.70/zotero-better-bibtex-5.2.70.xpi -P Downloads
@@ -67,34 +64,16 @@ download_stuff() {
   wget https://github.com/retorquere/zotero-storage-scanner/releases/download/v5.0.8/zotero-storage-scanner-5.0.8.xpi -P Downloads
 }
 
-pip_install_stuff() {
-  pip install -U pip
-  pip install -U \
-    flake8-mypy \
-    git+https://github.com/deepmind/pysc2.git@v3.0#egg=pysc2 \
-    git+https://github.com/douglasrizzo/dodo_detector.git \
-    git+https://github.com/douglasrizzo/smac.git@personal \
-    GPUtil \
-    instalooter \
-    ipython \
-    isort \
-    jupyterlab \
-    matplotlib \
-    mccabe \
-    mypy \
-    numpy \
-    pylama \
-    pylint \
-    pyls-mypy \
-    pywal \
-    pywalfox \
-    scipy \
-    seaborn \
-    stable-baselines \
-    streamlink \
-    tqdm \
-    wandb \
-    yapf
+install_python() {
+  echo "${bold}Downloading Miniconda to ~/Downloads...${normal}"
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/Downloads/miniconda.sh
+  chmod +x ~/Downloads/miniconda.sh
+  ~/Downloads/miniconda.sh -b -p $HOME/.anaconda3
+  # TODO maybe need to add conda to PATH here before continuing
+  # TODO check if conda env is activated, otherwise:
+  # conda activate
+  conda env update -f environment.yml
+  conda clean -ya
 }
 
 code_install_stuff() {
@@ -133,5 +112,5 @@ link_stuff
 config_terminal
 download_stuff
 install_stuff
-pip_install_stuff
+install_python
 code_install_stuff

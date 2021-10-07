@@ -1,4 +1,4 @@
 configuration {
-	modi: "drun,file-browser";
+	modi: "drun,file-browser-extended";
 	theme: "~/.cache/wal/colors-rofi-dark";
 }

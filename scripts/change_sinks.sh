@@ -1,7 +1,11 @@
-if pacmd list-sinks | grep -e '  index:'; then
-  pacmd list-sinks | grep -e '  index:' | awk -F'index:' '{for (i=2; i<=NF; i++) printf("%s", $i)}' | xargs pacmd set-default-sink
-elif pacmd list-sinks | grep -e 'active port: <analog-output-speaker>'; then
-  pacmd set-sink-port 0 analog-output-headphones
+# A script that allows a the user to select a different default audio sink using dmenu
+
+# If more than one non-default sink available, all sinks are listed for choosing
+if pactl list sinks | grep -e 'State: RUNNING'; then
+  pactl list sinks | grep -e 'Name:' | sed -r 's/.*Name: (.*)/\1/' | dmenu -l 5 | xargs pactl set-default-sink
+# else, swap the port of the current sink between headphone and speaker
+elif pactl list sinks | grep -e 'Active port: analog-output-speaker'; then
+  pactl set-sink-port 0 analog-output-headphones
 else
-  pacmd set-sink-port 0 analog-output-speaker
+  pactl set-sink-port 0 analog-output-speaker
 fi

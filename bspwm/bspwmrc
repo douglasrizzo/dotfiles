@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 detect_monitors() {
   # grab number of active monitors and name of first monitor
@@ -119,7 +119,7 @@ start_dunst() {
   while ! pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 }
 
-config_monitors $1
+config_monitors $?
 config_colors
 config_wm
 
@@ -133,7 +133,7 @@ pidof picom >/dev/null || picom --config $HOME/.config/picom.conf &
 
 start_dunst
 
-if [[ $1 -eq 0 ]]; then
+if [[ $? -eq 0 ]]; then
   pidof megasync >/dev/null || megasync &
   pidof nm-applet >/dev/null || nm-applet &
   pidof blueman-applet >/dev/null || blueman-applet &

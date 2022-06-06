@@ -46,7 +46,3 @@ export TERMINAL="alacritty"
 if ! pgrep -u "$USER" ssh-agent >/dev/null; then
    eval "$(ssh-agent -s)"
 fi
-
-# these are for LabelStudio
-export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
-export LOCAL_FILES_DOCUMENT_ROOT=/home/dodo/

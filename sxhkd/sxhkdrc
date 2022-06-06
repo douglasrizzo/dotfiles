@@ -17,13 +17,16 @@ XF86MonBrightness{Up,Down}
 	~/.config/scripts/adjust_brightness.sh {+,-} eDP-1 || notify-send 'trouble invoking brightness script'
 
 # some system settings shortcuts
-super + {a,s,v,k,p}
-	{pavucontrol,~/.config/scripts/change_sinks.sh,arandr,~/.config/scripts/kb-layout.sh,rofi-keepassxc -d $HOME/Documents/passwords.kdbx} || notify-send 'command not found'
+super + {a,s,v,k}
+	{pavucontrol,~/.config/scripts/change_sinks.sh,arandr,~/.config/scripts/kb-layout.sh} || notify-send 'command not found'
 
 # application shortcuts
 
-XF86{HomePage,Mail,Calculator}
-	{firefox,thunderbird,speedcrunch}
+XF86{HomePage,Calculator}
+	{firefox,speedcrunch}
+
+# XF86Mail
+# 	thunderbird
 
 super + {Return,KP_Enter}
 	alacritty

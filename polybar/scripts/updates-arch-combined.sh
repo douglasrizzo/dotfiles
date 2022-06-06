@@ -1,38 +1,15 @@
 #!/bin/sh
 
-start_pm() {
-    if type octopi | grep 'octopi is'; then
-        notify-send 'Starting octopi'
-        octopi
-    elif type pamac-manager | grep 'pamac-manager is'; then
-        notify-send 'Starting pamac'
-        pamac-manager
-    else
-        notify-send 'No package manager found (octopi or pamac)'
-    fi
-}
+if ! updates_arch=$(pacman -Qu 2>/dev/null | wc -l); then
+    updates_arch=0
+fi
 
-main() {
-    if ! updates_arch=$(pacman -Qu 2>/dev/null | wc -l); then
-        updates_arch=0
-    fi
+if ! updates_aur=$(yay -Qum 2>/dev/null | wc -l); then
+    updates_aur=0
+fi
 
-    if ! updates_aur=$(yay -Qum 2>/dev/null | wc -l); then
-        updates_aur=0
-    fi
+updates=$(("$updates_arch" + "$updates_aur"))
 
-    updates=$(("$updates_arch" + "$updates_aur"))
-
-    if [ $updates -gt 0 ]; then
-        echo " $updates_arch/$updates_aur"
-    fi
-}
-
-case "$1" in
---gui)
-    start_pm
-    ;;
-*)
-    main
-    ;;
-esac
+if [ $updates -gt 0 ]; then
+    echo " $updates_arch/$updates_aur"
+fi

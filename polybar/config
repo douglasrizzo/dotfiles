@@ -330,12 +330,12 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = .5
-label = %percentage-cores:3%
+label = %percentage:3%%
 ;format-underline = #f90000
 ;format-overline = ${self.format-underline}
 format-prefix = :
 format-prefix-foreground = ${root.foreground-alt}
-format = <ramp-coreload>
+format = <label> <ramp-coreload>
 
 ; Spacing between individual per-core ramps
 ramp-coreload-spacing = 1
@@ -500,7 +500,7 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 60
+; interval = 60
 
 date = %d/%m
 date-alt = %d/%m/%Y

@@ -122,11 +122,6 @@ bindkey '^H' backward-delete-word
 bindkey '5~' delete-word
 bindkey '3~' delete-word
 
-#export TERM=xterm-256color
-
-stream() {
-	(streamlink https://twitch.tv/$1 best &) && sleep 2 && disown
-}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -145,3 +140,5 @@ unset __conda_setup
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+source ${HOME}/Documents/zshrc_private.sh

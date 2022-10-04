@@ -558,3 +558,5 @@ shell:
 
   # Print all received window events.
   #print_events: false
+key_bindings:
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }

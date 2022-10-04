@@ -123,8 +123,12 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.occupied
 
 # focus or send to the given desktop
-super + {_,ctrl + }{1-9}
+super + {_,ctrl +}{1-9}
 	bspc {desktop -f,node -d} '^{1-9}'
+
+# focus or send to the given desktop
+super + {shift + }{1-9}
+	bspc node -d '^{1-9}' --follow
 
 # -----------------------------------------------------------------
 # focus/swap with mouse

@@ -53,15 +53,16 @@ super + alt + space
 
 # screenshots
 {XF86Eject,@Print}
-	mkdir -p ~/Pictures/screenshots && flameshot full -p ~/Pictures/screenshots
+	mkdir -p ~/Pictures/screenshots && flameshot full
 
 # snipping tool
 ctrl + {XF86Eject,@Print}
-  mkdir -p ~/Pictures/screenshots && flameshot gui -p ~/Pictures/screenshots
+	mkdir -p ~/Pictures/screenshots && flameshot gui
 
 ## single screen
 shift + {XF86Eject,@Print}
-	mkdir -p ~/Pictures/screenshots && flameshot screen -p ~/Pictures/screenshots
+	mkdir -p ~/Pictures/screenshots && flameshot screen
+
 
 # -----------------------------------------------------------------
 # bspwm hotkeys

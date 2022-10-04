@@ -131,6 +131,10 @@ super + {_,ctrl +}{1-9}
 super + {shift + }{1-9}
 	bspc node -d '^{1-9}' --follow
 
+# Rotate tree
+super + ctrl + {d,a}
+    bspc node @/ -C {forward,backward}
+
 # -----------------------------------------------------------------
 # focus/swap with mouse
 # -----------------------------------------------------------------

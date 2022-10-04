@@ -63,6 +63,9 @@ ctrl + {XF86Eject,@Print}
 shift + {XF86Eject,@Print}
 	mkdir -p ~/Pictures/screenshots && flameshot screen
 
+# Show help
+super + slash
+    ~/.config/scripts/sxhkd-help.sh
 
 # -----------------------------------------------------------------
 # bspwm hotkeys
@@ -100,10 +103,11 @@ super + m
 # state/flags
 # -----------------------------------------------------------------
 
-# set the window state
+# swap window state between tiled and fullscreen
 super + {t,f}
 	bspc node -t \~{tiled,fullscreen}
 
+# swap window state between floating and previous state
 super + ctrl + @space
 	bspc node -t \~floating
 

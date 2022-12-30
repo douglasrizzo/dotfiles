@@ -3,19 +3,23 @@
 detect_monitors() {
   # grab number of active monitors and name of first monitor
   NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
-  mon1=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+  mon1=$(xrandr --listactivemonitors | head -n 2 | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
   # grab second monitor name, if it exists
   if [[ $NMONITORS == 2 ]]; then
-    mon2=$(xrandr --listactivemonitors | tail -n 2 | head -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+    mon2=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+    # organize big and small monitors
   fi
 
-  # organize big and small monitors
-  if [[ $mon1 == *"HDMI"* ]]; then
-    BIGMONITOR=$mon1
-    SMALLMONITOR=$mon2
+  if [[ $mon2 ]]; then
+    if [[ $mon1 == *"DP"* ]]; then
+      SMALLMONITOR=$mon1
+      BIGMONITOR=$mon2
+    else
+      BIGMONITOR=$mon1
+      SMALLMONITOR=$mon2
+    fi
   else
     SMALLMONITOR=$mon1
-    BIGMONITOR=$mon2
   fi
 }
 
@@ -26,22 +30,19 @@ config_monitors() {
 
   # if the monitor exists, configure its resolution
   if [[ $1 -eq 0 ]]; then
-    if [[ $SMALLMONITOR ]]; then
-      xrandr --output $SMALLMONITOR --mode 1920x1080 --rotate normal
-    fi
-    if [[ $BIGMONITOR ]]; then
-      xrandr --output $BIGMONITOR --primary --mode 1920x1080 --rotate normal
-    fi
-
     if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
-      xrandr --output $SMALLMONITOR --right-of $BIGMONITOR
+      xrandr --output $SMALLMONITOR --primary --mode 1920x1080 --rotate normal --pos "0x1080" --scale 1x1 --output $BIGMONITOR --pos "1920x0" --mode 3840x2160 --rotate normal --scale 1x1 --rate 60
+    elif [[ $SMALLMONITOR ]]; then
+      xrandr --output $SMALLMONITOR --primary --mode 1920x1080 --rotate normal
+    elif [[ $BIGMONITOR ]]; then
+      xrandr --output $BIGMONITOR --primary --mode 3840x2160 --rotate normal --rate 60
     fi
   fi
 
   if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
     # delegate bspwm desktops to each monitor
-    bspc monitor $SMALLMONITOR -d 1
-    bspc monitor $BIGMONITOR -d 2 3 4 5 6 7 8 9
+    bspc monitor $SMALLMONITOR -d 1 2 3 4 5 6 7 8
+    bspc monitor $BIGMONITOR -d 9
   else
     bspc monitor -d 1 2 3 4 5 6 7 8 9
   fi

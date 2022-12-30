@@ -13,6 +13,7 @@ rofi-keepassxc
 spotify-dev
 task-spooler
 ttf-b612
+ttf-meslo-nerd-font-powerlevel10k
 visual-studio-code-bin
 xgetres
 zotero

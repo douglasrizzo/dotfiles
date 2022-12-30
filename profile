@@ -46,3 +46,5 @@ export TERMINAL="alacritty"
 if ! pgrep -u "$USER" ssh-agent >/dev/null; then
    eval `ssh-agent`
 fi
+
+source ${HOME}/Documents/profile_private.sh

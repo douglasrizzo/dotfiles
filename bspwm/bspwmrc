@@ -133,12 +133,12 @@ pidof picom >/dev/null || picom --config $HOME/.config/picom.conf &
 
 start_dunst
 
-if [[ $? -eq 0 ]]; then
-  pidof megasync >/dev/null || megasync &
+pidof megasync >/dev/null || megasync &
 pidof nm-applet >/dev/null || nm-applet &
 pidof blueman-applet >/dev/null || blueman-applet &
 pidof unclutter >/dev/null || unclutter &
 
+if [[ $1 -eq 0 ]]; then
   pidof telegram-desktop >/dev/null || telegram-desktop &
   pidof Discord >/dev/null || discord &
 fi

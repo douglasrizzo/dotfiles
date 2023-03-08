@@ -92,10 +92,10 @@ start_polybar() {
 
   # if the monitor exists, configure its polybar
   if [[ $BIGMONITOR ]]; then
-    MONITOR=$BIGMONITOR polybar --reload single &
+    MONITOR=$BIGMONITOR polybar --reload single 2>&1 | tee -a /tmp/polybar_${MONITOR}.log & disown
   fi
   if [[ $SMALLMONITOR ]]; then
-    MONITOR=$SMALLMONITOR polybar --reload single &
+    MONITOR=$SMALLMONITOR polybar --reload single 2>&1 | tee -a /tmp/polybar_${MONITOR}.log & disown
   fi
 }
 

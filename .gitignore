@@ -4,3 +4,5 @@ zsh/.zcompdump*
 vlc/vlc-qt-interface.conf
 
 zsh/.p10k.zsh
+
+zsh/.zsh_history

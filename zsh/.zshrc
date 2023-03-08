@@ -116,7 +116,6 @@ bindkey '^H' backward-delete-word
 bindkey '5~' delete-word
 bindkey '3~' delete-word
 
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$(${HOME}/.anaconda3/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"
@@ -133,6 +132,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+[[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
 
+# point ~/.zsh_history to an XDG compliant location
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
 source ${HOME}/Documents/zshrc_private.sh

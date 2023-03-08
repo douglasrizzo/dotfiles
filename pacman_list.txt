@@ -63,3 +63,4 @@ sdl_image
 sdl_mixer
 sdl_ttf
 unclutter
+keychain

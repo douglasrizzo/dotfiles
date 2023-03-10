@@ -1,9 +1,13 @@
-export ZDOTDIR="$HOME/.config/zsh"
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
-export QT_QPA_PLATFORMTHEME="qt5ct"
+export TERMINAL="xterm-256color"
 export EDITOR=/usr/bin/nano
+export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export XDG_CONFIG_HOME="$HOME/.config"
 # fix "xdg-open fork-bomb" export your preferred browser from here
 export BROWSER=/usr/bin/firefox
 
@@ -24,29 +28,13 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
 export CPATH="$HOME/.anaconda3/include:$CPATH"
-export LD_LIBRARY_PATH="/usr/lib:/home/dodo/.anaconda3/lib"
-
-# variables necessary by Malmo and MarLo
-# export MALMO_MINECRAFT_ROOT=$HOME/MalmoPlatform/Minecraft
-# export MALMO_XSD_PATH=$HOME/MalmoPlatform/Schemas
-# this is a nuisance when not using Malmo, so only uncomment it when doing Malmo-related experiments
-# export TERM=xterm
+export LD_LIBRARY_PATH="/usr/lib:$HOME/.anaconda3/lib"
 
 export PATH="$PATH:$HOME/.perl5/bin"
 export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
 export PERL_MB_OPT="--install_base \"$HOME/.perl5\""
 export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
-
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
-
-export TERMINAL="alacritty"
-
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_STATE_HOME=$HOME/.local/state
 
 ##### things that xdg-ninja recommended
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
@@ -81,5 +69,3 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export W3M_DIR="$XDG_DATA_HOME"/w3m
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-
-source ${HOME}/Documents/profile_private.sh

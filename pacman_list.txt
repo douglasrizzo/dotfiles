@@ -3,6 +3,7 @@ arandr
 base-devel
 blueman
 chromium
+dmenu
 dunst
 evince
 feh

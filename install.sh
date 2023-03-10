@@ -69,33 +69,32 @@ install_python() {
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/Downloads/miniconda.sh
   chmod +x ~/Downloads/miniconda.sh
   ~/Downloads/miniconda.sh -b -p $HOME/.anaconda3
-  # TODO maybe need to add conda to PATH here before continuing
-  # TODO check if conda env is activated, otherwise:
-  # conda activate
-  conda env update -f environment.yml
-  conda clean -ya
+  rm ~/Downloads/miniconda.sh
 }
 
 code_install_stuff() {
   for ext in \
-    adamvoss.vscode-languagetool \
+    aaron-bond.better-comments \
     alanwalk.markdown-toc \
     ankitcode.firefly \
+    Codeium.codeium \
     coenraads.bracket-pair-colorizer-2 \
     davidanson.vscode-markdownlint \
-    dlasagno.wal-theme \
     efoerster.texlab \
     foxundermoon.shell-format \
     lextudio.restructuredtext \
+    mhutchie.git-graph \
+    ms-python.black-formatter \
+    ms-python.flake8 \
+    ms-python.isort \
     ms-python.python \
     ms-python.vscode-pylance \
     njpwerner.autodocstring \
     sandcastle.vscode-open \
-    shan.code-settings-sync \
     teabyii.ayu \
     tyriar.sort-lines \
     valentjn.vscode-ltex \
-    visualstudioexptteam.vscodeintellicode \
+    VisualStudioExptTeam.vscodeintellicode \
     vomout.latex-syntax \
     xaver.clang-format; do
     code --install-extension $ext

@@ -12,7 +12,11 @@ gcc
 gimp
 hsetroot
 keepassxc
+keychain
 libmpdclient
+lightdm
+lightdm-settings 
+lightdm-slick-greeter
 make
 nano-syntax-highlighting
 nemo
@@ -33,10 +37,14 @@ pavucontrol
 picom
 pkgconf
 polybar
+portmidi
 pulseaudio
 pulseaudio-alsa
 python
 rofi
+sdl_image
+sdl_mixer
+sdl_ttf
 steam-manjaro
 sxhkd
 telegram-desktop
@@ -45,6 +53,7 @@ ttf-font-awesome
 ttf-ibm-plex
 ttf-roboto
 ttf-roboto-mono
+unclutter
 unrar
 unzip
 vlc
@@ -56,12 +65,3 @@ yay
 zenity
 zip
 zsh
-lightdm
-lightdm-slick-greeter
-lightdm-settings 
-portmidi
-sdl_image
-sdl_mixer
-sdl_ttf
-unclutter
-keychain

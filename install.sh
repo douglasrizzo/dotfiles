@@ -29,12 +29,13 @@ config_terminal() {
 
 link_stuff() {
   echo "${bold}Linking user level files...${normal}"
-  for d in bibtoolrsc nanorc profile screenlayout xcolors xprofile Xresources; do
+  for d in bibtoolrsc profile xcolors xprofile Xresources zshenv; do
     ln -vsf $(pwd)/${d} ~/.${d}
   done
 
   echo "${bold}Linking ~/.config files...${normal}"
   ln -vsf $(pwd)/dodo.zsh-theme $HOME/.oh-my-zsh/themes/
+  ln -vsf $(pwd)/nanorc $HOME/.config/nano/nanorc
   ln -vsf $(pwd)/picom.conf ~/.config/picom.conf
   ln -vsf $(pwd)/latexindent/config.yaml ~/.config/latexindent.yaml
   ln -vsf $(pwd)/latexindent/config_location.yaml ~/.indentconfig.yaml

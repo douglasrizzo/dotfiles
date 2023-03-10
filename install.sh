@@ -58,11 +58,11 @@ download_stuff() {
   wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz -P ~/Downloads
 
   echo "${bold}Downloading Zotero addons to ~/Downloads...${normal}"
-  wget https://github.com/bwiernik/zotero-shortdoi/releases/download/v1.3.9/zotero-shortdoi-1.3.9.xpi -P ~/Downloads
-  wget https://github.com/retorquere/zotero-better-bibtex/releases/download/v5.2.70/zotero-better-bibtex-5.2.70.xpi -P Downloads
-  wget https://github.com/jlegewie/zotfile/releases/download/v5.0.16/zotfile-5.0.16-fx.xpi -P Downloads
-  wget https://github.com/willsALMANJ/Zutilo/releases/download/v3.5.0/zutilo.xpi -P Downloads
-  wget https://github.com/retorquere/zotero-storage-scanner/releases/download/v5.0.8/zotero-storage-scanner-5.0.8.xpi -P Downloads
+  wget https://github.com/bwiernik/zotero-shortdoi/releases/latest/download/zotero-shortdoi-1.3.9.xpi -P ~/Downloads
+  wget https://github.com/retorquere/zotero-better-bibtex/releases/latest/download/zotero-better-bibtex-5.2.70.xpi -P ~/Downloads
+  wget https://github.com/jlegewie/zotfile/releases/latest/download/zotfile-5.0.16-fx.xpi -P ~/Downloads
+  wget https://github.com/willsALMANJ/Zutilo/releases/latest/download/zutilo.xpi -P ~/Downloads
+  wget https://github.com/retorquere/zotero-storage-scanner/releases/latest/download/zotero-storage-scanner-5.0.8.xpi -P ~/Downloads
 }
 
 install_python() {

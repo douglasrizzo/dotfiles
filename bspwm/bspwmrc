@@ -52,7 +52,7 @@ config_colors() {
   # source the colors.
   . "${HOME}/.cache/wal/colors.sh"
   # recover pywal theme
-  wal -R -o ~/.config/pywalfox_update.sh
+  wal -R -o $XDG_CONFIG_HOME/pywalfox_update.sh
 }
 
 config_wm() {
@@ -107,7 +107,7 @@ start_dunst() {
   while pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 
   # xgetres is an AUR application that allows us to get the values from Xresources
-  dunst -config ~/.config/dunst/dunstrc \
+  dunst -config $XDG_CONFIG_HOME/dunst/dunstrc \
     -cb "$(xgetres background)" \
     -lb "$(xgetres background)" \
     -nb "$(xgetres background)" \
@@ -129,7 +129,7 @@ start_polybar &
 # only try to start sxhkd and picom if they're not already running, regardless if starting or restarting bspwm
 # -m is the mode, necessary for non-US keyboards
 pidof sxhkd >/dev/null || sxhkd -m 1 &
-pidof picom >/dev/null || picom --config $HOME/.config/picom.conf &
+pidof picom >/dev/null || picom --config $XDG_CONFIG_HOME/picom.conf &
 # hsetroot -solid black
 
 start_dunst

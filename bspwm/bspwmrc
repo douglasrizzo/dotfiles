@@ -50,9 +50,7 @@ config_monitors() {
 
 config_colors() {
   # source the colors.
-  . "${HOME}/.cache/wal/colors.sh"
-  # recover pywal theme
-  wal -R -o $XDG_CONFIG_HOME/pywalfox_update.sh
+  . "$HOME/.cache/wal/colors.sh"
 }
 
 config_wm() {

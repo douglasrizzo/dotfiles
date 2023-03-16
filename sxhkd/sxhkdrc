@@ -6,9 +6,11 @@
 XF86Audio{Play,Next,Prev}
 	playerctl {play-pause,next,previous}
 
-# Pulse Audio controls
+# [Pulse Audio] raise/lower volume
 XF86Audio{RaiseVolume,LowerVolume}
 	pactl set-sink-volume 0 {+5%,-5%}
+
+# [Pulse Audio] toogle mute
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
 
@@ -21,27 +23,20 @@ super + {a,s,v,k}
 	{pavucontrol,~/.config/scripts/change_sinks.sh,arandr,~/.config/scripts/kb-layout.sh} || notify-send 'command not found'
 
 # application shortcuts
-
 XF86{HomePage,Calculator}
 	{firefox,speedcrunch}
 
-# XF86Mail
-# 	thunderbird
-
+# Alacritty
 super + {Return,KP_Enter}
 	alacritty
+# Single-instance programs
 
 super + {F5,F6,F7}
 	~/.config/scripts/maybe_run.sh {spotify,zotero,gitkraken}
 
-super + {F8,F9,F10,F11,F12}
-	{discord,obsidian,firefox,nemo,code}
-
-super + F1
-	telegram-desktop
-
-super + alt + F1
-	killall telegram-desktop
+# application shortcuts
+super + {F1,F8,F9,F10,F11,F12}
+	{telegram-desktop,discord,obsidian,firefox,nemo,code}
 
 # program launcher
 super + space
@@ -51,7 +46,7 @@ super + space
 super + alt + space
 	rofi -show file-browser-extended
 
-# screenshots
+# print all screens
 {XF86Eject,@Print}
 	mkdir -p ~/Pictures/screenshots && flameshot full
 
@@ -59,35 +54,35 @@ super + alt + space
 ctrl + {XF86Eject,@Print}
 	mkdir -p ~/Pictures/screenshots && flameshot gui
 
-## single screen
+# print current screen
 shift + {XF86Eject,@Print}
 	mkdir -p ~/Pictures/screenshots && flameshot screen
 
-# Show help
-super + slash
+# Show this help
+super + h
     ~/.config/scripts/sxhkd-help.sh
 
 # -----------------------------------------------------------------
 # bspwm hotkeys
 # -----------------------------------------------------------------
 
-# make sxhkd reload its configuration files:
+# reload sxhkd
 super + r
 	pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
 
-# quit/restart bspwm
+# restart bspwm
 super + ctrl + r
 	bspc wm -r
 
-super + Escape
-	(pidof xscreensaver >/dev/null || xscreensaver) && xscreensaver-command -lock
-
+# Logout
 super + ctrl + Escape
 	zenity --question --text "Logout?" && bspc quit
 
+# Reboot
 super + shift + Escape
 	zenity --question --text "Reboot?" && systemctl reboot
 
+# Poweroff
 super + alt + Escape
 	zenity --question --text "Poweroff?" && systemctl poweroff
 
@@ -95,7 +90,7 @@ super + alt + Escape
 super + {BackSpace,q}
 	bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
+# alternate tiled/monocle layouts
 super + m
 	bspc desktop -l next
 

@@ -60,7 +60,7 @@ shift + {XF86Eject,@Print}
 
 # Show this help
 super + h
-    ~/.config/scripts/sxhkd-help.sh
+    $XDG_CONFIG_HOME/scripts/sxhkd-help.sh
 
 # -----------------------------------------------------------------
 # bspwm hotkeys

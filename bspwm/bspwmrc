@@ -92,17 +92,17 @@ start_polybar() {
   if [[ $BIGMONITOR ]]; then
     MONITOR=$BIGMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
     disown
-    MONITOR=$BIGMONITOR polybar --reload center 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
+    MONITOR=$BIGMONITOR polybar --reload center_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
     disown
-    MONITOR=$BIGMONITOR polybar --reload right 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
+    MONITOR=$BIGMONITOR polybar --reload right_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
     disown
   fi
   if [[ $SMALLMONITOR ]]; then
     MONITOR=$SMALLMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
     disown
-    MONITOR=$SMALLMONITOR polybar --reload center 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
+    MONITOR=$SMALLMONITOR polybar --reload center_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
     disown
-    MONITOR=$SMALLMONITOR polybar --reload right 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
+    MONITOR=$SMALLMONITOR polybar --reload right_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
     disown
   fi
 }

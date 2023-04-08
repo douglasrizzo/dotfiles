@@ -16,7 +16,7 @@ XF86AudioMute
 
 # Screen brightness controls
 XF86MonBrightness{Up,Down}
-	~/.config/scripts/adjust_brightness.sh {+,-} eDP-1 || notify-send 'trouble invoking brightness script'
+    ~/.config/scripts/adjust_brightness.sh {+,-} eDP-1 || dunstify 'trouble invoking brightness script'
 
 # some system settings shortcuts
 super + {a,s,v}
@@ -71,7 +71,7 @@ super + h
 
 # reload sxhkd
 super + r
-	pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
+    pkill -USR1 -x sxhkd && dunstify "sxhkd restarted"
 
 # restart bspwm
 super + ctrl + r

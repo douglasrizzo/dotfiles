@@ -3,9 +3,9 @@ r=$?
 
 case $r in
 0)
-    notify-send "${2:-$1} already running!"
+    dunstify "${2:-$1} already running!"
     ;;
 1)
-    notify-send "launching $1..." && $1 || "command $1 failed"
+    dunstify "launching $1..." && $1 || "command $1 failed"
     ;;
 esac

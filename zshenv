@@ -30,12 +30,6 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 export CPATH="$HOME/.anaconda3/include:$CPATH"
 export LD_LIBRARY_PATH="/usr/lib:$HOME/.anaconda3/lib"
 
-export PATH="$PATH:$HOME/.perl5/bin"
-export PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-export PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-export PERL_MB_OPT="--install_base \"$HOME/.perl5\""
-export PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"
-
 ##### things that xdg-ninja recommended
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config

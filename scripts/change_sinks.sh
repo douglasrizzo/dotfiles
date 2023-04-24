@@ -7,7 +7,7 @@ if (( $(pactl list sinks | grep -e 'State:' | wc -l) > 1 )); then
     pactl set-default-sink $VAL
   fi
 # else, swap the port of the current sink between headphone and speaker
-elif pactl list sinks | grep -e 'Active port: analog-output-speaker'; then
+elif pactl list sinks | grep -e 'Active Port: analog-output-speaker'; then
   pactl set-sink-port 0 analog-output-headphones
 else
   pactl set-sink-port 0 analog-output-speaker

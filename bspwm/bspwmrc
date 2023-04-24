@@ -49,6 +49,7 @@ config_monitors() {
 }
 
 config_colors() {
+  wal -R
   # source the colors.
   . "$HOME/.cache/wal/colors.sh"
 }

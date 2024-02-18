@@ -48,6 +48,7 @@ sdl_image
 sdl_mixer
 sdl_ttf
 steam-manjaro
+stow
 sxhkd
 telegram-desktop
 texlab

@@ -28,26 +28,10 @@ config_terminal() {
 }
 
 link_stuff() {
-  echo "${bold}Linking user level files...${normal}"
-  for d in bibtoolrsc profile xcolors xprofile Xresources zshenv; do
-    ln -vsf $(pwd)/${d} ~/.${d}
-  done
 
   echo "${bold}Linking ~/.config files...${normal}"
-  ln -vsf $(pwd)/dodo.zsh-theme $HOME/.oh-my-zsh/themes/
-  ln -vsf $(pwd)/nanorc $HOME/.config/nano/nanorc
-  ln -vsf $(pwd)/picom.conf ~/.config/picom.conf
-  ln -vsf $(pwd)/latexindent/config.yaml ~/.config/latexindent.yaml
-  ln -vsf $(pwd)/latexindent/config_location.yaml ~/.indentconfig.yaml
-  ln -vsf $(pwd)/alacritty.toml ~/.config/alacritty.toml
+  ln -vsf $(pwd)/xorg.conf /etc/X11/xorg.conf
   ln -vsf $(pwd)/xorg.conf.d/* /etc/X11/xorg.conf.d/
-
-  ln -vsf $(pwd)/pywalfox_update.sh ~/.config/pywalfox_update.sh
-
-  echo "${bold}Linking ~/.config directories...${normal}"
-  for d in bspwm dunst htop i3 kitty mpv polybar rofi scripts sxhkd terminator vlc yapf zsh; do
-    rm -rf ~/.config/${d} && ln -vsf $(pwd)/${d} ~/.config
-  done
 }
 
 download_stuff() {

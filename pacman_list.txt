@@ -1,11 +1,13 @@
 adobe-source-code-pro-fonts
 arandr
 base-devel
+bat
 blueman
 chromium
 dmenu
 dunst
 evince
+eza
 feh
 flameshot
 gcc
@@ -64,4 +66,5 @@ xscreensaver
 yay
 zenity
 zip
+zoxide
 zsh

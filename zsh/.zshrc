@@ -138,3 +138,5 @@ unset __conda_setup
 # point ~/.zsh_history to an XDG compliant location
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 [[ -f $HOME/Documents/zshrc_private.sh ]] && source $HOME/Documents/zshrc_private.sh
+
+eval "$(zoxide init --cmd cd zsh)"

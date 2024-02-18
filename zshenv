@@ -63,3 +63,5 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export W3M_DIR="$XDG_DATA_HOME"/w3m
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias cat=bat
+alias ls=eza

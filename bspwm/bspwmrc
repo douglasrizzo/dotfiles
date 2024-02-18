@@ -12,12 +12,14 @@ detect_monitors() {
 
   if [[ $mon2 ]]; then
     if [[ $mon1 == *"DP"* ]]; then
-      SMALLMONITOR=$mon1
-      BIGMONITOR=$mon2
-    else
       BIGMONITOR=$mon1
       SMALLMONITOR=$mon2
+    else
+      SMALLMONITOR=$mon1
+      BIGMONITOR=$mon2
     fi
+  elif [[ $mon1 == *"DP"* ]]; then
+    BIGMONITOR=$mon1
   else
     SMALLMONITOR=$mon1
   fi
@@ -28,21 +30,10 @@ config_monitors() {
     detect_monitors
   fi
 
-  # if the monitor exists, configure its resolution
-  if [[ $1 -eq 0 ]]; then
-    if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
-      xrandr --output $SMALLMONITOR --primary --mode 1920x1080 --rotate normal --pos "0x1080" --scale 1x1 --output $BIGMONITOR --pos "1920x0" --mode 3840x2160 --rotate normal --scale 1x1 --rate 60
-    elif [[ $SMALLMONITOR ]]; then
-      xrandr --output $SMALLMONITOR --primary --mode 1920x1080 --rotate normal
-    elif [[ $BIGMONITOR ]]; then
-      xrandr --output $BIGMONITOR --primary --mode 3840x2160 --rotate normal --rate 60
-    fi
-  fi
-
   if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
     # delegate bspwm desktops to each monitor
-    bspc monitor $SMALLMONITOR -d 1 2 3 4 5 6 7 8
-    bspc monitor $BIGMONITOR -d 9
+    bspc monitor $BIGMONITOR -d 1 2 3 4 5 6 7 8
+    bspc monitor $SMALLMONITOR -d 9
   else
     bspc monitor -d 1 2 3 4 5 6 7 8 9
   fi

@@ -17,7 +17,7 @@ keepassxc
 keychain
 libmpdclient
 lightdm
-lightdm-settings 
+lightdm-settings
 lightdm-slick-greeter
 make
 nano-syntax-highlighting

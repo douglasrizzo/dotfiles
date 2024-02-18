@@ -287,7 +287,7 @@ bindsym XF86Calculator exec speedcrunch
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-    
+
     # left: shrink window’s width
     # right: grow window’s width
     # up: shrink window’s height
@@ -301,9 +301,9 @@ mode "resize" {
     bindsym Ctrl+Down resize grow height 2 px or 2 ppt
     bindsym Ctrl+Up resize shrink height 2 px or 2 ppt
     bindsym Ctrl+Right resize grow width 2 px or 2 ppt
-    
+
     # same bindings, but for the arrow keys
-    
+
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -319,7 +319,7 @@ mode "$mode_system" {
     bindsym h exec --no-startup-id $scripts_path/dodolock.sh && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym p exec --no-startup-id systemctl poweroff, mode "default"
-    
+
     # Back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -378,7 +378,7 @@ exec telegram-desktop -startintray
 # Wallpaper mode
 set $mode_wallpaper Wallpaper (0) general (1) landscape (2) starcraft (3) renders (4) none
 mode "$mode_wallpaper" {
-    
+
     bindsym 0 exec --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder, mode "default"
     bindsym 1 exec --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder/landscapes, mode "default"
     bindsym 2 exec --no-startup-id feh -z --bg-scale --no-fehbg $wallpaper_folder/sc2, mode "default"

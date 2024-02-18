@@ -1,123 +1,123 @@
 #!/bin/sh
 
 detect_monitors() {
-  # grab number of active monitors and name of first monitor
-  NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
-  mon1=$(xrandr --listactivemonitors | head -n 2 | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
-  # grab second monitor name, if it exists
-  if [[ $NMONITORS == 2 ]]; then
-    mon2=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
-    # organize big and small monitors
-  fi
+	# grab number of active monitors and name of first monitor
+	NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
+	mon1=$(xrandr --listactivemonitors | head -n 2 | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+	# grab second monitor name, if it exists
+	if [[ $NMONITORS == 2 ]]; then
+		mon2=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+		# organize big and small monitors
+	fi
 
-  if [[ $mon2 ]]; then
-    if [[ $mon1 == *"DP"* ]]; then
-      BIGMONITOR=$mon1
-      SMALLMONITOR=$mon2
-    else
-      SMALLMONITOR=$mon1
-      BIGMONITOR=$mon2
-    fi
-  elif [[ $mon1 == *"DP"* ]]; then
-    BIGMONITOR=$mon1
-  else
-    SMALLMONITOR=$mon1
-  fi
+	if [[ $mon2 ]]; then
+		if [[ $mon1 == *"DP"* ]]; then
+			BIGMONITOR=$mon1
+			SMALLMONITOR=$mon2
+		else
+			SMALLMONITOR=$mon1
+			BIGMONITOR=$mon2
+		fi
+	elif [[ $mon1 == *"DP"* ]]; then
+		BIGMONITOR=$mon1
+	else
+		SMALLMONITOR=$mon1
+	fi
 }
 
 config_monitors() {
-  if [[ ! $NMONITORS ]]; then
-    detect_monitors
-  fi
+	if [[ ! $NMONITORS ]]; then
+		detect_monitors
+	fi
 
-  if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
-    # delegate bspwm desktops to each monitor
-    bspc monitor $BIGMONITOR -d 1 2 3 4 5 6 7 8
-    bspc monitor $SMALLMONITOR -d 9
-  else
-    bspc monitor -d 1 2 3 4 5 6 7 8 9
-  fi
+	if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
+		# delegate bspwm desktops to each monitor
+		bspc monitor $BIGMONITOR -d 1 2 3 4 5 6 7 8
+		bspc monitor $SMALLMONITOR -d 9
+	else
+		bspc monitor -d 1 2 3 4 5 6 7 8 9
+	fi
 }
 
 config_colors() {
-  wal -R
-  # source the colors.
-  . "$HOME/.cache/wal/colors.sh"
+	wal -R
+	# source the colors.
+	. "$HOME/.cache/wal/colors.sh"
 }
 
 config_wm() {
-  if [[ ! $color1 ]]; then
-    config_colors
-  fi
+	if [[ ! $color1 ]]; then
+		config_colors
+	fi
 
-  # Set the border colors.
-  bspc config normal_border_color "$color1"
-  bspc config active_border_color "$color2"
-  bspc config focused_border_color "$color15"
-  bspc config presel_feedback_color "$color1"
+	# Set the border colors.
+	bspc config normal_border_color "$color1"
+	bspc config active_border_color "$color2"
+	bspc config focused_border_color "$color15"
+	bspc config presel_feedback_color "$color1"
 
-  bspc config border_width 1
-  bspc config window_gap 2
+	bspc config border_width 1
+	bspc config window_gap 2
 
-  bspc config split_ratio 0.5
-  bspc config borderless_monocle true
-  bspc config gapless_monocle true
-  bspc config single_monocle false
-  bspc config remove_disabled_monitors true
-  bspc config remove_unplugged_monitors true
-  bspc config merge_overlapping_monitors true
+	bspc config split_ratio 0.5
+	bspc config borderless_monocle true
+	bspc config gapless_monocle true
+	bspc config single_monocle false
+	bspc config remove_disabled_monitors true
+	bspc config remove_unplugged_monitors true
+	bspc config merge_overlapping_monitors true
 }
 
 # a script I made to start polybar asynchronously
 start_polybar() {
-  if [[ ! $NMONITORS ]]; then
-    detect_monitors
-  fi
+	if [[ ! $NMONITORS ]]; then
+		detect_monitors
+	fi
 
-  # Terminate already running bar instances
-  killall -q polybar
+	# Terminate already running bar instances
+	killall -q polybar
 
-  # Wait until the processes have been shut down
-  while pgrep -u $UID -x polybar >/dev/null; do sleep .05; done
+	# Wait until the processes have been shut down
+	while pgrep -u $UID -x polybar >/dev/null; do sleep .05; done
 
-  # if the monitor exists, configure its polybar
-  if [[ $BIGMONITOR ]]; then
-    MONITOR=$BIGMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
-    disown
-    MONITOR=$BIGMONITOR polybar --reload center_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
-    disown
-    MONITOR=$BIGMONITOR polybar --reload right_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
-    disown
-  fi
-  if [[ $SMALLMONITOR ]]; then
-    MONITOR=$SMALLMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
-    disown
-    MONITOR=$SMALLMONITOR polybar --reload center_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
-    disown
-    MONITOR=$SMALLMONITOR polybar --reload right_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
-    disown
-  fi
+	# if the monitor exists, configure its polybar
+	if [[ $BIGMONITOR ]]; then
+		MONITOR=$BIGMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
+		disown
+		MONITOR=$BIGMONITOR polybar --reload center_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
+		disown
+		MONITOR=$BIGMONITOR polybar --reload right_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
+		disown
+	fi
+	if [[ $SMALLMONITOR ]]; then
+		MONITOR=$SMALLMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
+		disown
+		MONITOR=$SMALLMONITOR polybar --reload center_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
+		disown
+		MONITOR=$SMALLMONITOR polybar --reload right_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
+		disown
+	fi
 }
 
 start_dunst() {
-  # stop dunst if it has been started by any application that called notify-send
-  killall -q dunst
+	# stop dunst if it has been started by any application that called notify-send
+	killall -q dunst
 
-  # Wait until the processes have been shut down
-  while pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
+	# Wait until the processes have been shut down
+	while pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 
-  # xgetres is an AUR application that allows us to get the values from Xresources
-  dunst -config $XDG_CONFIG_HOME/dunst/dunstrc \
-    -cb "$(xgetres background)" \
-    -lb "$(xgetres background)" \
-    -nb "$(xgetres background)" \
-    -cf "$(xgetres foreground)" \
-    -lf "$(xgetres foreground)" \
-    -nf "$(xgetres foreground)" \
-    -bf "$(xgetres foreground)" \
-    -frame_color "$(xgetres foreground)" &
+	# xgetres is an AUR application that allows us to get the values from Xresources
+	dunst -config $XDG_CONFIG_HOME/dunst/dunstrc \
+		-cb "$(xgetres background)" \
+		-lb "$(xgetres background)" \
+		-nb "$(xgetres background)" \
+		-cf "$(xgetres foreground)" \
+		-lf "$(xgetres foreground)" \
+		-nf "$(xgetres foreground)" \
+		-bf "$(xgetres foreground)" \
+		-frame_color "$(xgetres foreground)" &
 
-  while ! pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
+	while ! pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 }
 
 config_monitors $?
@@ -140,6 +140,6 @@ pidof blueman-applet >/dev/null || blueman-applet &
 pidof unclutter >/dev/null || unclutter &
 
 if [[ $1 -eq 0 ]]; then
-  pidof telegram-desktop >/dev/null || telegram-desktop &
-  pidof Discord >/dev/null || discord &
+	pidof telegram-desktop >/dev/null || telegram-desktop &
+	pidof Discord >/dev/null || discord &
 fi

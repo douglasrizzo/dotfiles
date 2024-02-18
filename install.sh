@@ -39,7 +39,7 @@ link_stuff() {
   ln -vsf $(pwd)/picom.conf ~/.config/picom.conf
   ln -vsf $(pwd)/latexindent/config.yaml ~/.config/latexindent.yaml
   ln -vsf $(pwd)/latexindent/config_location.yaml ~/.indentconfig.yaml
-  ln -vsf $(pwd)/alacritty.yml ~/.config/alacritty.yml
+  ln -vsf $(pwd)/alacritty.toml ~/.config/alacritty.toml
   ln -vsf $(pwd)/xorg.conf.d/* /etc/X11/xorg.conf.d/
 
   ln -vsf $(pwd)/pywalfox_update.sh ~/.config/pywalfox_update.sh

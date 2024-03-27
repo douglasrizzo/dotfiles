@@ -19,7 +19,6 @@ export MICRORTSPATH="$HOME/Code/microrts/bin/microrts.jar"
 export PATH="$PATH:$HOME/.anaconda3/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
-
 #this is supposed to fix Java GUI applications in bspwm
 export _JAVA_AWT_WM_NONREPARENTING=1
 #this fixes jagged fonts in Java software such as Chatty
@@ -47,7 +46,7 @@ export JUPYTER_CONFIG_DIR="{$XDG_CONFIG_HOME}/jupyter"
 export PYLINTHOME="${XDG_CACHE_HOME}"/pylint
 export KDEHOME="{$XDG_CONFIG_HOME}/kde"
 export LESSHISTFILE="{$XDG_STATE_HOME}/less/history"
-alias mocp=mocp -M "{$XDG_CONFIG_HOME}/moc"
+# alias mocp=mocp -M "{$XDG_CONFIG_HOME}/moc"
 export MYPY_CACHE_DIR="{$XDG_CACHE_HOME}/mypy"
 export NUGET_PACKAGES="{$XDG_CACHE_HOME}/NuGetPackages"
 export __GL_SHADER_DISK_CACHE_PATH="{$XDG_CACHE_HOME}/nv"
@@ -60,6 +59,6 @@ export BUNDLE_USER_CONFIG="{$XDG_CONFIG_HOME}/bundle"
 export BUNDLE_USER_CACHE="{$XDG_CACHE_HOME}/bundle"
 export BUNDLE_USER_PLUGIN="{$XDG_DATA_HOME}/bundle"
 export W3M_DIR="{$XDG_DATA_HOME}/w3m"
-alias wget=wget --hsts-file="{$XDG_DATA_HOME}wget-hsts""
+alias wget=wget --hsts-file="{$XDG_DATA_HOME}wget-hsts"
 alias cat=bat
 alias ls=eza

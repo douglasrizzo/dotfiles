@@ -29,10 +29,12 @@ config_terminal() {
 }
 
 link_stuff() {
+	echo "${bold}Linking home files with stow...${normal}"
+	stow . -t $HOME
 
-	echo "${bold}Linking ~/.config files...${normal}"
-	ln -vsf "$(pwd)"/xorg.conf /etc/X11/xorg.conf
-	ln -vsf "$(pwd)"/xorg.conf.d/* /etc/X11/xorg.conf.d/
+	echo "${bold}Linking Xorg files...${normal}"
+	sudo ln -vsf "$(pwd)"/xorg.conf /etc/X11/xorg.conf
+	sudo ln -vsf "$(pwd)"/xorg.conf.d/* /etc/X11/xorg.conf.d/
 }
 
 download_stuff() {
@@ -58,44 +60,8 @@ install_python() {
 	rm ~/Downloads/miniconda.sh
 }
 
-code_install_stuff() {
-	for ext in \
-		aaron-bond.better-comments \
-		alanwalk.markdown-toc \
-		ankitcode.firefly \
-		Codeium.codeium \
-		coenraads.bracket-pair-colorizer-2 \
-		davidanson.vscode-markdownlint \
-		efoerster.texlab \
-		foxundermoon.shell-format \
-		lextudio.restructuredtext \
-		mhutchie.git-graph \
-		ms-python.black-formatter \
-		ms-python.flake8 \
-		ms-python.isort \
-		ms-python.python \
-		ms-python.vscode-pylance \
-		njpwerner.autodocstring \
-		sandcastle.vscode-open \
-		teabyii.ayu \
-		tyriar.sort-lines \
-		valentjn.vscode-ltex \
-		VisualStudioExptTeam.vscodeintellicode \
-		vomout.latex-syntax \
-		xaver.clang-format; do
-		code --install-extension $ext
-	done
-}
-
-install_gpu_lightdm() {
-	sudo mhwd -a pci nonfree 0300
-	sudo pacman -S lightdm lightdm-slick-greeter lightdm-settings
-	sudo systemctl enable lightdm.service --force
-}
-
 link_stuff
 config_terminal
 download_stuff
 install_stuff
 install_python
-code_install_stuff

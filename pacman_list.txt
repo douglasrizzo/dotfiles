@@ -69,3 +69,9 @@ zenity
 zip
 zoxide
 zsh
+ripgrep
+fd
+neovim
+rust
+tree-sitter
+tree-sitter-cli

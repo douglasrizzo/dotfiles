@@ -2,3 +2,16 @@
 .config/zsh/.zcompdump*
 .config/zsh/.p10k.zsh
 .config/zsh/.zsh_history
+.config/chromium/
+.config/Code/
+.config/GiKraken/
+.config/GIMP/
+.config/keepasxc/
+.config/SpeedCrunch/
+.config/libreoffice/
+.config/discord/
+.config/guvcview2/
+.config/obsidian/
+.config/pulse/
+.config/transmission/
+.config/vlc/

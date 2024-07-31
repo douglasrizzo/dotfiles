@@ -1,40 +1,37 @@
 #!/bin/sh
 
-detect_monitors() {
+config_monitors() {
 	# grab number of active monitors and name of first monitor
 	NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
 	mon1=$(xrandr --listactivemonitors | head -n 2 | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
 	# grab second monitor name, if it exists
 	if [[ $NMONITORS == 2 ]]; then
 		mon2=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
+		mon1_size=$(xrandr --listactivemonitors | head -n 2 | tail -n 1 | awk '{$1=$1};1' | cut -d ' ' -f3 | cut -d '/' -f1)
+		mon2_size=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d ' ' -f3 | cut -d '/' -f1)
 		# organize big and small monitors
 	fi
 
+	# Terminate already running bar instances
+	killall -q polybar
+	# Wait until the processes have been shut down
+	while pgrep -u $UID -x polybar >/dev/null; do sleep .05; done
+
 	if [[ $mon2 ]]; then
-		if [[ $mon1 == *"DP"* ]]; then
+		if [[ $mon1_size > $mon2_size ]]; then
 			BIGMONITOR=$mon1
 			SMALLMONITOR=$mon2
 		else
 			SMALLMONITOR=$mon1
 			BIGMONITOR=$mon2
 		fi
-	elif [[ $mon1 == *"DP"* ]]; then
-		BIGMONITOR=$mon1
-	else
-		SMALLMONITOR=$mon1
-	fi
-}
 
-config_monitors() {
-	if [[ ! $NMONITORS ]]; then
-		detect_monitors
-	fi
-
-	if [[ $SMALLMONITOR && $BIGMONITOR ]]; then
-		# delegate bspwm desktops to each monitor
+		MONITOR=$BIGMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log & disown
+		MONITOR=$SMALLMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log & disown
 		bspc monitor $BIGMONITOR -d 1 2 3 4 5 6 7 8
 		bspc monitor $SMALLMONITOR -d 9
 	else
+		polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_the_bar.log & disown
 		bspc monitor -d 1 2 3 4 5 6 7 8 9
 	fi
 }
@@ -68,37 +65,6 @@ config_wm() {
 	bspc config merge_overlapping_monitors true
 }
 
-# a script I made to start polybar asynchronously
-start_polybar() {
-	if [[ ! $NMONITORS ]]; then
-		detect_monitors
-	fi
-
-	# Terminate already running bar instances
-	killall -q polybar
-
-	# Wait until the processes have been shut down
-	while pgrep -u $UID -x polybar >/dev/null; do sleep .05; done
-
-	# if the monitor exists, configure its polybar
-	if [[ $BIGMONITOR ]]; then
-		MONITOR=$BIGMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
-		disown
-		MONITOR=$BIGMONITOR polybar --reload center_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
-		disown
-		MONITOR=$BIGMONITOR polybar --reload right_4K 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
-		disown
-	fi
-	if [[ $SMALLMONITOR ]]; then
-		MONITOR=$SMALLMONITOR polybar --reload left 2>&1 | tee -a /tmp/polybar_${MONITOR}_left.log &
-		disown
-		MONITOR=$SMALLMONITOR polybar --reload center_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_center.log &
-		disown
-		MONITOR=$SMALLMONITOR polybar --reload right_HD 2>&1 | tee -a /tmp/polybar_${MONITOR}_right.log &
-		disown
-	fi
-}
-
 start_dunst() {
 	# stop dunst if it has been started by any application that called notify-send
 	killall -q dunst
@@ -120,7 +86,7 @@ start_dunst() {
 	while ! pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 }
 
-config_monitors $?
+config_monitors
 config_colors
 config_wm
 

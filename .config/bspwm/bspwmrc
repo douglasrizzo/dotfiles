@@ -18,7 +18,7 @@ config_monitors() {
 	while pgrep -u $UID -x polybar >/dev/null; do sleep .05; done
 
 	if [[ $mon2 ]]; then
-		if [[ $mon1_size > $mon2_size ]]; then
+		if [[ $mon1_size ]] >$mon2_size; then
 			BIGMONITOR=$mon1
 			SMALLMONITOR=$mon2
 		else
@@ -26,12 +26,15 @@ config_monitors() {
 			BIGMONITOR=$mon2
 		fi
 
-		MONITOR=$BIGMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log & disown
-		MONITOR=$SMALLMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log & disown
+		MONITOR=$BIGMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log &
+		disown
+		MONITOR=$SMALLMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log &
+		disown
 		bspc monitor $BIGMONITOR -d 1 2 3 4 5 6 7 8
 		bspc monitor $SMALLMONITOR -d 9
 	else
-		polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_the_bar.log & disown
+		polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_the_bar.log &
+		disown
 		bspc monitor -d 1 2 3 4 5 6 7 8 9
 	fi
 }
@@ -85,6 +88,12 @@ start_dunst() {
 
 	while ! pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 }
+
+# at startup, recover screen layout from arandr if it exists
+SCREENLAYOUT_FILE=$XDG_CONFIG_HOME/screenlayout/$(hostnamectl hostname).sh
+if [[ $1 -eq 0 && -f "$SCREENLAYOUT_FILE" ]]; then
+	sh $SCREENLAYOUT_FILE
+fi
 
 config_monitors
 config_colors

@@ -49,6 +49,7 @@ export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 export MYPY_CACHE_DIR="${XDG_CACHE_HOME}/mypy"
 export NUGET_PACKAGES="${XDG_CACHE_HOME}/NuGetPackages"
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+export HF_HOME="${XDG_CACHE_HOME}/huggingface"
 alias nvidia-settings=nvidia-settings --config="${XDG_CONFIG_HOME}/nvidia/settings"
 # Disclaimer: some applications don't respect this setting
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="${XDG_CONFIG_HOME}/java"

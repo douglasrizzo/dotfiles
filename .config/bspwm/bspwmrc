@@ -1,37 +1,38 @@
 #!/bin/sh
 
 config_monitors() {
+	# stop polybar if it has been started by any application that called notify-send
+	killall -q polybar
+	while pgrep -x polybar >/dev/null; do sleep 0.2; done
+
 	# grab number of active monitors and name of first monitor
 	NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
-	mon1=$(xrandr --listactivemonitors | head -n 2 | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
-	# grab second monitor name, if it exists
-	if [[ $NMONITORS == 2 ]]; then
-		mon2=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d " " -f4)
-		mon1_size=$(xrandr --listactivemonitors | head -n 2 | tail -n 1 | awk '{$1=$1};1' | cut -d ' ' -f3 | cut -d '/' -f1)
-		mon2_size=$(xrandr --listactivemonitors | tail -n 1 | awk '{$1=$1};1' | cut -d ' ' -f3 | cut -d '/' -f1)
-		# organize big and small monitors
-	fi
+	# Store xrandr output once to avoid multiple executions
+	monitors=($(xrandr --listactivemonitors | tail -n +2 | awk '{print $4, $3}' | tr '/' ' '))
+	# configure monitors
+	if [[ $NMONITORS -ge 2 ]]; then
+		mon1=${monitors[0]}
+		mon1_size=${monitors[1]}
+		mon2=${monitors[4]}
+		mon2_size=${monitors[5]}
 
-	# Terminate already running bar instances
-	killall -q polybar
-	# Wait until the processes have been shut down
-	while pgrep -u $UID -x polybar >/dev/null; do sleep .05; done
-
-	if [[ $mon2 ]]; then
-		if [[ $mon1_size > $mon2_size ]]; then
+		if [[ $mon1_size -gt $mon2_size ]]; then
 			BIGMONITOR=$mon1
 			SMALLMONITOR=$mon2
 		else
-			SMALLMONITOR=$mon1
 			BIGMONITOR=$mon2
+			SMALLMONITOR=$mon1
 		fi
 
-		MONITOR=$BIGMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log & disown
-		MONITOR=$SMALLMONITOR polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${MONITOR}_the_bar.log & disown
+		# Launch polybar for each monitor
+		for mon in $(bspc query -M --names); do
+			MONITOR=$mon polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_${mon}_the_bar.log & disown
+		done
+
 		bspc monitor $BIGMONITOR -d 1 2 3 4 5 6 7 8
 		bspc monitor $SMALLMONITOR -d 9
 	else
-		polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_the_bar.log & disown
+		MONITOR=$mon1 polybar --reload the_bar 2>&1 | tee -a /tmp/polybar_the_bar.log & disown
 		bspc monitor -d 1 2 3 4 5 6 7 8 9
 	fi
 }
@@ -43,9 +44,7 @@ config_colors() {
 }
 
 config_wm() {
-	if [[ ! $color1 ]]; then
-		config_colors
-	fi
+	[[ -f "$HOME/.cache/wal/colors.sh" ]] && source "$HOME/.cache/wal/colors.sh" || config_colors
 
 	# Set the border colors.
 	bspc config normal_border_color "$color1"
@@ -54,12 +53,12 @@ config_wm() {
 	bspc config presel_feedback_color "$color1"
 
 	bspc config border_width 1
-	bspc config window_gap 2
 
+	bspc config automatic_scheme alternate
 	bspc config split_ratio 0.5
 	bspc config borderless_monocle true
 	bspc config gapless_monocle true
-	bspc config single_monocle false
+	bspc config single_monocle true
 	bspc config remove_disabled_monitors true
 	bspc config remove_unplugged_monitors true
 	bspc config merge_overlapping_monitors true
@@ -68,44 +67,40 @@ config_wm() {
 start_dunst() {
 	# stop dunst if it has been started by any application that called notify-send
 	killall -q dunst
-
 	# Wait until the processes have been shut down
 	while pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
 
 	# xgetres is an AUR application that allows us to get the values from Xresources
-	dunst -config $XDG_CONFIG_HOME/dunst/dunstrc \
-		-cb "$(xgetres background)" \
-		-lb "$(xgetres background)" \
-		-nb "$(xgetres background)" \
-		-cf "$(xgetres foreground)" \
-		-lf "$(xgetres foreground)" \
-		-nf "$(xgetres foreground)" \
-		-bf "$(xgetres foreground)" \
-		-frame_color "$(xgetres foreground)" &
+		# Fetch colors once to avoid multiple calls
+	bg_color=$(xgetres background)
+	fg_color=$(xgetres foreground)
 
-	while ! pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
+	dunst -config $XDG_CONFIG_HOME/dunst/dunstrc
+
+	while ! pgrep -x dunst >/dev/null; do sleep 0.05; done5; done
 }
+
+if [[ $1 -eq 0 ]]; then
+	${XDG_CONFIG_HOME}/screenlayout.sh
+fi
 
 config_monitors
 config_colors
 config_wm
 
-start_polybar &
-
 # only try to start sxhkd and picom if they're not already running, regardless if starting or restarting bspwm
 # -m is the mode, necessary for non-US keyboards
-pidof sxhkd >/dev/null || sxhkd -m 1 &
-pidof picom >/dev/null || picom --config $XDG_CONFIG_HOME/picom.conf &
+pgrep -x sxhkd >/dev/null || sxhkd -m 1 &
+pgrep -x picom >/dev/null || picom --config $XDG_CONFIG_HOME/picom.conf &
 # hsetroot -solid black
 
 start_dunst
 
-pidof megasync >/dev/null || megasync &
-pidof nm-applet >/dev/null || nm-applet &
-pidof blueman-applet >/dev/null || blueman-applet &
-pidof unclutter >/dev/null || unclutter &
+pgrep -x nm-applet >/dev/null || nm-applet &
+pgrep -x blueman-applet >/dev/null || blueman-applet &
+pgrep -x unclutter >/dev/null || unclutter &
 
 if [[ $1 -eq 0 ]]; then
-	pidof telegram-desktop >/dev/null || telegram-desktop &
-	pidof Discord >/dev/null || discord &
+	# pgrep -x mega-sync >/dev/null || mega-sync &
+	# pgrep -x Discord >/dev/null || discord &
 fi

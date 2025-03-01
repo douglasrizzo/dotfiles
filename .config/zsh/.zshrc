@@ -142,3 +142,7 @@ mkdir -p $(dirname $HISTFILE)
 eval "$(zoxide init --cmd cd zsh)"
 alias cat=bat
 alias ls=eza
+
+. "$HOME/.local/share/../bin/env"
+
+eval $(uv generate-shell-completion zsh)

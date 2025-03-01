@@ -22,9 +22,6 @@ XF86MonBrightness{Up,Down}
 super + {a,s,v}
     {pavucontrol,~/.config/scripts/change_sinks.sh,arandr} || dunstify 'command not found'
 
-super + k
-    setxkbmap -query | grep -q 'br' && (setxkbmap -layout us -variant intl && dunstify -a setxkbmap 'Changed keyboard to US International') || (setxkbmap -layout br -variant abnt2 && dunstify -a setxkbmap 'Changed keyboard to ABNT-2')
-
 # application shortcuts
 XF86{HomePage,Calculator}
 	{firefox,speedcrunch}

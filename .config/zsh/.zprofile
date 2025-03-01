@@ -1,2 +1,4 @@
 #!/usr/bin/env sh
-source $HOME/Documents/profile_private.sh
+PRIVATE_PROFILE="$HOME/Documents/profile_private.sh"
+[ -f "$PRIVATE_PROFILE" ] && source "$PRIVATE_PROFILE"
+

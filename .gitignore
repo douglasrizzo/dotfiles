@@ -3,10 +3,12 @@
 .config/dconf/
 .config/discord/
 .config/flameshot/
+.config/gcloud/
 .config/GiKraken/
 .config/GIMP/
 .config/GitKraken/
 .config/go/
+.config/google-chrome/
 .config/gtk-3.0/
 .config/gtk-4.0/
 .config/guvcview2/
@@ -22,6 +24,7 @@
 .config/QDirStat/
 .config/QtProject.conf
 .config/screenlayout.sh
+.config/Slack/
 .config/SpeedCrunch/
 .config/transmission/
 .config/uv/

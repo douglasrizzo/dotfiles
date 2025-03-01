@@ -134,6 +134,9 @@ bindkey '3~' delete-word
 
 # point ~/.zsh_history to an XDG compliant location
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
+mkdir -p $(dirname $HISTFILE)
+
+# source private file if it exists
 [[ -f $HOME/Documents/zshrc_private.sh ]] && source $HOME/Documents/zshrc_private.sh
 
 eval "$(zoxide init --cmd cd zsh)"

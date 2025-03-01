@@ -79,15 +79,30 @@ super + ctrl + r
 
 # Logout
 super + ctrl + Escape
-	zenity --question --text "Logout?" && bspc quit
+	yad --fixed \
+	--image="dialog-question" \
+	--title "Logout" \
+	--text "Logout?" \
+	--button="yad-yes:0" \
+	--button="yad-no:1" && bspc quit
 
 # Reboot
 super + shift + Escape
-	zenity --question --text "Reboot?" && systemctl reboot
+	yad --fixed \
+	--image="dialog-question" \
+	--title "Reboot" \
+	--text "Reboot?" \
+	--button="yad-yes:0" \
+	--button="yad-no:1" && systemctl reboot
 
 # Poweroff
 super + alt + Escape
-	zenity --question --text "Poweroff?" && systemctl poweroff
+	yad --fixed \
+	--image="dialog-question" \
+	--title "Power off" \
+	--text "Power off?" \
+	--button="yad-yes:0" \
+	--button="yad-no:1" && systemctl poweroff
 
 # close window/kill application
 super + {BackSpace,w,q}

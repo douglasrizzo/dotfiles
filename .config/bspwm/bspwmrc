@@ -77,7 +77,7 @@ start_dunst() {
 
 	dunst -config $XDG_CONFIG_HOME/dunst/dunstrc
 
-	while ! pgrep -x dunst >/dev/null; do sleep 0.05; done5; done
+	while ! pgrep -x dunst >/dev/null; do sleep 0.05; done
 }
 
 config_kb() {

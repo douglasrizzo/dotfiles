@@ -4,8 +4,9 @@ lexend-fonts-git
 megasync-bin
 nemo-megasync
 ocs-url
-ttf-b612
-ttf-meslo-nerd-font-powerlevel10k
 visual-studio-code-bin
 xgetres
 zotero-bin
+ttf-b612
+ttf-meslo-nerd-font-powerlevel10k
+otf-stix 

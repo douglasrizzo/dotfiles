@@ -5,7 +5,7 @@
 #     exec tmux new-session -A -s ${USER} >/dev/null 2>&1
 # fi
 
-eval $(keychain --eval id_rsa -q --noask)
+eval "$(keychain --eval id_rsa -q)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

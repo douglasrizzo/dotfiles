@@ -1,116 +1,117 @@
 #!/bin/sh
 
-config_monitors() {
-	# stop polybar if it has been started by any application that called notify-send
-	killall -q polybar
-	while pgrep -x polybar >/dev/null; do sleep 0.2; done
+## Configure keyboard
+setxkbmap -layout br,us -variant ,intl -option grp:alt_shift_toggle
+xinput list-props "Satechi ST-UCSW3M" | grep "Device Enabled" && setxkbmap -layout us,br -variant intl, -option grp:alt_shift_toggle || setxkbmap -layout br,us -variant ,intl -option grp:alt_shift_toggle
 
-	# grab number of active monitors and name of first monitor
-	NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
-	# Store xrandr output once to avoid multiple executions
-	monitors=($(xrandr --listactivemonitors | tail -n +2 | awk '{print $4, $3}' | tr '/' ' '))
-	# configure monitors
-	if [[ $NMONITORS -ge 2 ]]; then
-		mon1=${monitors[0]}
-		mon1_size=${monitors[1]}
-		mon2=${monitors[4]}
-		mon2_size=${monitors[5]}
+## Start sxhkd
+# only try to start sxhkd and picom if they're not already running, regardless if starting or restarting bspwm
+# -m is the mode, necessary for non-US keyboards
+pgrep -x sxhkd >/dev/null || sxhkd -m 1 &
 
-		if [[ $mon1_size -gt $mon2_size ]]; then
-			BIGMONITOR=$mon1
-			SMALLMONITOR=$mon2
-		else
-			BIGMONITOR=$mon2
-			SMALLMONITOR=$mon1
-		fi
+## Load colors
+wal -R
+# source the colors.
+. "$HOME/.cache/wal/colors.sh"
 
-		# Launch polybar for each monitor
-		for mon in $(bspc query -M --names); do
-			for bar in the_bar_left the_bar_right the_bar_center; do
-				MONITOR=$mon polybar --reload $bar 2>&1 | tee -a /tmp/polybar_${mon}_${bar}.log & disown
-			done
-		done
+## Config monitors
+# stop polybar if it has been started by any application that called notify-send
+killall -q polybar
+while pgrep -x polybar >/dev/null; do sleep 0.2; done
 
-		bspc monitor $BIGMONITOR -d 1 2 3 4 5 6 7 8
-		bspc monitor $SMALLMONITOR -d 9
-	else
-		for bar in the_bar_left the_bar_right the_bar_center; do
-			MONITOR=$mon1 polybar --reload $bar 2>&1 | tee -a /tmp/polybar_${mon}_${bar}.log & disown
-		done
-		bspc monitor -d 1 2 3 4 5 6 7 8 9
+# grab number of active monitors and name of first monitor
+NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
+# Store xrandr output once to avoid multiple executions (POSIX compatible)
+mon1=""
+mon1_size=""
+mon2=""
+mon2_size=""
+i=0
+xrandr --listactivemonitors | tail -n +2 | while read -r _ mon_size mon_name _; do
+	if [ $i -eq 0 ]; then
+		mon1="$mon_name"
+		mon1_size=$(echo "$mon_size" | cut -d'x' -f1)
+	elif [ $i -eq 1 ]; then
+		mon2="$mon_name"
+		mon2_size=$(echo "$mon_size" | cut -d'x' -f1)
 	fi
-}
+	i=$((i + 1))
+done
 
-config_colors() {
-	wal -R
-	# source the colors.
-	. "$HOME/.cache/wal/colors.sh"
-}
+# Configure monitors
+if [ "$NMONITORS" -ge 2 ]; then
+	if [ "$mon1_size" -gt "$mon2_size" ]; then
+		BIGMONITOR=$mon1
+		SMALLMONITOR=$mon2
+	else
+		BIGMONITOR=$mon2
+		SMALLMONITOR=$mon1
+	fi
 
-config_wm() {
-	[[ -f "$HOME/.cache/wal/colors.sh" ]] && source "$HOME/.cache/wal/colors.sh" || config_colors
+	bspc monitor "$BIGMONITOR" -d 1 2 3 4 5 6 7 8
+	bspc monitor "$SMALLMONITOR" -d 9
+else
+	bspc monitor -d 1 2 3 4 5 6 7 8 9
+fi
 
-	# Set the border colors.
-	bspc config normal_border_color "$color1"
-	bspc config active_border_color "$color2"
-	bspc config focused_border_color "$color15"
-	bspc config presel_feedback_color "$color1"
+## Config bspwm
+# Set the border colors.
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color15"
+bspc config presel_feedback_color "$color1"
 
-	bspc config border_width 1
+bspc config border_width 1
 
-	bspc config automatic_scheme alternate
-	bspc config split_ratio 0.5
-	bspc config borderless_monocle true
-	bspc config gapless_monocle true
-	bspc config single_monocle true
-	bspc config remove_disabled_monitors true
-	bspc config remove_unplugged_monitors true
-	bspc config merge_overlapping_monitors true
-}
+bspc config automatic_scheme alternate
+bspc config split_ratio 0.5
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config single_monocle true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
 
-start_dunst() {
-	# stop dunst if it has been started by any application that called notify-send
-	killall -q dunst
-	# Wait until the processes have been shut down
-	while pgrep -u $UID -x dunst >/dev/null; do sleep .05; done
+## Launch polybar in all displays
+for mon in $(bspc query -M --names); do
+	for bar in the_bar_left the_bar_right the_bar_center; do
+		MONITOR=$mon polybar --reload $bar 2>&1 | tee -a /tmp/polybar_${mon}_${bar}.log &
+		disown
+	done
+done
 
-	# xgetres is an AUR application that allows us to get the values from Xresources
-		# Fetch colors once to avoid multiple calls
-	bg_color=$(xgetres background)
-	fg_color=$(xgetres foreground)
-
-	dunst -config $XDG_CONFIG_HOME/dunst/dunstrc
-
-	while ! pgrep -x dunst >/dev/null; do sleep 0.05; done
-}
-
-config_kb() {
-	setxkbmap -layout br,us -variant ,intl -option grp:alt_shift_toggle
-	xinput list-props "Satechi ST-UCSW3M" | grep "Device Enabled" && setxkbmap -layout us,br -variant intl, -option grp:alt_shift_toggle || setxkbmap -layout br,us -variant ,intl -option grp:alt_shift_toggle
-}
-
+## Config screen layout
 if [[ $1 -eq 0 ]]; then
 	${XDG_CONFIG_HOME}/screenlayout.sh
 fi
 
-config_monitors
-config_colors
-config_kb
-config_wm
+## Start applications
+# Helper function to start an app if not running and notify
+start_app() {
+	local app_name="$1"
+	local start_cmd="$2"
+	local notify_name="${3:-$app_name}"
 
-# only try to start sxhkd and picom if they're not already running, regardless if starting or restarting bspwm
-# -m is the mode, necessary for non-US keyboards
-pgrep -x sxhkd >/dev/null || sxhkd -m 1 &
-pgrep -x picom >/dev/null || picom --config $XDG_CONFIG_HOME/picom.conf &
-# hsetroot -solid black
+	if pgrep -x "$app_name" >/dev/null; then
+		notify-send "$notify_name is already running."
+	else
+		$start_cmd &
+		sleep 1
+		if pgrep -x "$app_name" >/dev/null; then
+			notify-send "$notify_name started successfully."
+		else
+			notify-send "Failed to start $notify_name."
+		fi
+	fi
+}
 
-start_dunst
+start_app "picom" "picom --config $XDG_CONFIG_HOME/picom.conf"
+start_app "nm-applet" "nm-applet"
+start_app "blueman-applet" "blueman-applet"
+start_app "unclutter" "unclutter"
 
-pgrep -x nm-applet >/dev/null || nm-applet &
-pgrep -x blueman-applet >/dev/null || blueman-applet &
-pgrep -x unclutter >/dev/null || unclutter &
-
+# Applications that should only be started once
 if [[ $1 -eq 0 ]]; then
-	# pgrep -x mega-sync >/dev/null || mega-sync &
-	# pgrep -x Discord >/dev/null || discord &
+	start_app "mega-sync" "mega-sync"
+	# start_app "Discord" "discord"
 fi

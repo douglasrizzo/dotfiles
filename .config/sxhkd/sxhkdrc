@@ -24,7 +24,7 @@ super + {a,s,v}
 
 # application shortcuts
 XF86{HomePage,Calculator}
-	{firefox,speedcrunch}
+	{zen-browser,speedcrunch}
 
 # Alacritty
 super + {Return,KP_Enter}
@@ -36,7 +36,7 @@ super + {F5,F6,F7,F9}
 
 # application shortcuts
 super + {F1,F8,F10,F11,F12}
-    {telegram-desktop,discord,firefox,nemo,code}
+    {Telegram,discord,zen-browser,nemo,code}
 
 # program launcher
 super + space

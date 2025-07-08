@@ -15,8 +15,7 @@ export BROWSER=/usr/bin/firefox
 export SC2PATH="/opt/StarCraftII"
 export MICRORTSPATH="$HOME/Code/microrts/bin/microrts.jar"
 
-export PATH="$PATH:$HOME/.anaconda3/bin"
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 #this is supposed to fix Java GUI applications in bspwm
 export _JAVA_AWT_WM_NONREPARENTING=1

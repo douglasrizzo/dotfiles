@@ -26,6 +26,10 @@ super + {a,s,v}
 XF86{HomePage,Calculator}
 	{zen-browser,speedcrunch}
 
+# lock screen
+super + l
+	playerctl -a pause && slock
+
 # Alacritty
 super + {Return,KP_Enter}
     alacritty
@@ -137,9 +141,13 @@ super + {_,shift + }Tab
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.occupied
 
-# focus or send to the given desktop
-super + {_,ctrl +}{1-9}
-	bspc {desktop -f,node -d} '^{1-9}'
+# super + N focuses desktop N
+super + {1-9}
+	bspc desktop -f '^{1-9}'
+
+# super + ctrl + N sends the focused window to desktop N
+super + ctrl + {1-9}
+	bspc node -d '^{1-9}'
 
 # focus or send to the given desktop
 super + {shift + }{1-9}

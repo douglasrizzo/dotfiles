@@ -44,7 +44,7 @@ super + space
 
 # quick file browser
 super + alt + space
-	rofi -show file-browser-extended
+	rofi -show window
 
 # print all screens
 {XF86Eject,@Print}

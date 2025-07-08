@@ -5,6 +5,15 @@ normal=$(tput sgr0)
 install_stuff() {
 	echo "${bold}Installing stuff from pacman...${normal}"
 	sudo cat pacman_list.txt | sudo pacman -S --needed -
+
+	echo "${bold}Installing yay from AUR...${normal}"
+	sudo pacman -S --needed git base-devel &&
+		git clone https://aur.archlinux.org/yay.git &&
+		cd yay &&
+		makepkg -si &&
+		cd .. &&
+		rm -rf yay
+
 	echo "${bold}Installing stuff with yay...${normal}"
 	yay -S - <aur_list.txt
 }
@@ -22,10 +31,6 @@ config_terminal() {
 	wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -P ~/.local/share/fonts
 	wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -P ~/.local/share/fonts
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
-
-	echo "${bold}Downloading zsh plugins...${normal}"
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
 }
 
 link_stuff() {
@@ -59,9 +64,3 @@ install_python() {
 	~/Downloads/miniconda.sh -b -p "$HOME"/.anaconda3
 	rm ~/Downloads/miniconda.sh
 }
-
-link_stuff
-config_terminal
-download_stuff
-install_stuff
-install_python

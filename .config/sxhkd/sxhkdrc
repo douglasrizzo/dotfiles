@@ -16,11 +16,11 @@ XF86AudioMute
 
 # Screen brightness controls
 XF86MonBrightness{Up,Down}
-    ~/.config/scripts/adjust_brightness.sh {+,-} eDP-1 || dunstify 'trouble invoking brightness script'
+    ~/.config/scripts/adjust_brightness.sh {+,-} eDP-1 || notify-send "trouble invoking brightness script"
 
 # some system settings shortcuts
-super + {a,s,v}
-    {pavucontrol,~/.config/scripts/change_sinks.sh,arandr} || dunstify 'command not found'
+super + {a,v,b}
+    ~/.config/scripts/run-or-notify.sh {pavucontrol,arandr,blueman-manager}
 
 # application shortcuts
 XF86{HomePage,Calculator}
@@ -36,7 +36,7 @@ super + {Return,KP_Enter}
 # Single-instance programs
 
 super + {F5,F6,F7,F9}
-    ~/.config/scripts/maybe_run.sh {spotify,zotero,gitkraken,obsidian}
+    ~/.config/scripts/run-or-notify.sh {spotify,zotero,gitkraken,obsidian}
 
 # application shortcuts
 super + {F1,F8,F10,F11,F12}
@@ -48,7 +48,7 @@ super + space
 
 # quick file browser
 super + alt + space
-	rofi -show window
+	rofi -show filebrowser
 
 # print all screens
 {XF86Eject,@Print}
@@ -72,7 +72,7 @@ super + h
 
 # reload sxhkd
 super + r
-    pkill -USR1 -x sxhkd && dunstify "sxhkd restarted"
+    pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
 
 # restart bspwm
 super + ctrl + r
@@ -195,7 +195,7 @@ super + alt + {Left,Down,Up,Right}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {Left,Down,Up,Right}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	bspc node -z {left 20 0,bottom 0 -20,top 0 20,right -20 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}

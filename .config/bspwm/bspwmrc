@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 (
 	## Configure keyboard
@@ -25,33 +25,37 @@
 	echo 30
 	echo "# Stopping polybar"
 	polybar-msg cmd quit
+	sleep 0.2
 	while pgrep -x polybar >/dev/null; do sleep 0.2; done
 
 	echo 40
 	echo "# Detecting monitors"
 	# grab number of active monitors and name of first monitor
 	NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
-	# Store xrandr output once to avoid multiple executions (POSIX compatible)
-	mon1=""
-	mon1_size=""
-	mon2=""
-	mon2_size=""
-	i=0
-	xrandr --listactivemonitors | tail -n +2 | while read -r _ mon_size mon_name _; do
-		if [ $i -eq 0 ]; then
-			mon1="$mon_name"
-			mon1_size=$(echo "$mon_size" | cut -d'x' -f1)
-		elif [ $i -eq 1 ]; then
-			mon2="$mon_name"
-			mon2_size=$(echo "$mon_size" | cut -d'x' -f1)
-		fi
-		i=$((i + 1))
-	done
+
+	echo "#   Detected $NMONITORS monitors"
 
 	echo 50
 	echo "# Configuring monitors"
 	# Configure monitors
 	if [ "$NMONITORS" -ge 2 ]; then
+		i=0
+		xrandr --listactivemonitors | tail -n +2 | while read -r num rest; do
+			mon_name=$(echo "$rest" | awk '{print $1}' | sed 's/^+[*]*//')
+			mon_size=$(echo "$rest" | awk '{print $2}' | cut -d/ -f1)
+			echo "#   Detected monitor: $mon_name ($mon_size)"
+			if ((i == 0)); then
+				mon1="$mon_name"
+				mon1_size="$mon_size"
+			elif ((i == 1)); then
+				mon2="$mon_name"
+				mon2_size="$mon_size"
+			fi
+			((i++))
+		done
+
+		echo "#   Detected monitors: $mon1 ($mon1_size) and $mon2 ($mon2_size)"
+
 		if [ "$mon1_size" -gt "$mon2_size" ]; then
 			BIGMONITOR=$mon1
 			SMALLMONITOR=$mon2
@@ -59,6 +63,9 @@
 			BIGMONITOR=$mon2
 			SMALLMONITOR=$mon1
 		fi
+
+		echo "#   Large monitor: $BIGMONITOR"
+		echo "#   Small monitor: $SMALLMONITOR"
 
 		bspc monitor "$BIGMONITOR" -d 1 2 3 4 5 6 7 8
 		bspc monitor "$SMALLMONITOR" -d 9
@@ -90,7 +97,7 @@
 	echo 70
 	echo "# Starting polybar"
 	for mon in $(bspc query -M --names); do
-		for bar in the_bar_left the_bar_right the_bar_center; do
+		for bar in the_bar_single; do
 			MONITOR=$mon polybar --reload $bar 2>&1 | tee -a /tmp/polybar_${mon}_${bar}.log &
 			disown
 		done

@@ -1,6 +1,7 @@
 arandr
 base-devel
 bat
+bc
 blueman
 btop
 discord
@@ -39,8 +40,7 @@ stow
 sxhkd
 telegram-desktop
 unclutter
-unrar
-unzip
+unp
 vlc
 xarchiver
 xorg-xbacklight

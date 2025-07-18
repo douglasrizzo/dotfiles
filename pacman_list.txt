@@ -13,6 +13,7 @@ flameshot
 gcc
 gimp
 hsetroot
+imv
 keepassxc
 keychain
 libmpdclient

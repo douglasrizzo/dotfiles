@@ -10,32 +10,32 @@
 	## Start sxhkd
 	# only try to start sxhkd and picom if they're not already running, regardless if starting or restarting bspwm
 	# -m is the mode, necessary for non-US keyboards
-	echo 10
+	echo 13
 	echo "# Starting sxhkd"
 	pgrep -x sxhkd >/dev/null || sxhkd -m 1 &
 
 	## Load colors
-	echo 20
+	echo 26
 	echo "# Loading colors"
 	wal -R
 	. "$HOME/.cache/wal/colors.sh"
 
 	## Config monitors
 	# stop polybar if it has been started by any application that called notify-send
-	echo 30
+	echo 39
 	echo "# Stopping polybar"
 	polybar-msg cmd quit
 	sleep 0.2
 	while pgrep -x polybar >/dev/null; do sleep 0.2; done
 
-	echo 40
+	echo 51
 	echo "# Detecting monitors"
 	# grab number of active monitors and name of first monitor
 	NMONITORS=$(xrandr --listactivemonitors | tail +2 | wc -l)
 
 	echo "#   Detected $NMONITORS monitors"
 
-	echo 50
+	echo 64
 	echo "# Configuring monitors"
 	# Configure monitors
 	if [ "$NMONITORS" -ge 2 ]; then
@@ -69,12 +69,17 @@
 
 		bspc monitor "$BIGMONITOR" -d 1 2 3 4 5 6 7 8
 		bspc monitor "$SMALLMONITOR" -d 9
+
+		polybar --reload big_screen 2>&1 | tee -a /tmp/polybar_${bar}.log & disown
+		polybar --reload laptop_aux 2>&1 | tee -a /tmp/polybar_${bar}.log & disown
+
 	else
 		bspc monitor -d 1 2 3 4 5 6 7 8 9
+		polybar --reload laptop_main 2>&1 | tee -a /tmp/polybar_${bar}.log & disown
 	fi
 
 	## Config bspwm
-	echo 60
+	echo 76
 	echo "# Configuring bspwm"
 	# Set the border colors.
 	bspc config normal_border_color "$color1"
@@ -93,18 +98,8 @@
 	bspc config remove_unplugged_monitors true
 	bspc config merge_overlapping_monitors true
 
-	## Launch polybar in all displays
-	echo 70
-	echo "# Starting polybar"
-	for mon in $(bspc query -M --names); do
-		for bar in the_bar_single; do
-			MONITOR=$mon polybar --reload $bar 2>&1 | tee -a /tmp/polybar_${mon}_${bar}.log &
-			disown
-		done
-	done
-
 	## Config screen layout
-	echo 80
+	echo 87
 	echo "# Configuring screen layout"
 	if [[ $1 -eq 0 ]]; then
 		${XDG_CONFIG_HOME}/screenlayout.sh
@@ -130,7 +125,7 @@
 		fi
 	}
 
-	echo 90
+	echo 95
 	echo "# Starting applications"
 	start_app "picom" "picom --config $XDG_CONFIG_HOME/picom.conf" &
 	start_app "nm-applet" "nm-applet" &

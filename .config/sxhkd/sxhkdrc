@@ -148,7 +148,7 @@ super + {_,shift + }Tab
 
 # Focus the next/previous occupied desktop
 super + bracket{left,right}
-(bspc desktop -f {prev,next}.occupied)
+	bspc desktop -f {prev,next}.occupied
 
 # Send the current node to the next/previous desktop and focus it
 super + ctrl + bracket{left,right}

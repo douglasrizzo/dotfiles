@@ -22,11 +22,6 @@
 
 	## Config monitors
 	# stop polybar if it has been started by any application that called notify-send
-	echo 39
-	echo "# Stopping polybar"
-	polybar-msg cmd quit
-	sleep 0.2
-	while pgrep -x polybar >/dev/null; do sleep 0.2; done
 
 	echo 51
 	echo "# Detecting monitors"
@@ -70,12 +65,12 @@
 		bspc monitor "$BIGMONITOR" -d 1 2 3 4 5 6 7 8
 		bspc monitor "$SMALLMONITOR" -d 9
 
-		polybar --reload big_screen 2>&1 | tee -a /tmp/polybar_${bar}.log & disown
-		polybar --reload laptop_aux 2>&1 | tee -a /tmp/polybar_${bar}.log & disown
+		polybar --reload a_big_screen & disown
+		polybar --reload c_laptop_aux & disown
 
 	else
 		bspc monitor -d 1 2 3 4 5 6 7 8 9
-		polybar --reload laptop_main 2>&1 | tee -a /tmp/polybar_${bar}.log & disown
+		polybar --reload b_laptop_main & disown
 	fi
 
 	## Config bspwm

@@ -41,7 +41,7 @@ super + {F5,F6,F7,F9}
 
 # Application shortcuts
 super + {F1,F8,F10,F11,F12}
-    {Telegram,discord,zen-browser,nemo,code}
+    {Telegram,discord,zen-browser,nemo,zed}
 
 # Program launcher
 super + space
@@ -178,4 +178,3 @@ super + {shift + }{1-9}
 # Equalize/balance windows in current desktop
 super + {_,shift +} + e
 	bspc node @/ {--equalize,--balance}
-

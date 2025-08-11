@@ -1,3 +1,4 @@
+.config/btop/
 .config/chromium/
 .config/Code/
 .config/dconf/
@@ -37,6 +38,7 @@
 .config/uv/
 .config/vlc/
 .config/wandb/
+.config/Signal/
 .config/zsh/.p10k.zsh
 .config/zsh/.zcompdump*
 .config/zsh/.zsh_history

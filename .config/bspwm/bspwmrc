@@ -108,30 +108,33 @@
 		local notify_name="${3:-$app_name}"
 
 		if pgrep -x "$app_name" >/dev/null; then
+			echo "#   $notify_name ALREADY RUNNING"
 			notify-send "$notify_name is already running."
 		else
 			$start_cmd &
 			sleep 1
 			if pgrep -x "$app_name" >/dev/null; then
+			    echo "#   $notify_name SUCCESS"
 				notify-send "$notify_name started successfully."
 			else
+			    echo "#   $notify_name FAILED"
 				notify-send "Failed to start $notify_name."
 			fi
 		fi
 	}
 
 	echo 95
-	echo "# Starting applications"
-	start_app "picom" "picom --config $XDG_CONFIG_HOME/picom.conf" &
-	start_app "nm-applet" "nm-applet" &
-	start_app "blueman-applet" "blueman-applet" &
-	start_app "unclutter" "unclutter" &
-
 	# Applications that should only be started once
 	if [[ $1 -eq 0 ]]; then
-		start_app "mega-sync" "mega-sync" &
-		# start_app "Discord" "discord"
+	    echo "# Startup applications"
+		start_app "mega-sync" "mega-sync" & disown
 	fi
+
+	echo "# Starting applications"
+	start_app "picom" "picom --config $XDG_CONFIG_HOME/picom.conf" & disown
+	start_app "nm-applet" "nm-applet" & disown
+	start_app "blueman-applet" "blueman-applet" & disown
+	start_app "unclutter" "unclutter" & disown
 
 	echo 100
 	echo "# Finished"

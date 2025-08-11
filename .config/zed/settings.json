@@ -42,6 +42,14 @@
           }
         }
       ]
+    },
+    "SQL": {
+      "formatter": {
+        "external": {
+          "command": "sql-formatter",
+          "arguments": ["--language", "mysql"]
+        }
+      }
     }
   }
 }
